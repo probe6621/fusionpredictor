@@ -2,110 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Request Invite – FusionPredictor</title>
+  <title>FusionPredictor – Trade the Future, Not the Past</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FusionPredictor delivers precision multi-timeframe targets for scalpers and swing traders, powered by the Fusion Trading System." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --brand-cyan: #32FFE3;
+      --brand-warm: #FFB347;
+      --brand-strong: #13C9AF;
+      --text-main: #F9FBFF;
+      --text-muted: #9AA4C1;
+      --bg-dark: #050509;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background: #050509;
       font-family: 'Inter', sans-serif;
-      color: #F9FBFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      background: var(--bg-dark);
+      color: var(--text-main);
     }
 
-    .container {
-      width: 95%;
-      max-width: 520px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 40px;
-      border-radius: 12px;
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(5,5,9,0.85);
       backdrop-filter: blur(12px);
+      z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    h1 {
+    nav {
+      max-width: 1250px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #32FFE3;
-      text-align: center;
-    }
-
-    p {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #9AA4C1;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      color: #F9FBFF;
-      font-size: 1rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #32FFE3;
-      color: #050509;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
+      color: var(--brand-cyan);
       font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.25s;
+      letter-spacing: 0.5px;
     }
 
-    button:hover {
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: var(--brand-cyan);
+    }
+
+    .cta-btn {
+      background: var(--brand-cyan);
+      color: var(--bg-dark);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .hero {
+      max-width: 1250px;
+      margin: auto;
+      padding: 110px 20px 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--brand-cyan);
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .hero .actions {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .hero .actions a {
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+
+    .primary-btn {
+      background: var(--brand-cyan);
+      color: var(--bg-dark);
+    }
+
+    .primary-btn:hover {
       opacity: 0.85;
     }
 
-    .back {
-      display: block;
-      margin-top: 20px;
+    .feature-section {
+      max-width: 1250px;
+      margin: 80px auto;
+      padding: 20px;
+    }
+
+    .feature-title {
       text-align: center;
-      color: #9AA4C1;
-      font-size: 0.9rem;
+      font-size: 2.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 40px;
+      color: var(--brand-cyan);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      padding: 26px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--brand-strong);
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.45rem;
+    }
+
+    footer {
+      margin-top: 120px;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Request Invite</h1>
-    <p>Apply for early access to FusionPredictor. We’ll review your details and get back to you shortly.</p>
 
-    <form action="mailto:probe662@gmail.com" method="post" enctype="text/plain">
-      <label>Your Name</label>
-      <input type="text" name="name" placeholder="John Doe" required>
+<header>
+  <nav>
+    <div class="logo">FusionPredictor</div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="fusion/">Fusion Suite</a></li>
+    </ul>
+    <a href="request-invite.html" class="cta-btn">Request Invite</a>
+  </nav>
+</header>
 
-      <label>Email</label>
-      <input type="email" name="email" placeholder="you@example.com" required>
+<section class="hero">
+  <h1>Trade the Future — Not the Past.</h1>
+  <p>The FusionPredictor System generates precision forward-projections across multiple timeframes. Scalpers, swing traders — this is your new edge.</p>
 
-      <label>Tell us about your trading background</label>
-      <textarea name="message" rows="4" placeholder="Scalper, swing trader, timeframe preferences…" required></textarea>
-
-      <button type="submit">Submit Request</button>
-    </form>
-
-    <a href="index.html" class="back">← Back to homepage</a>
+  <div class="actions">
+    <a href="request-invite.html" class="primary-btn">Request Invite</a>
+    <a href="#features" class="secondary-btn" style="color: var(--brand-cyan);">Learn More</a>
   </div>
+</section>
+
+
+<section id="features" class="feature-section">
+  <div class="feature-title">Why FusionPredictor?</div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <h3>Forward Projections</h3>
+      <p>Instead of relying on lagging indicators, FusionPredictor shows the next expected targets using multi-timeframe modeling.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Scalper Precision</h3>
+      <p>Ultra-tight projections across 1m, 5m, and 15m windows reveal micro-trend continuation or exhaustion points.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>HTF Alignment</h3>
+      <p>The system blends higher timeframe structure into lower-timeframe projections for cleaner decision-making.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Clean Visuals</h3>
+      <p>Color-coded snapshots tell you instantly whether the market is aligned, fragmented, or transitioning.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  FusionPredictor © 2025 — Powered by the Fusion Trading System
+</footer>
+
 </body>
 </html>
