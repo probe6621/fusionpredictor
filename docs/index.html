@@ -12,31 +12,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* RESET */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cyan: #00E5FF;
+      --cyan-soft: rgba(0, 229, 255, 0.45);
+      --text: #EEE;
+      --subtext: #AAA;
+      --bg: #0F0F11;
+    }
 
     body {
       font-family: Inter, sans-serif;
-      background: #0F0F11;
-      color: #EEE;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
       line-height: 1.6;
     }
 
-    :root {
-      --cyan: #00E5FF;
-      --cyan-soft: rgba(0,229,255,0.35);
-    }
-
-    /* HEADER */
     header {
+      width: 100%;
+      padding: 26px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 28px 46px;
     }
 
+    /* LOGO FIX — 64px tall, glowing */
     .logo {
-      height: 48px;
+      height: 64px;
       width: auto;
       filter: brightness(3) drop-shadow(0 0 12px var(--cyan-soft));
     }
@@ -44,167 +49,118 @@
     .btn {
       padding: 10px 22px;
       background: var(--cyan);
-      color: #000;
       border-radius: 6px;
-      font-size: 15px;
+      color: #000;
       text-decoration: none;
       font-weight: 600;
-      box-shadow: 0 0 16px var(--cyan-soft);
-      transition: 0.2s ease;
+      transition: 0.25s;
+      font-size: 15px;
     }
     .btn:hover { opacity: 0.82; }
 
     /* HERO */
     .hero {
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 120px 20px 90px;
       max-width: 900px;
       margin: auto;
     }
-
     .hero h1 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 52px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       color: #FFF;
-      text-shadow: 0 0 12px rgba(0,0,0,0.6);
     }
-
     .hero p {
       font-size: 18px;
-      color: #CCC;
-      margin-bottom: 32px;
+      color: var(--subtext);
+      margin-bottom: 38px;
     }
 
     /* FEATURES */
     .features {
+      max-width: 1100px;
+      margin: auto;
       display: flex;
-      justify-content: center;
-      gap: 60px;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 20px 40px 100px;
       text-align: center;
-      margin: 60px auto;
-      max-width: 950px;
-      padding: 0 20px;
     }
-
-    .feature-card { flex: 1; min-width: 200px; }
-
-    .feature-card h3 {
-      font-family: "Space Grotesk", sans-serif;
-      margin-bottom: 6px;
+    .feature-title {
+      font-weight: 700;
+      margin-bottom: 4px;
       color: var(--cyan);
-      text-shadow: 0 0 10px var(--cyan-soft);
+    }
+    .feature-txt {
+      color: var(--subtext);
+      font-size: 15px;
     }
 
-    .feature-card p { color: #CCC; font-size: 14px; }
-
-    /* PRODUCT PREVIEW */
-    .product-section {
-      margin: 100px auto;
-      max-width: 900px;
+    /* SECTION HEADER */
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 36px;
+      color: var(--cyan);
       text-align: center;
-      padding: 0 20px;
-    }
-
-    .product-section h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 32px;
-      color: var(--cyan);
-      margin-bottom: 10px;
-      text-shadow: 0 0 12px var(--cyan-soft);
-    }
-
-    .product-section p { color: #BBB; }
-
-    .product-card {
-      margin: 38px auto;
-      padding: 24px;
-      border-radius: 14px;
-      background: #161618;
-      border: 1px solid rgba(255,255,255,0.07);
-      max-width: 800px;
-      cursor: pointer;
-      transition: 0.25s ease;
-      box-shadow: 0 0 22px rgba(0,0,0,0.5);
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 26px var(--cyan-soft);
-      border-color: var(--cyan-soft);
-    }
-
-    .product-card img {
-      width: 100%;
-      border-radius: 10px;
+      margin-top: 80px;
       margin-bottom: 20px;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
     }
 
-    .product-card h3 {
-      font-family: "Space Grotesk", sans-serif;
-      color: #FFF;
-      margin-bottom: 6px;
-      font-size: 22px;
+    .section-sub {
+      text-align: center;
+      color: var(--subtext);
+      margin-bottom: 50px;
     }
-
-    .product-card p { color: #AAA; }
 
     footer {
+      padding: 50px;
       text-align: center;
-      padding: 60px;
-      color: #777;
-      font-size: 14px;
+      color: #555;
+      font-size: 15px;
+      margin-top: 80px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
-  <a href="./request-invite.html" class="btn">Request Invite</a>
-</header>
+  <header>
+    <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo" />
+    <a href="request-invite.html" class="btn">Request Invite</a>
+  </header>
 
-<section class="hero">
-  <h1>Trade the Future, Not the Past.</h1>
-  <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
-  <a href="./request-invite.html" class="btn">Request Early Access</a>
-</section>
+  <section class="hero">
+    <h1>Trade the Future, Not the Past.</h1>
+    <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
+    <a href="request-invite.html" class="btn">Request Early Access</a>
+  </section>
 
-<section class="features">
-  <div class="feature-card">
-    <h3>Future Projections</h3>
-    <p>Forward-looking precision targets for all timeframes.</p>
-  </div>
-  <div class="feature-card">
-    <h3>Precision Targets</h3>
-    <p>High-confidence levels built from flow & volatility.</p>
-  </div>
-  <div class="feature-card">
-    <h3>Scalper & Swing Compatible</h3>
-    <p>Fast entries + reliable multi-hour directional bias.</p>
-  </div>
-  <div class="feature-card">
-    <h3>Signal-Driven Forecasting</h3>
-    <p>Engine updates instantly when conditions shift.</p>
-  </div>
-</section>
-
-<section class="product-section">
-  <h2>FusionPredict Scalping Tool</h2>
-  <p>Precision multi-timeframe projections for 1m–1h traders.</p>
-
-  <a href="./technology.html" style="text-decoration:none; color:inherit;">
-    <div class="product-card">
-      <img src="./assets/fusionpredict_chart_promo.jpg" alt="FusionPredict Chart Overview">
-      <h3>FusionPredict™ MTF Projection Engine</h3>
-      <p>Click to view technology overview →</p>
+  <section class="features">
+    <div>
+      <div class="feature-title">Future Projections</div>
+      <div class="feature-txt">Forward-looking precision targets for all major timeframes.</div>
     </div>
-  </a>
-</section>
+    <div>
+      <div class="feature-title">Precision Targets</div>
+      <div class="feature-txt">High-confidence levels derived from volatility and flow signatures.</div>
+    </div>
+    <div>
+      <div class="feature-title">Scalper & Swing Compatible</div>
+      <div class="feature-txt">Optimized for fast entries and multi-hour directional bias.</div>
+    </div>
+    <div>
+      <div class="feature-title">Signal-Driven Forecasting</div>
+      <div class="feature-txt">Live engine updates instantly when conditions shift.</div>
+    </div>
+  </section>
 
-<footer>© 2025 FusionPredict. All rights reserved.</footer>
+  <h2 class="section-title">FusionPredict Scalping Tool</h2>
+  <p class="section-sub">Precision multi-timeframe projections for 1m–1h traders.</p>
+
+  <footer>
+    &copy; 2025 FusionPredict. All rights reserved.
+  </footer>
 
 </body>
 </html>
