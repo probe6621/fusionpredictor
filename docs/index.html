@@ -13,17 +13,20 @@
 
   <style>
     /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: Inter, sans-serif;
-      background: #111;
-      color: #eee;
+      background: #0F0F11;
+      color: #EEE;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* BLUE ACCENT */
+    :root {
+      --blue: #3A82F7;
+      --blue-soft: rgba(58,130,247,0.45);
     }
 
     /* HEADER */
@@ -34,28 +37,24 @@
       padding: 28px 46px;
     }
 
-    /* Logo — visible on dark background */
     .logo {
       height: 48px;
       width: auto;
-      display: block;
-      filter: brightness(5) drop-shadow(0px 0px 7px rgba(255, 200, 120, 0.55));
+      filter: brightness(8) drop-shadow(0 0 10px var(--blue-soft));
     }
 
-    /* Buttons */
     .btn {
       padding: 10px 22px;
-      background: #fff;
-      color: #000;
+      background: var(--blue);
+      color: #FFF;
       border-radius: 6px;
       font-size: 15px;
       font-weight: 500;
       text-decoration: none;
       transition: 0.2s;
+      box-shadow: 0 0 14px var(--blue-soft);
     }
-    .btn:hover {
-      opacity: 0.85;
-    }
+    .btn:hover { opacity: 0.85; }
 
     /* HERO */
     .hero {
@@ -69,12 +68,12 @@
       font-family: "Space Grotesk", sans-serif;
       font-size: 52px;
       margin-bottom: 14px;
-      color: #fff;
+      color: #FFF;
     }
 
     .hero p {
       font-size: 18px;
-      color: #ccc;
+      color: #CCC;
       margin-bottom: 30px;
     }
 
@@ -97,13 +96,9 @@
     .feature-card h3 {
       font-family: "Space Grotesk", sans-serif;
       margin-bottom: 6px;
-      color: #fff;
+      color: var(--blue);
     }
-
-    .feature-card p {
-      color: #ccc;
-      font-size: 14px;
-    }
+    .feature-card p { color: #CCC; font-size: 14px; }
 
     /* PRODUCT SECTION */
     .product-section {
@@ -116,30 +111,28 @@
     .product-section h2 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 32px;
-      color: #fff;
+      color: var(--blue);
       margin-bottom: 8px;
+      text-shadow: 0 0 12px var(--blue-soft);
     }
 
-    .product-section p {
-      color: #bbb;
-      margin-top: 6px;
-    }
+    .product-section p { color: #BBB; }
 
     .product-card {
       margin: 40px auto;
       padding: 20px;
-      border: 1px solid #333;
-      background: #1a1a1a;
+      border: 1px solid #262626;
+      background: #151517;
       border-radius: 14px;
       max-width: 800px;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: 0.2s ease;
+      box-shadow: 0 0 22px rgba(0,0,0,0.4);
     }
 
     .product-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+      box-shadow: 0 0 26px var(--blue-soft);
     }
 
     .product-card img {
@@ -151,21 +144,18 @@
     .product-card h3 {
       font-family: "Space Grotesk", sans-serif;
       margin-bottom: 6px;
-      color: #fff;
+      color: #FFF;
       font-size: 22px;
     }
 
-    .product-card p {
-      color: #aaa;
-    }
+    .product-card p { color: #AAA; }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 60px;
       color: #777;
-      font-size: 14px;
       margin-top: 80px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -174,11 +164,7 @@
 
 <!-- HEADER -->
 <header>
-  <img 
-    src="./assets/logo/fusion-arrowmark-primary.svg"
-    alt="FusionPredict Logo"
-    class="logo"
-  />
+  <img src="./assets/logo/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
   <a href="./request-invite.html" class="btn">Request Invite</a>
 </header>
 
@@ -186,7 +172,7 @@
 <section class="hero">
   <h1>Trade the Future, Not the Past.</h1>
   <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
-  <a href="./request-invite.html" class="btn" style="margin-top: 12px;">Request Early Access</a>
+  <a href="./request-invite.html" class="btn">Request Early Access</a>
 </section>
 
 <!-- FEATURES -->
@@ -208,7 +194,7 @@
 
   <div class="feature-card">
     <h3>Signal-Driven Forecasting</h3>
-    <p>Live engine updates the moment market conditions shift.</p>
+    <p>Live engine updates instantly when conditions shift.</p>
   </div>
 </section>
 
@@ -226,7 +212,6 @@
   </a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   © 2025 FusionPredict. All rights reserved.
 </footer>
