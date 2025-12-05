@@ -2,95 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FusionPredict Technology – MTF Projection Engine</title>
+  <title>FusionPredict – Technology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Learn how FusionPredict’s MTF Projection Engine generates precision targets for 1m–1h scalpers and intraday traders." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cyan: #00E5FF;
+      --cyan-soft: rgba(0, 229, 255, 0.45);
+      --text: #EEE;
+      --subtext: #AAA;
+      --bg: #0F0F11;
+    }
 
     body {
+      background: var(--bg);
+      color: var(--text);
       font-family: Inter, sans-serif;
-      background: #0F0F11;
-      color: #EEE;
-      overflow-x: hidden;
+      padding-bottom: 80px;
       line-height: 1.6;
     }
 
-    :root {
-      --cyan: #00E5FF;
-      --cyan-soft: rgba(0,229,255,0.35);
-    }
-
     header {
+      width: 100%;
+      padding: 26px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 28px 46px;
     }
 
     .logo {
-      height: 48px;
+      height: 64px;
+      width: auto;
       filter: brightness(3) drop-shadow(0 0 12px var(--cyan-soft));
     }
 
     .btn {
       padding: 10px 22px;
       background: var(--cyan);
-      color: #000;
       border-radius: 6px;
-      font-weight: 600;
+      color: #000;
       text-decoration: none;
-      box-shadow: 0 0 16px var(--cyan-soft);
-      transition: 0.2s ease;
+      font-weight: 600;
     }
-    .btn:hover { opacity: 0.82; }
 
-    .container {
+    .section {
       max-width: 900px;
-      margin: auto;
-      padding: 40px 20px 120px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     h1, h2 {
       font-family: "Space Grotesk", sans-serif;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 42px;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      margin-top: 60px;
-      font-size: 28px;
+      margin-bottom: 16px;
       color: var(--cyan);
-      text-shadow: 0 0 10px var(--cyan-soft);
-      margin-bottom: 12px;
     }
 
-    p { font-size: 17px; color: #CCC; margin-bottom: 18px; }
+    p { margin-bottom: 20px; color: var(--subtext); }
+
+    ul { margin: 10px 0 25px 25px; }
+    li { margin-bottom: 10px; }
 
     .screenshot {
       width: 100%;
-      margin: 30px 0;
+      max-width: 900px;
+      margin: 40px auto;
+      display: block;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.45);
-    }
-
-    ul { margin-left: 24px; }
-    li { margin-bottom: 10px; }
-
-    footer {
-      text-align: center;
-      padding: 60px;
-      color: #777;
-      font-size: 14px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
   </style>
 </head>
@@ -98,35 +77,15 @@
 <body>
 
 <header>
-  <a href="./index.html">
-    <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
-  </a>
-  <a href="./request-invite.html" class="btn">Request Invite</a>
+  <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo" />
+  <a href="request-invite.html" class="btn">Request Invite</a>
 </header>
 
-<div class="container">
-
-  <h1>FusionPredict™ Technology Overview</h1>
-
-  <p>
-    FusionPredict’s Multi-Timeframe (MTF) Projection Engine is engineered for traders who need 
-    forward-looking precision on the 1m–1h chart. By combining displacement, volatility structures, 
-    and flow-based signatures, the engine generates high-confidence projected targets before they 
-    complete — offering a truly predictive advantage.
-  </p>
-
-  <img src="./assets/fusionpredict_chart_promo.jpg" class="screenshot" alt="FusionPredict Screenshot">
-
-  <h2>How It Works</h2>
-  <p>
-    The algorithm analyzes directional pressure, volatility regimes, price displacements, 
-    and incoming flow signatures to produce actionable forward projections. 
-    These levels update dynamically and respond to volatility changes in near real-time.
-  </p>
+<div class="section">
+  <h1>FusionPredict Technology</h1>
+  <p>FusionPredict runs a multi-timeframe forward-modeling engine tuned for scalpers, intraday traders, and structured swing traders.</p>
 
   <h2>Projection Intervals</h2>
-  <p>Six MTF targets are generated simultaneously:</p>
-
   <ul>
     <li>1m — microstructure & scalp entries</li>
     <li>5m — core engine with highest precision</li>
@@ -137,24 +96,22 @@
   </ul>
 
   <h2>Why Scalpers Choose FusionPredict</h2>
-
   <ul>
     <li>✔ Ultra-tight continuation & pullback entries</li>
-    <li>✔ Fewer stop-outs from retracements</li>
+    <li>✔ Fewer liquidity stop-outs</li>
     <li>✔ Early reversal detection</li>
     <li>✔ Works with OBs, FVGs, CHoCH/BOS</li>
-    <li>✔ Ideal for high-frequency, low-risk trading</li>
+    <li>✔ Optimized for high-frequency, low-risk execution</li>
   </ul>
 
   <h2>Accuracy Expectations</h2>
-  <p>
-    Stable-regime backtesting shows up to <strong>97% projection accuracy</strong> on 5-minute intervals.  
-    High-volatility events may temporarily sweep liquidity before reverting toward the predicted level.
-  </p>
+  <p>Stable-regime backtesting shows up to <strong>97% projection accuracy</strong> on 5-minute intervals.  
+  High-volatility events may temporarily sweep liquidity before reverting toward the predicted level.</p>
+
+  <!-- CHART IMAGE — make sure the file exists -->
+  <img src="./assets/fusionpredict_chart_promo.jpg" class="screenshot" alt="FusionPredict Projection Chart" />
 
 </div>
-
-<footer>© 2025 FusionPredict. All rights reserved.</footer>
 
 </body>
 </html>
