@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Request Invite – FusionPredictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #050509;
+      font-family: 'Inter', sans-serif;
+      color: #F9FBFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #32FFE3;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #9AA4C1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #F9FBFF;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #32FFE3;
+      color: #050509;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.25s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .back {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #9AA4C1;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Request Invite</h1>
+    <p>Apply for early access to FusionPredictor. We’ll review your details and get back to you shortly.</p>
+
+    <form action="mailto:probe662@gmail.com" method="post" enctype="text/plain">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="John Doe" required>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@example.com" required>
+
+      <label>Tell us about your trading background</label>
+      <textarea name="message" rows="4" placeholder="Scalper, swing trader, timeframe preferences…" required></textarea>
+
+      <button type="submit">Submit Request</button>
+    </form>
+
+    <a href="index.html" class="back">← Back to homepage</a>
+  </div>
+</body>
+</html>
