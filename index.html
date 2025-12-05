@@ -27,9 +27,10 @@
       align-items: center;
     }
 
+    /* FIXED LOGO SCALING */
     .logo img {
-      height: 90px;     /* FIX: Logo now displays properly */
-      width: auto;
+      width: 180px;
+      height: auto;
       display: block;
     }
 
@@ -44,7 +45,6 @@
       text-decoration: none;
     }
 
-    /* Hero section */
     .hero {
       text-align: center;
       padding: 100px 20px 120px;
@@ -75,7 +75,6 @@
       text-decoration: none;
     }
 
-    /* Section: Features */
     .features {
       padding: 80px 40px;
       max-width: 1200px;
@@ -106,7 +105,6 @@
       line-height: 1.5;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 40px;
@@ -118,50 +116,45 @@
 
 <body>
 
-  <!-- Header -->
   <header>
     <div class="logo">
-      <img src="./assets/logo/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" />
+      <img src="./assets/logo/fusion-logo.svg" alt="FusionPredictor Logo" />
     </div>
-
     <a class="nav-btn" href="request-invite.html">Request Invite</a>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <h1>Trade the Future,<br> Not the Past.</h1>
     <p>FusionPredictor generates multi-timeframe forward projections, giving scalpers and swing traders a precision edge you can't get anywhere else.</p>
     <a href="request-invite.html" class="cta-btn">Request Early Access</a>
   </section>
 
-  <!-- Features Section -->
   <section class="features">
     <div class="features-grid">
 
       <div class="feature-card">
         <h3>Future Projections</h3>
-        <p>See projected movement on 1m, 5m, 15m, and 1hr charts — all calculated using the Fusion forward-projection model.</p>
+        <p>Projected movement on 1m, 5m, 15m, and 1hr charts — all computed from the Fusion forward model.</p>
       </div>
 
       <div class="feature-card">
         <h3>Precision Targets</h3>
-        <p>Each timeframe outputs clear upside and downside targets with algorithmic weighting and volatility calibration.</p>
+        <p>Clear upside/downside targets using volatility-weighted, multi-factor projection logic.</p>
       </div>
 
       <div class="feature-card">
         <h3>For Scalpers & Swing Traders</h3>
-        <p>Designed for traders who depend on accuracy. Quick reads for scalping, deeper signals for swing plays.</p>
+        <p>Quick signal reads for scalpers and deep context for swing trades — all from one unified system.</p>
       </div>
 
       <div class="feature-card">
         <h3>100% Signal-Driven</h3>
-        <p>Your edge is generated from real-time math — no guessing, no noise, no lagging indicators.</p>
+        <p>No guessing, no bias, no noise — just math, projections, and levels.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     © 2025 FusionPredictor. All rights reserved.
   </footer>
