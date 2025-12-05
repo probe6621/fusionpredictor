@@ -21,10 +21,9 @@
 
     body {
       font-family: Inter, sans-serif;
-      background: #111;          /* DARK MODE */
+      background: #111;
       color: #eee;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -35,20 +34,23 @@
       padding: 28px 46px;
     }
 
+    /* Logo — visible on dark background */
     .logo {
       height: 48px;
       width: auto;
       display: block;
+      filter: brightness(5) drop-shadow(0px 0px 7px rgba(255, 200, 120, 0.55));
     }
 
+    /* Buttons */
     .btn {
       padding: 10px 22px;
       background: #fff;
       color: #000;
       border-radius: 6px;
       font-size: 15px;
-      text-decoration: none;
       font-weight: 500;
+      text-decoration: none;
       transition: 0.2s;
     }
     .btn:hover {
@@ -62,12 +64,14 @@
       max-width: 900px;
       margin: auto;
     }
+
     .hero h1 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 52px;
       margin-bottom: 14px;
       color: #fff;
     }
+
     .hero p {
       font-size: 18px;
       color: #ccc;
@@ -89,17 +93,19 @@
       flex: 1;
       min-width: 200px;
     }
+
     .feature-card h3 {
       font-family: "Space Grotesk", sans-serif;
       margin-bottom: 6px;
       color: #fff;
     }
+
     .feature-card p {
       color: #ccc;
       font-size: 14px;
     }
 
-    /* PRODUCT CARD */
+    /* PRODUCT SECTION */
     .product-section {
       margin: 100px auto;
       max-width: 900px;
@@ -125,10 +131,10 @@
       border: 1px solid #333;
       background: #1a1a1a;
       border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
       max-width: 800px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     .product-card:hover {
@@ -161,7 +167,6 @@
       font-size: 14px;
       margin-top: 80px;
     }
-
   </style>
 </head>
 
@@ -169,15 +174,18 @@
 
 <!-- HEADER -->
 <header>
-  <img src="./assets/logo/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
+  <img 
+    src="./assets/logo/fusion-arrowmark-primary.svg"
+    alt="FusionPredict Logo"
+    class="logo"
+  />
   <a href="./request-invite.html" class="btn">Request Invite</a>
 </header>
 
 <!-- HERO -->
 <section class="hero">
   <h1>Trade the Future, Not the Past.</h1>
-  <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders,
-     and swing traders.</p>
+  <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
   <a href="./request-invite.html" class="btn" style="margin-top: 12px;">Request Early Access</a>
 </section>
 
@@ -195,7 +203,7 @@
 
   <div class="feature-card">
     <h3>Scalper & Swing Compatible</h3>
-    <p>Optimized for both fast entries and multi-hour directional bias.</p>
+    <p>Optimized for fast entries and multi-hour directional bias.</p>
   </div>
 
   <div class="feature-card">
@@ -207,7 +215,7 @@
 <!-- PRODUCT CARD -->
 <section class="product-section">
   <h2>FusionPredict Scalping Tool</h2>
-  <p>Precision multi-timeframe projections for 1m–1h traders</p>
+  <p>Precision multi-timeframe projections for 1m–1h traders.</p>
 
   <a href="./technology.html" style="text-decoration:none; color:inherit;">
     <div class="product-card">
