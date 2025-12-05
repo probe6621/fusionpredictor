@@ -4,162 +4,201 @@
   <meta charset="UTF-8" />
   <title>FusionPredict – Trade the Future, Not the Past</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="FusionPredict delivers forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders." />
-
+  <meta name="description" content="FusionPredict gives traders forward-looking multi-timeframe precision targets for scalping and intraday execution." />
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* RESET */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --cyan: #00E5FF;
-      --cyan-soft: rgba(0, 229, 255, 0.45);
-      --text: #EEE;
-      --subtext: #AAA;
-      --bg: #0F0F11;
+      --cyan: #00E7F7;
+      --cyan-soft: rgba(0,231,247,0.45);
+      --bg: #0E0F11;
+      --text-main: #EEE;
+      --text-soft: #AAA;
     }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: Inter, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       overflow-x: hidden;
-      line-height: 1.6;
     }
 
+    /* HEADER */
     header {
-      width: 100%;
-      padding: 26px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      width:100%;
+      padding:25px 45px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
 
-    /* LOGO FIX — 64px tall, glowing */
-    .logo {
-      height: 64px;
-      width: auto;
-      filter: brightness(3) drop-shadow(0 0 12px var(--cyan-soft));
+    header img.logo {
+      height:42px;
+      cursor:pointer;
     }
 
-    .btn {
-      padding: 10px 22px;
-      background: var(--cyan);
-      border-radius: 6px;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.25s;
-      font-size: 15px;
+    .invite-btn {
+      padding:10px 22px;
+      background:var(--cyan);
+      border-radius:6px;
+      color:#000;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.2s;
     }
-    .btn:hover { opacity: 0.82; }
+    .invite-btn:hover { opacity:0.8; }
 
     /* HERO */
     .hero {
-      text-align: center;
-      padding: 120px 20px 90px;
-      max-width: 900px;
-      margin: auto;
+      text-align:center;
+      padding:110px 20px 60px;
+      max-width:900px;
+      margin:auto;
     }
     .hero h1 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 52px;
-      margin-bottom: 16px;
-      color: #FFF;
+      font-family:"Space Grotesk", sans-serif;
+      font-size:56px;
+      font-weight:700;
+      margin-bottom:14px;
     }
     .hero p {
-      font-size: 18px;
-      color: var(--subtext);
-      margin-bottom: 38px;
+      font-size:18px;
+      color:var(--text-soft);
+      margin-bottom:32px;
     }
+
+    .cta {
+      padding:12px 28px;
+      background:var(--cyan);
+      border-radius:6px;
+      font-size:16px;
+      color:#000;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.2s;
+    }
+    .cta:hover { opacity:0.85; }
 
     /* FEATURES */
     .features {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 20px 40px 100px;
-      text-align: center;
-    }
-    .feature-title {
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: var(--cyan);
-    }
-    .feature-txt {
-      color: var(--subtext);
-      font-size: 15px;
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:70px;
+      margin-top:70px;
+      text-align:center;
+      padding:0 20px;
     }
 
-    /* SECTION HEADER */
-    .section-title {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 36px;
-      color: var(--cyan);
-      text-align: center;
-      margin-top: 80px;
-      margin-bottom: 20px;
+    .feature h4 {
+      font-size:18px;
+      color:var(--cyan);
+      font-weight:600;
+      margin-bottom:6px;
     }
 
-    .section-sub {
-      text-align: center;
-      color: var(--subtext);
-      margin-bottom: 50px;
+    .feature p {
+      font-size:14px;
+      color:var(--text-soft);
+      max-width:200px;
     }
 
+    /* PRODUCT CARD */
+    .product-card {
+      width:100%;
+      max-width:750px;
+      margin:120px auto 140px;
+      padding:32px 40px;
+      border:1px solid var(--cyan-soft);
+      border-radius:14px;
+      cursor:pointer;
+      transition:0.25s;
+      text-align:center;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .product-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    .product-card h2 {
+      font-size:30px;
+      color:var(--cyan);
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .product-card p {
+      font-size:16px;
+      color:var(--text-soft);
+    }
+
+    /* FOOTER */
     footer {
-      padding: 50px;
-      text-align: center;
-      color: #555;
-      font-size: 15px;
-      margin-top: 80px;
+      text-align:center;
+      padding:60px 0 80px;
+      color:var(--text-soft);
+      font-size:13px;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
-    <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo" />
-    <a href="request-invite.html" class="btn">Request Invite</a>
+    <a href="index.html">
+      <img src="assets/logo/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
+    </a>
+
+    <a href="request-invite.html" class="invite-btn">Request Invite</a>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Trade the Future, Not the Past.</h1>
     <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
-    <a href="request-invite.html" class="btn">Request Early Access</a>
+    <a href="request-invite.html" class="cta">Request Early Access</a>
   </section>
 
+  <!-- FEATURES -->
   <section class="features">
-    <div>
-      <div class="feature-title">Future Projections</div>
-      <div class="feature-txt">Forward-looking precision targets for all major timeframes.</div>
+    <div class="feature">
+      <h4>Future Projections</h4>
+      <p>Forward-looking precision targets for all major timeframes.</p>
     </div>
-    <div>
-      <div class="feature-title">Precision Targets</div>
-      <div class="feature-txt">High-confidence levels derived from volatility and flow signatures.</div>
+    <div class="feature">
+      <h4>Precision Targets</h4>
+      <p>High-confidence levels derived from volatility and flow signatures.</p>
     </div>
-    <div>
-      <div class="feature-title">Scalper & Swing Compatible</div>
-      <div class="feature-txt">Optimized for fast entries and multi-hour directional bias.</div>
+    <div class="feature">
+      <h4>Scalper & Swing Compatible</h4>
+      <p>Optimized for fast entries and multi-hour directional bias.</p>
     </div>
-    <div>
-      <div class="feature-title">Signal-Driven Forecasting</div>
-      <div class="feature-txt">Live engine updates instantly when conditions shift.</div>
+    <div class="feature">
+      <h4>Signal-Driven Forecasting</h4>
+      <p>Live engine updates instantly as market conditions shift.</p>
     </div>
   </section>
 
-  <h2 class="section-title">FusionPredict Scalping Tool</h2>
-  <p class="section-sub">Precision multi-timeframe projections for 1m–1h traders.</p>
+  <!-- PRODUCT CARD (Clickable) -->
+  <a href="technology.html" style="text-decoration:none;">
+    <div class="product-card">
+      <h2>FusionPredict Scalping Tool</h2>
+      <p>Precision multi-timeframe projections for scalping.</p>
+    </div>
+  </a>
 
+  <!-- FOOTER -->
   <footer>
-    &copy; 2025 FusionPredict. All rights reserved.
+    © 2025 FusionPredict. All rights reserved.
   </footer>
 
 </body>
