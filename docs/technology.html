@@ -5,67 +5,107 @@
   <title>FusionPredict Technology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --cyan: #00E7F7;
-      --soft: rgba(0,231,247,0.45);
-      --bg:#0E0F11;
-      --text:#EEE;
-      --text-soft:#AAA;
+      --cyan-soft: rgba(0,231,247,0.35);
+      --bg: #0F0F11;
+      --text-main: #EEE;
+      --text-soft: #AAA;
     }
 
-    *{margin:0; padding:0; box-sizing:border-box;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background:var(--bg);
-      color:var(--text);
       font-family: Inter, sans-serif;
-      padding-bottom:140px;
+      background: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     header {
-      padding:25px 45px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      width: 100%;
+      padding: 25px 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    header img {
-      height:42px;
-      cursor:pointer;
+
+    .logo {
+      height: 64px;
+      width: auto;
+      filter: brightness(2.3) drop-shadow(0 0 10px var(--cyan-soft));
+      transition: 0.15s;
+    }
+    .logo:hover {
+      filter: brightness(3) drop-shadow(0 0 14px var(--cyan));
+    }
+
+    .btn {
+      background: var(--cyan);
+      padding: 10px 22px;
+      border-radius: 6px;
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 900px;
+      margin: 40px auto 100px;
+      padding: 0 20px;
     }
 
     h1 {
-      font-family:"Space Grotesk", sans-serif;
-      font-size:48px;
-      margin:40px auto 20px;
-      text-align:center;
-      color:var(--cyan);
+      font-size: 42px;
+      font-family: "Space Grotesk", sans-serif;
+      margin-bottom: 25px;
+      color: var(--cyan);
+      text-align: center;
     }
 
     h2 {
-      font-size:26px;
-      margin-top:60px;
-      margin-bottom:18px;
-      color:var(--cyan);
+      font-size: 28px;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--cyan);
+      margin: 35px 0 15px;
     }
 
     p, li {
-      font-size:16px;
-      color:var(--text-soft);
-      line-height:1.55;
+      font-size: 16px;
+      color: var(--text-soft);
+      line-height: 1.55;
+      margin-bottom: 12px;
     }
 
-    .container {
-      max-width:900px;
-      margin:auto;
-      padding:20px;
+    ul { margin-left: 20px; }
+
+    /* IMAGE */
+    .chart-img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 35px 0;
+      border: 1px solid var(--cyan-soft);
+      box-shadow: 0 0 20px var(--cyan-soft);
     }
 
-    img.chart {
-      width:100%;
-      border-radius:10px;
-      margin:30px 0;
-      border:1px solid var(--soft);
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px;
+      margin-top: 80px;
+      color: #555;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -73,52 +113,63 @@
 <body>
 
 <header>
-  <a href="index.html">
-    <img src="assets/logo/fusion-arrowmark-primary.svg" alt="FusionPredict Logo">
+  <a href="./index.html">
+    <img src="./assets/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo">
   </a>
+  <a href="./request-invite.html" class="btn">Request Invite</a>
 </header>
 
 <div class="container">
 
-  <h1>FusionPredict™ MTF Engine</h1>
+  <h1>FusionPredict Technology</h1>
 
   <p>
-    The FusionPredict™ MTF Engine is an invite-only projection system engineered for lower-timeframe traders — especially 1m and 5m scalpers — using multi-factor gap-reversion modeling to forecast high-probability levels before they complete.
+    FusionPredict is built on a multi-layer projection engine that generates precision forward-levels across six core timeframes.  
+    These projections help scalpers and intraday traders anticipate price magnets, continuation zones, trend inflection points, and liquidity sweeps <em>before</em> they occur.
   </p>
 
-  <!-- CHART IMAGE -->
-  <img src="assets/chart.png" class="chart" alt="FusionPredict Projection Screenshot">
+  <img src="./assets/fusionpredict_chart_promo.png" class="chart-img" alt="FusionPredict Projection Chart">
 
   <h2>Projection Intervals</h2>
+  <p>Six MTF targets are calculated simultaneously:</p>
+
   <ul>
-    <li>1m — microstructure & scalp entries</li>
-    <li>5m — core engine with highest precision</li>
-    <li>10m — flow stabilization interval</li>
-    <li>15m — directional confirmation</li>
-    <li>30m — momentum context</li>
-    <li>1h — macro structural pressure</li>
+    <li><strong>1m</strong> — microstructure & scalp entries</li>
+    <li><strong>5m</strong> — core engine with highest precision</li>
+    <li><strong>10m</strong> — flow stabilization interval</li>
+    <li><strong>15m</strong> — directional confirmation</li>
+    <li><strong>30m</strong> — momentum context</li>
+    <li><strong>1h</strong> — macro structural pressure</li>
   </ul>
 
   <h2>Why Scalpers Choose FusionPredict</h2>
+
   <ul>
     <li>✔ Ultra-tight continuation & pullback entries</li>
-    <li>✔ Reduced stop-outs during retracements</li>
+    <li>✔ Fewer stop-outs from retracements</li>
     <li>✔ Early reversal detection</li>
-    <li>✔ Works with OBs, FVGs, and CHoCH/BOS structure</li>
-    <li>✔ Ideal for high-frequency, low-risk execution</li>
+    <li>✔ Works with OBs, FVGs, CHoCH/BOS</li>
+    <li>✔ Ideal for high-frequency, low-risk scalping</li>
   </ul>
 
-  <h2>Volatility Note</h2>
+  <h2>Accuracy Expectations</h2>
+
   <p>
-    FusionPredict is most precise during calm/moderate volatility. High-volatility events may cause price to sweep liquidity before reverting toward projected levels.
+    Stable-regime backtesting has demonstrated up to <strong>97% projection accuracy</strong> on 5-minute intervals.  
+    High-volatility events may temporarily sweep liquidity before reverting toward projected levels.
   </p>
 
-  <h2>Accuracy Expectations</h2>
-  <p>
-    Stable-regime backtesting shows up to <strong>97% projection accuracy</strong> on the 5-minute interval.
+  <p style="margin-top:40px; text-align:center;">
+    <a href="./index.html" style="color: var(--cyan); font-size:17px; text-decoration:none;">
+      ← Back to Home
+    </a>
   </p>
 
 </div>
+
+<footer>
+  © 2025 FusionPredict. All rights reserved.
+</footer>
 
 </body>
 </html>
