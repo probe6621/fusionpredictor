@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionPredict - Precision Price Target Predictions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cyan: #00E7F7;
+            --cyan-glow: rgba(0, 231, 247, 0.3);
+            --dark-bg: #0A0E1A;
+            --card-bg: #131827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .cta-button {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: rgba(0, 231, 247, 0.1);
+            color: var(--cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 231, 247, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Product Image Section */
+        .product-showcase {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-image {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 231, 247, 0.15);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 231, 247, 0.08) 0%, transparent 60%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--cyan);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--cyan);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid rgba(0, 231, 247, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .stats-row {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
+                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
+                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
+                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
+                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
+                </svg>
+                <span>FusionPredictor</span>
+            </a>
+            <div class="nav-links">
+                <a href="./index.html">Products</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./request-invite.html" class="cta-button">Request Invite</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="product-badge">🎯 FLAGSHIP INDICATOR</div>
+            <h1>FusionPredict</h1>
+            <p class="subtitle">Know Where Price Is Going Next</p>
+            <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary);">
+                Predicts precise price targets across 6 timeframes. See exactly where the market is headed before it gets there.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-number">97.9%</div>
+                    <div class="stat-label">Accuracy (5m)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Timeframes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Real-Time</div>
+                    <div class="stat-label">Live Updates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <img src="./assets/fusionpredict_chart_promo.jpg" alt="FusionPredict Chart" class="showcase-image">
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">What You Get</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Precise Targets</h3>
+                <p>Know the exact price level where the market is headed. No guessing, no interpretation—just clear targets.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>6 Timeframes</h3>
+                <p>From 1-minute to 1-hour charts, see predictions across all relevant timeframes in one clean table.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔺</div>
+                <h3>Clear Directional Signals</h3>
+                <p>Simple arrows show whether price is predicted to go up or down on each timeframe. No confusion.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Updates Every Candle</h3>
+                <p>Real-time predictions that update as the market moves, keeping you ahead of price action.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>High Win Rate</h3>
+                <p>Proven 97.9% accuracy on 5-minute charts. These aren't random signals—they're precise predictions.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Clean Interface</h3>
+                <p>All information displayed in an organized table. Everything you need to know at a glance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Stop Guessing. Start Predicting.</h2>
+        <p>Join traders using FusionPredict to see where price is going before it gets there</p>
+        <div class="cta-buttons">
+            <a href="./request-invite.html" class="cta-button">Request Early Access</a>
+            <a href="./pricing.html" class="secondary-button">View Pricing</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

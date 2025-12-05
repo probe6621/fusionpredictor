@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionScorer - Trade Only the Best Setups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cyan: #00E7F7;
+            --cyan-glow: rgba(0, 231, 247, 0.3);
+            --dark-bg: #0A0E1A;
+            --card-bg: #131827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .cta-button {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: rgba(0, 231, 247, 0.1);
+            color: var(--cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 231, 247, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .product-showcase {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-image {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 231, 247, 0.15);
+        }
+
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 231, 247, 0.08) 0%, transparent 60%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--cyan);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--cyan);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid rgba(0, 231, 247, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
+                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
+                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
+                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
+                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
+                </svg>
+                <span>FusionPredictor</span>
+            </a>
+            <div class="nav-links">
+                <a href="./index.html">Products</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./request-invite.html" class="cta-button">Request Invite</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="product-badge">INSTITUTIONAL CONFLUENCE</div>
+            <h1>FusionScorer</h1>
+            <p class="subtitle">Trade Only When the Score is Right</p>
+            <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary);">
+                Scores every setup from 0-5 based on institutional positioning. Simple rule: only trade when the score is 3 or higher.
+            </p>
+        </div>
+    </section>
+
+    <section class="product-showcase">
+        <img src="./assets/fusionscorer_chart_promo.jpg" alt="FusionScorer Chart" class="showcase-image">
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">What You Get</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>0-5 Scoring System</h3>
+                <p>Every setup gets scored from 0 to 5. The higher the score, the better the confluence. Crystal clear decision-making.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏦</div>
+                <h3>Institutional Logic</h3>
+                <p>Based on how smart money positions itself in the market. Trade with the institutions, not against them.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Simple Entry Rule</h3>
+                <p>Score of 3/5, 4/5, or 5/5? Take the trade. Below 3? Wait for a better setup. No guesswork.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Real-Time Dashboard</h3>
+                <p>See the current score and which conditions are active right on your chart. Complete transparency.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Alert System</h3>
+                <p>Get notified when a setup reaches 3/5 or higher. Never miss a high-probability opportunity.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Quality Over Quantity</h3>
+                <p>Filters out mediocre setups automatically. Only the best opportunities make it through the scoring system.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Stop Trading Mediocre Setups</h2>
+        <p>Join traders using FusionScorer to trade only high-probability opportunities</p>
+        <div class="cta-buttons">
+            <a href="./request-invite.html" class="cta-button">Request Early Access</a>
+            <a href="./pricing.html" class="secondary-button">View Pricing</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

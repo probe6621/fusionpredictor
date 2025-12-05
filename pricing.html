@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - FusionPredictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cyan: #00E7F7;
+            --cyan-glow: rgba(0, 231, 247, 0.3);
+            --dark-bg: #0A0E1A;
+            --card-bg: #131827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .cta-button {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+            box-shadow: 0 20px 40px var(--cyan-glow);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--cyan);
+            border-width: 2px;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--cyan);
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--cyan);
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .select-button {
+            width: 100%;
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .select-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .guarantee-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .guarantee-section h3 {
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-section p {
+            color: var(--text-secondary);
+        }
+
+        .footnotes-section {
+            background: rgba(0, 231, 247, 0.03);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .footnotes-section h3 {
+            color: var(--cyan);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .footnote {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
+        }
+
+        .footnote:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .footnote h4 {
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .footnote p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 231, 247, 0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--cyan);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid rgba(0, 231, 247, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
+                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
+                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
+                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
+                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
+                </svg>
+                <span>FusionPredictor</span>
+            </a>
+            <div class="nav-links">
+                <a href="./index.html">Products</a>
+                <a href="./technology.html">Technology</a>
+                <a href="./request-invite.html" class="cta-button">Request Invite</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the plan that fits your trading style. All plans include TradingView compatibility.</p>
+    </section>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <!-- Custom Bundle -->
+            <div class="pricing-card">
+                <h2 class="plan-name">Custom Bundle</h2>
+                <p class="plan-description">Pick any 3 indicators</p>
+                <div class="price">$50</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>Choose any 3 indicators</li>
+                    <li>TradingView compatible</li>
+                    <li>Works on all markets</li>
+                    <li>Real-time alerts</li>
+                    <li>Cancel anytime</li>
+                </ul>
+                <a href="./request-invite.html" class="select-button">Get Started</a>
+            </div>
+
+            <!-- Full Suite (Popular) -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <h2 class="plan-name">Full Suite</h2>
+                <p class="plan-description">All 6 indicators included</p>
+                <div class="price">$95</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>All 6 indicators</li>
+                    <li>TradingView compatible</li>
+                    <li>Works on all markets</li>
+                    <li>Real-time alerts</li>
+                    <li>Priority support</li>
+                    <li>Cancel anytime</li>
+                </ul>
+                <a href="./request-invite.html" class="select-button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Guarantee Section -->
+        <div class="guarantee-section">
+            <h3>2-Week Money-Back Guarantee</h3>
+            <p>Try FusionPredictor risk-free. If you're not satisfied within the first 2 weeks, we'll refund your payment—no questions asked.</p>
+        </div>
+
+        <!-- Important Product Notes -->
+        <div class="footnotes-section">
+            <h3>Important Product Notes</h3>
+            
+            <div class="footnote">
+                <h4>FusionPredict</h4>
+                <p>Lower-timeframe projections behave with near real-time responsiveness (depending on volatility), while higher intervals offer great context for directional bias and price approximations. FusionPredict is most precise in calm or moderate volatility. During high-volatility events, price may seek liquidity first before reverting toward the projected level—a natural behavior consistent with advanced gap-reversion dynamics. The targets remain valid; only the order of events can shift during extreme movement.</p>
+            </div>
+
+            <div class="footnote">
+                <h4>FusionTrend</h4>
+                <p>Go short on red background and long on green background as pullbacks from the higher timeframe. Your choice of HTF can be adjusted in the indicator settings to match your trading style and preferred timeframe.</p>
+            </div>
+
+            <div class="footnote">
+                <h4>FusionReversal</h4>
+                <p>Heavily trending markets may stay overbought or oversold for extended periods (sometimes weeks). Use discretion and consider the broader market context when taking reversal signals in strong trending conditions.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Which platform do these indicators work on?</h3>
+                <p>All FusionPredictor indicators are designed for TradingView. You'll need a TradingView account (free or paid) to use them.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What markets can I trade with these indicators?</h3>
+                <p>FusionPredictor works on all markets available on TradingView: stocks, forex, crypto, futures, and commodities.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I cancel my subscription?</h3>
+                <p>Yes, you can cancel anytime. Your access will continue until the end of your current billing period.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I upgrade from Custom Bundle to Full Suite?</h3>
+                <p>Yes, you can upgrade at any time. The price difference will be prorated for the remainder of your billing period.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

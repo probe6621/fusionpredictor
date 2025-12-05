@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology - FusionPredictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #000000; color: #ffffff; line-height: 1.6; }
+        
+        header { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 231, 247, 0.1); padding: 20px 0; position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+        .logo { height: 40px; width: auto; }
+        .brand { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; background: linear-gradient(135deg, #00E7F7 0%, #00A8B5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav a { color: #ffffff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #00E7F7; }
+        .cta-button { background: linear-gradient(135deg, #00E7F7 0%, #00A8B5 100%); color: #000000; padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: all 0.3s; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 231, 247, 0.3); }
+        
+        .hero { max-width: 1200px; margin: 80px auto 60px; padding: 0 30px; text-align: center; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 56px; font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+        .subtitle { font-size: 24px; color: #888888; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        
+        .platform-callout { max-width: 900px; margin: 0 auto 80px; padding: 30px 40px; background: linear-gradient(135deg, rgba(0, 231, 247, 0.1) 0%, rgba(0, 168, 181, 0.1) 100%); border: 2px solid rgba(0, 231, 247, 0.3); border-radius: 12px; text-align: center; }
+        .platform-callout h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin-bottom: 16px; color: #00E7F7; }
+        .platform-callout p { font-size: 18px; color: #CCCCCC; line-height: 1.8; }
+        
+        .content-section { max-width: 1000px; margin: 80px auto; padding: 0 30px; }
+        .content-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; margin-bottom: 30px; text-align: center; }
+        .content-section p { font-size: 18px; line-height: 1.8; color: #CCCCCC; margin-bottom: 20px; }
+        
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 60px auto; padding: 0 30px; }
+        .tech-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; transition: all 0.3s; }
+        .tech-card:hover { border-color: rgba(0, 231, 247, 0.3); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 231, 247, 0.1); }
+        .tech-icon { font-size: 32px; margin-bottom: 16px; }
+        .tech-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: #00E7F7; }
+        .tech-card p { color: #CCCCCC; line-height: 1.7; }
+        
+        footer { text-align: center; padding: 40px 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #888888; margin-top: 80px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .subtitle { font-size: 18px; }
+            .content-section h2 { font-size: 32px; }
+            .tech-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html" class="logo-link">
+                <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo">
+                <span class="brand">FusionPredictor</span>
+            </a>
+            <a href="./request-invite.html" class="cta-button">Request Invite</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Built for TradingView</h1>
+            <p class="subtitle">Professional-grade indicators powered by proprietary algorithms and years of market research</p>
+        </section>
+
+        <section class="platform-callout">
+            <h2>🎯 TradingView Compatible</h2>
+            <p>All FusionPredictor indicators are built natively for TradingView. Simply add them to your chart and start trading—no coding required. Works with any TradingView plan (free or paid).</p>
+        </section>
+
+        <section class="content-section">
+            <h2>How It Works</h2>
+            <p>FusionPredictor indicators are built using Pine Script™ v5, TradingView's proprietary programming language. Each indicator is a self-contained unit that runs entirely within TradingView's secure infrastructure.</p>
+            <p>When you subscribe, you receive access credentials to add our indicators directly to your TradingView account. They appear in your indicator list just like any other TradingView tool—except these are precision-engineered for professional trading.</p>
+        </section>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">⚡</div>
+                <h3>Real-Time Execution</h3>
+                <p>All calculations run in real-time on TradingView's infrastructure. No delays, no external APIs, no dependencies. Just pure speed.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your chart data never leaves TradingView. Our indicators process everything locally on your session with bank-grade encryption.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">📱</div>
+                <h3>Works Everywhere</h3>
+                <p>Desktop, mobile, tablet—if TradingView runs on it, so do we. Same indicators, same precision, any device.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">🎨</div>
+                <h3>Customizable Display</h3>
+                <p>Adjust colors, sizes, and visual elements to match your chart style. Every indicator includes comprehensive settings.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">🔔</div>
+                <h3>Alert Integration</h3>
+                <p>Set custom alerts directly in TradingView. Get notified by mobile, email, or webhook when your conditions trigger.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">📊</div>
+                <h3>Multi-Asset Compatible</h3>
+                <p>Works across stocks, futures, forex, crypto—any asset TradingView supports. One indicator, every market.</p>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <h2>Proprietary Algorithms</h2>
+            <p>Each FusionPredictor indicator is built on proprietary algorithms developed through extensive backtesting and real-world validation. We don't use standard indicators or public formulas—every calculation is custom-built to exploit specific market inefficiencies.</p>
+            <p>Our technology combines oscillator analysis, multi-timeframe logic, institutional behavior detection, and advanced statistical methods. The result: indicators that don't just show you what happened, but predict what's likely to happen next.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FusionPredictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyanGradientCompact" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cccc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neonGlowCompact">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="convergenceGlowCompact">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background emphasis -->
+  <circle cx="125" cy="75" r="50" fill="url(#convergenceGlowCompact)" opacity="0.3"/>
+  
+  <!-- Small Arrow (1m-5m timeframe) -->
+  <path d="M 25 90 L 90 60 L 87 57 M 90 60 L 87 63" 
+        stroke="url(#cyanGradientCompact)" 
+        stroke-width="1" 
+        fill="none" 
+        filter="url(#neonGlowCompact)"
+        opacity="0.7"/>
+  
+  <!-- Medium Arrow (mid-TF timeframe) -->
+  <path d="M 25 75 L 100 75 L 97 72 M 100 75 L 97 78" 
+        stroke="url(#cyanGradientCompact)" 
+        stroke-width="1.5" 
+        fill="none" 
+        filter="url(#neonGlowCompact)"
+        opacity="0.85"/>
+  
+  <!-- Large Arrow (HTF timeframe) -->
+  <path d="M 25 60 L 110 90 L 107 87 M 110 90 L 107 93" 
+        stroke="url(#cyanGradientCompact)" 
+        stroke-width="2" 
+        fill="none" 
+        filter="url(#neonGlowCompact)"
+        opacity="1"/>
+  
+  <!-- Convergence Point -->
+  <circle cx="125" cy="75" r="15" fill="url(#convergenceGlowCompact)" filter="url(#neonGlowCompact)"/>
+  <circle cx="125" cy="75" r="5" fill="#00ffff" filter="url(#neonGlowCompact)"/>
+  <circle cx="125" cy="75" r="2.5" fill="#ffffff"/>
+  
+  <!-- Convergence lines -->
+  <line x1="90" y1="60" x2="125" y2="75" stroke="url(#cyanGradientCompact)" stroke-width="0.8" opacity="0.3"/>
+  <line x1="100" y1="75" x2="125" y2="75" stroke="url(#cyanGradientCompact)" stroke-width="1" opacity="0.4"/>
+  <line x1="110" y1="90" x2="125" y2="75" stroke="url(#cyanGradientCompact)" stroke-width="1.2" opacity="0.5"/>
+</svg>
