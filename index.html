@@ -6,230 +6,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="FusionPredictor delivers precision multi-timeframe targets for scalpers and swing traders, powered by the Fusion Trading System." />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <style>
-    :root {
-      --brand-cyan: #32FFE3;
-      --brand-warm: #FFB347;
-      --brand-strong: #13C9AF;
-      --text-main: #F9FBFF;
-      --text-muted: #9AA4C1;
-      --bg-dark: #050509;
-    }
-
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-main);
+      font-family: "Inter", sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
     }
 
     header {
-      position: sticky;
-      top: 0;
-      background: rgba(5,5,9,0.85);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    nav {
-      max-width: 1250px;
-      margin: auto;
-      padding: 18px 20px;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    nav .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      color: var(--brand-cyan);
-      font-weight: 600;
-      letter-spacing: 0.5px;
+    .logo img {
+      height: 48px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 28px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.2s;
-    }
-
-    nav ul li a:hover {
-      color: var(--brand-cyan);
-    }
-
-    .cta-btn {
-      background: var(--brand-cyan);
-      color: var(--bg-dark);
-      padding: 10px 18px;
+    .nav-btn {
+      background: #7CFFB7;
+      border: none;
+      padding: 12px 24px;
       border-radius: 6px;
+      color: #000;
       font-weight: 600;
+      cursor: pointer;
       text-decoration: none;
     }
 
+    /* Hero section */
     .hero {
-      max-width: 1250px;
-      margin: auto;
-      padding: 110px 20px 80px;
       text-align: center;
+      padding: 100px 20px 120px;
     }
 
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 15px;
-      color: var(--brand-cyan);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     .hero p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.2rem;
-      color: var(--text-muted);
+      font-size: 20px;
+      color: #cccccc;
+      max-width: 600px;
+      margin: 0 auto 40px;
     }
 
-    .hero .actions {
-      margin-top: 36px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .hero .actions a {
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: 600;
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #7CFFB7;
+      color: #000;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 18px;
       text-decoration: none;
-      transition: 0.25s;
     }
 
-    .primary-btn {
-      background: var(--brand-cyan);
-      color: var(--bg-dark);
+    /* Section: Features */
+    .features {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .primary-btn:hover {
-      opacity: 0.85;
-    }
-
-    .feature-section {
-      max-width: 1250px;
-      margin: 80px auto;
-      padding: 20px;
-    }
-
-    .feature-title {
-      text-align: center;
-      font-size: 2.2rem;
-      font-family: 'Space Grotesk', sans-serif;
-      margin-bottom: 40px;
-      color: var(--brand-cyan);
-    }
-
-    .feature-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
     }
 
     .feature-card {
-      background: rgba(255,255,255,0.03);
-      padding: 26px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      background: #111;
     }
 
     .feature-card h3 {
-      font-size: 1.3rem;
+      font-family: "Space Grotesk";
+      font-size: 22px;
       margin-bottom: 12px;
-      color: var(--brand-strong);
     }
 
     .feature-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.45rem;
+      color: #cccccc;
+      line-height: 1.5;
     }
 
+    /* Footer */
     footer {
-      margin-top: 120px;
       text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px;
+      color: #888;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">FusionPredictor</div>
-    <ul>
-      <li><a href="#features">Features</a></li>
-      <li><a href="fusion/">Fusion Suite</a></li>
-    </ul>
-    <a href="request-invite.html" class="cta-btn">Request Invite</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Trade the Future — Not the Past.</h1>
-  <p>The FusionPredictor System generates precision forward-projections across multiple timeframes. Scalpers, swing traders — this is your new edge.</p>
-
-  <div class="actions">
-    <a href="request-invite.html" class="primary-btn">Request Invite</a>
-    <a href="#features" class="secondary-btn" style="color: var(--brand-cyan);">Learn More</a>
-  </div>
-</section>
-
-
-<section id="features" class="feature-section">
-  <div class="feature-title">Why FusionPredictor?</div>
-
-  <div class="feature-grid">
-
-    <div class="feature-card">
-      <h3>Forward Projections</h3>
-      <p>Instead of relying on lagging indicators, FusionPredictor shows the next expected targets using multi-timeframe modeling.</p>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="./assets/logo/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" />
     </div>
 
-    <div class="feature-card">
-      <h3>Scalper Precision</h3>
-      <p>Ultra-tight projections across 1m, 5m, and 15m windows reveal micro-trend continuation or exhaustion points.</p>
+    <a class="nav-btn" href="request-invite.html">Request Invite</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Trade the Future,<br> Not the Past.</h1>
+    <p>FusionPredictor generates multi-timeframe forward projections, giving scalpers and swing traders a precision edge you can't get anywhere else.</p>
+    <a href="request-invite.html" class="cta-btn">Request Early Access</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <h3>Future Projections</h3>
+        <p>See projected movement on 1m, 5m, 15m, and 1hr charts — all calculated using the Fusion forward-projection model.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Precision Targets</h3>
+        <p>Each timeframe outputs clear upside and downside targets with algorithmic weighting and volatility calibration.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>For Scalpers & Swing Traders</h3>
+        <p>Designed for traders who depend on accuracy. Quick reads for scalping, deeper signals for swing plays.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>100% Signal-Driven</h3>
+        <p>Your edge is generated from real-time math — no guessing, no noise, no lagging indicators.</p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="feature-card">
-      <h3>HTF Alignment</h3>
-      <p>The system blends higher timeframe structure into lower-timeframe projections for cleaner decision-making.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Clean Visuals</h3>
-      <p>Color-coded snapshots tell you instantly whether the market is aligned, fragmented, or transitioning.</p>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  FusionPredictor © 2025 — Powered by the Fusion Trading System
-</footer>
+  <!-- Footer -->
+  <footer>
+    © 2025 FusionPredictor. All rights reserved.
+  </footer>
 
 </body>
 </html>
