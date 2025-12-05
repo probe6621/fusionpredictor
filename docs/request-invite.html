@@ -238,11 +238,15 @@
 
     <div class="form-container">
         <div class="form-header">
-            <h1>Request Early Access</h1>
-            <p>Join the waitlist for FusionPredictor indicators</p>
+            <h1>Get Access to FusionPredictor</h1>
+            <p>Start trading with professional indicators today</p>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
+            <input type="hidden" name="subject" value="New FusionPredictor Invite Request">
+            <input type="hidden" name="from_name" value="FusionPredictor Website">
+            <input type="hidden" name="redirect" value="https://fusionpredictor.com/thank-you.html">
             <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" name="name" required>
@@ -282,7 +286,7 @@
             <button type="submit" class="submit-button">Request Invite</button>
         </form>
 
-        <p class="form-note">We'll review your request and send you access instructions within 48 hours.</p>
+        <p class="form-note">We'll review your request and send you access instructions.</p>
     </div>
 
     <footer>
