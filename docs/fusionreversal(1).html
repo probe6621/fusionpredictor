@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FusionScorer - Trade Only the Best Setups</title>
+    <title>FusionReversal - Catch Reversals Before They Happen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,6 +139,31 @@
             margin-bottom: 2rem;
         }
 
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
         .product-showcase {
             padding: 4rem 2rem;
             max-width: 1400px;
@@ -257,6 +282,14 @@
             .nav-links {
                 display: none;
             }
+
+            .stats-row {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -290,63 +323,78 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="product-badge">INSTITUTIONAL CONFLUENCE</div>
-            <h1>FusionScorer</h1>
-            <p class="subtitle">Trade Only When the Score is Right</p>
+            <div class="product-badge">REVERSAL DETECTION</div>
+            <h1>FusionReversal</h1>
+            <p class="subtitle">Catch Reversals Before They Happen</p>
             <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary);">
-                Scores every setup from 0-5 based on institutional positioning. Simple rule: only trade when the score is 3 or higher.
+                Spots divergence patterns invisible to standard indicators. Get in early with tight invalidation before the crowd sees it.
             </p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-number">94.8%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Early</div>
+                    <div class="stat-label">Entry Timing</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Tight</div>
+                    <div class="stat-label">Stop Loss</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="product-showcase">
-        <img src="./assets/fusionscorer_chart_promo.jpg" alt="FusionScorer Chart" class="showcase-image">
+        <img src="./assets/fusionreversal_chart_promo.jpg" alt="FusionReversal Chart" class="showcase-image">
     </section>
 
     <section class="features">
         <h2 class="section-title">What You Get</h2>
         <div class="features-grid">
             <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Early Reversal Detection</h3>
+                <p>Catch reversals at the beginning of the move, not after everyone else sees it. Maximum profit potential.</p>
+            </div>
+
+            <div class="feature-card">
                 <div class="feature-icon">🎯</div>
-                <h3>0-5 Scoring System</h3>
-                <p>Every setup gets scored from 0 to 5. The higher the score, the better the confluence. Crystal clear decision-making.</p>
+                <h3>High-Probability Zones Only</h3>
+                <p>Signals fire only in extreme zones where reversals have the highest probability of success.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🏦</div>
-                <h3>Institutional Logic</h3>
-                <p>Based on how smart money positions itself in the market. Trade with the institutions, not against them.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">✅</div>
-                <h3>Simple Entry Rule</h3>
-                <p>Score of 3/5, 4/5, or 5/5? Take the trade. Below 3? Wait for a better setup. No guesswork.</p>
+                <div class="feature-icon">🔍</div>
+                <h3>Hidden Divergence Patterns</h3>
+                <p>Detects divergence patterns that standard indicators miss completely. Your edge over the crowd.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Real-Time Dashboard</h3>
-                <p>See the current score and which conditions are active right on your chart. Complete transparency.</p>
+                <h3>Multi-Timeframe Confirmation</h3>
+                <p>Filters signals with higher timeframe agreement to increase conviction and reduce noise.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🔔</div>
-                <h3>Alert System</h3>
-                <p>Get notified when a setup reaches 3/5 or higher. Never miss a high-probability opportunity.</p>
+                <div class="feature-icon">✅</div>
+                <h3>Clean Visual Signals</h3>
+                <p>Green BUY triangles and red SELL triangles appear exactly where you should enter. No confusion.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Quality Over Quantity</h3>
-                <p>Filters out mediocre setups automatically. Only the best opportunities make it through the scoring system.</p>
+                <div class="feature-icon">🛡️</div>
+                <h3>Tight Risk Control</h3>
+                <p>Entry at the turn means tight stop losses. Maximize your reward-to-risk ratio on every trade.</p>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Stop Trading Mediocre Setups</h2>
-        <p>Join traders using FusionScorer to trade only high-probability opportunities</p>
+        <h2>Stop Chasing Reversals</h2>
+        <p>Join traders catching reversals early with FusionReversal</p>
         <div class="cta-buttons">
             <a href="./request-invite.html" class="cta-button">Request Invite</a>
             <a href="./pricing.html" class="secondary-button">View Pricing</a>

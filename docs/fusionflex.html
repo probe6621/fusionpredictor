@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FusionFlex - Precision Trend Detection</title>
+    <title>FusionFlex - Zero Repaint Trend Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,6 +139,31 @@
             margin-bottom: 2rem;
         }
 
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
         .product-showcase {
             padding: 4rem 2rem;
             max-width: 1400px;
@@ -182,6 +207,11 @@
             border-color: var(--cyan);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .feature-card.highlight {
+            border-color: var(--cyan);
+            background: rgba(0, 231, 247, 0.05);
         }
 
         .feature-icon {
@@ -257,6 +287,14 @@
             .nav-links {
                 display: none;
             }
+
+            .stats-row {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -290,12 +328,27 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="product-badge">TREND DETECTION</div>
+            <div class="product-badge">⭐ ZERO REPAINT GUARANTEE</div>
             <h1>FusionFlex</h1>
-            <p class="subtitle">Know When to Trade and When to Wait</p>
+            <p class="subtitle">Stay in Winning Trends While Others Jump Out Too Early</p>
             <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary);">
-                Identifies trend direction and momentum shifts with precision. One clean visual line tells you everything you need to know.
+                The only trend indicator that hugs price in real-time with zero repaint. Keeps you locked in profitable trends when other indicators get you out prematurely.
             </p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Repaint</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Real-Time</div>
+                    <div class="stat-label">Price Tracking</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Extended</div>
+                    <div class="stat-label">Trend Capture</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -304,51 +357,69 @@
     </section>
 
     <section class="features">
-        <h2 class="section-title">What You Get</h2>
+        <h2 class="section-title">Why FusionFlex is Different</h2>
         <div class="features-grid">
+            <div class="feature-card highlight">
+                <div class="feature-icon">🔒</div>
+                <h3>Zero Repaint Guarantee</h3>
+                <p>Once a signal appears, it stays. No disappearing signals, no second-guessing. What you see is what you get—always.</p>
+            </div>
+
+            <div class="feature-card highlight">
+                <div class="feature-icon">📍</div>
+                <h3>Hugs Price in Real-Time</h3>
+                <p>Tracks price movement with precision, adapting to every swing while keeping you in the trend. Not lagging, not leading—just right.</p>
+            </div>
+
+            <div class="feature-card highlight">
+                <div class="feature-icon">🏆</div>
+                <h3>Captures Extended Trends</h3>
+                <p>While other indicators exit you early, FusionFlex keeps you in the big moves. Maximizes your profits on those 100+ pip runners.</p>
+            </div>
+
             <div class="feature-card">
                 <div class="feature-icon">📈</div>
-                <h3>Clear Direction</h3>
-                <p>Know instantly if the market is trending up, down, or sideways. No interpretation needed—just look at the line.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Momentum Shifts</h3>
-                <p>Get alerted when momentum changes before the trend fully reverses. Stay ahead of the curve.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3>Ultra-Clean Visual</h3>
-                <p>One simple line overlaid on price. Green means go long, red means go short. No clutter, instant clarity.</p>
+                <h3>Crystal Clear Direction</h3>
+                <p>Green line = bullish, red line = bearish. One glance tells you everything. No complicated signals, no confusion.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3>Fast Response</h3>
-                <p>Reacts quickly to trend changes without getting chopped up in consolidation. The perfect balance.</p>
+                <h3>Fast Without Being Noisy</h3>
+                <p>Responds quickly to momentum shifts without whipsawing you in consolidation. The perfect balance of speed and reliability.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Multi-Timeframe Aware</h3>
-                <p>Works intelligently across all timeframes from scalping to swing trading. Adapts to your style.</p>
+                <div class="feature-icon">🎯</div>
+                <h3>Works Across All Timeframes</h3>
+                <p>Whether you're scalping 1-minute charts or swing trading daily charts, FusionFlex adapts seamlessly to your style.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Minimal Distraction</h3>
-                <p>Designed to give you maximum information with minimum visual noise. Focus on what matters.</p>
+                <div class="feature-icon">✨</div>
+                <h3>Minimal Visual Clutter</h3>
+                <p>Just one clean line overlaid on price. No tables, no extra panels, no distractions—pure signal clarity.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Catches the Full Move</h3>
+                <p>Stays with trends from the early momentum shift all the way through the exhaustion. You'll actually ride the full wave.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Protects Your Capital</h3>
+                <p>When trends weaken, you'll know immediately. No more riding winners back to breakeven—exit at the right time.</p>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Stop Guessing Trend Direction</h2>
-        <p>Join traders using FusionFlex to ride trends with confidence</p>
+        <h2>Stop Missing the Big Moves</h2>
+        <p>Join traders riding trends to completion with FusionFlex</p>
         <div class="cta-buttons">
-            <a href="./request-invite.html" class="cta-button">Request Early Access</a>
+            <a href="./request-invite.html" class="cta-button">Request Invite</a>
             <a href="./pricing.html" class="secondary-button">View Pricing</a>
         </div>
     </section>
