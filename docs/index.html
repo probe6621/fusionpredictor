@@ -2,111 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FusionPredictor – Trade the Future, Not the Past</title>
+  <title>FusionPredict – Trade the Future, Not the Past</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="FusionPredictor delivers precision multi-timeframe targets for scalpers and swing traders, powered by the Fusion Trading System." />
-
-  <!-- Fonts -->
+  <meta name="description" content="FusionPredict delivers precision multi-timeframe targets for scalpers and swing traders, powered by the Fusion Trading System." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     body {
+      font-family: Inter, sans-serif;
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background-color: #0d0d0d;
-      color: #ffffff;
+      padding: 0;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
     }
-
     header {
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 24px 40px;
     }
-
-    .logo img {
-      width: 200px;
-      height: auto;
-      display: block;
+    .logo {
+      height: 42px;
     }
-
-    .nav-btn {
-      background: #7CFFB7;
-      border: none;
-      padding: 12px 24px;
+    .btn {
+      padding: 10px 22px;
+      background: #111;
+      color: #fff;
       border-radius: 6px;
-      color: #000;
-      font-weight: 600;
+      font-size: 15px;
       text-decoration: none;
-      cursor: pointer;
+      transition: 0.2s;
     }
-
+    .btn:hover {
+      background: #333;
+    }
     .hero {
       text-align: center;
-      padding: 100px 20px 120px;
+      padding: 100px 20px 60px;
+      max-width: 900px;
+      margin: auto;
     }
-
     .hero h1 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 56px;
-      font-weight: 700;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      text-align: center;
+      margin: 60px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .feature-card {
+      flex: 1;
+      min-width: 220px;
+    }
+    .product-section {
+      margin: 80px auto;
+      max-width: 900px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .product-card {
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      max-width: 800px;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 26px rgba(0,0,0,0.12);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
       margin-bottom: 20px;
     }
-
-    .hero p {
-      font-size: 20px;
-      color: #cccccc;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 16px 32px;
-      background: #7CFFB7;
-      color: #000;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .features {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-    }
-
-    .feature-card {
-      border: 1px solid #2a2a2a;
-      padding: 30px;
-      border-radius: 10px;
-      background: #111;
-    }
-
-    .feature-card h3 {
-      font-family: "Space Grotesk";
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .feature-card p {
-      color: #cccccc;
-      line-height: 1.5;
-    }
-
     footer {
       text-align: center;
       padding: 40px;
-      color: #888;
+      color: #777;
+      margin-top: 80px;
       font-size: 14px;
     }
   </style>
@@ -114,53 +106,60 @@
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <!-- Corrected path pointing to the nested docs/docs/assets/logo folder -->
-      <img src="./docs/assets/logo/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo">
+<!-- HEADER -->
+<header>
+  <img src="./assets/logo/fusion-arrowmark-primary.svg" class="logo" alt="FusionPredict Logo"/>
+  <a href="./request-invite.html" class="btn">Request Invite</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Trade the Future, Not the Past.</h1>
+  <p>FusionPredict gives you forward-looking multi-timeframe precision targets for scalpers, intraday traders, and swing traders.</p>
+  <a href="./request-invite.html" class="btn" style="margin-top: 10px;">Request Early Access</a>
+</section>
+
+<!-- FEATURES (Centered) -->
+<section class="features">
+  <div class="feature-card">
+    <h3>Future Projections</h3>
+    <p>Forward-looking precision targets for all major timeframes.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Precision Targets</h3>
+    <p>High-confidence levels derived from volatility and flow signatures.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Scalper & Swing Compatible</h3>
+    <p>Optimized for both fast entries and multi-hour directional bias.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Signal-Driven Forecasting</h3>
+    <p>Live engine updates the moment market conditions shift.</p>
+  </div>
+</section>
+
+<!-- PRODUCT CARD -->
+<section class="product-section">
+  <h2 style="font-family:'Space Grotesk', sans-serif; font-size:32px;">FusionPredict Scalping Tool</h2>
+  <p style="color:#666; margin-top:10px;">Precision multi-timeframe projections for 1m–1h traders</p>
+
+  <a href="./technology.html" style="text-decoration:none; color:inherit;">
+    <div class="product-card">
+      <img src="./assets/fusionpredict_chart_promo.jpg" alt="FusionPredict Chart Preview">
+      <h3 style="margin-bottom:10px; font-family:'Space Grotesk', sans-serif;">FusionPredict™ MTF Engine</h3>
+      <p style="color:#777;">Click to view technology overview →</p>
     </div>
+  </a>
+</section>
 
-    <a class="nav-btn" href="request-invite.html">Request Invite</a>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Trade the Future,<br> Not the Past.</h1>
-    <p>FusionPredictor generates multi-timeframe forward projections, giving scalpers and swing traders a precision edge you can't get anywhere else.</p>
-    <a href="request-invite.html" class="cta-btn">Request Early Access</a>
-  </section>
-
-  <!-- Features -->
-  <section class="features">
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <h3>Future Projections</h3>
-        <p>See projected movement on 1m, 5m, 15m, and 1hr charts — powered by the Fusion forward-projection algorithm.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Precision Targets</h3>
-        <p>Clear upside and downside targets using volatility-weighted, multi-factor modeling.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>For Scalpers & Swing Traders</h3>
-        <p>Quick actionable signals for scalping and detailed projections for swing trading — all in one place.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>100% Signal Driven</h3>
-        <p>No guessing. No noise. No hype. Just math-driven motion forecasting.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    © 2025 FusionPredictor. All rights reserved.
-  </footer>
+<!-- FOOTER -->
+<footer>
+  © 2025 FusionPredict. All rights reserved.
+</footer>
 
 </body>
 </html>
