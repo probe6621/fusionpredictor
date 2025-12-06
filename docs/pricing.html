@@ -7,12 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --cyan: #00E7F7;
@@ -21,8 +18,8 @@
             --card-bg: #131827;
             --text-primary: #FFFFFF;
             --text-secondary: #A0AEC0;
-
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--dark-bg);
@@ -30,10 +27,9 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -58,17 +54,14 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            text-decoration: none;
             color: var(--text-primary);
             font-weight: 600;
             font-size: 1.25rem;
+            text-decoration: none;
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-        }
+        .logo-icon { width: 36px; height: 36px; }
 
         .nav-links {
             display: flex;
@@ -77,15 +70,13 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--text-secondary);
+            text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
         }
 
-        .nav-links a:hover {
-            color: var(--cyan);
-        }
+        .nav-links a:hover { color: var(--cyan); }
 
         .cta-button {
             background: var(--cyan);
@@ -93,9 +84,8 @@
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: 0.3s;
             text-decoration: none;
-            display: inline-block;
         }
 
         .cta-button:hover {
@@ -103,6 +93,7 @@
             box-shadow: 0 10px 30px var(--cyan-glow);
         }
 
+        /* HERO */
         .hero {
             margin-top: 80px;
             padding: 4rem 2rem;
@@ -110,18 +101,10 @@
             background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+        /* PRICING GRID */
         .pricing-section {
             padding: 4rem 2rem;
             max-width: 1400px;
@@ -140,8 +123,8 @@
             border: 1px solid rgba(0, 231, 247, 0.1);
             border-radius: 16px;
             padding: 2.5rem;
+            transition: 0.4s ease;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .pricing-card:hover {
@@ -150,10 +133,7 @@
             box-shadow: 0 20px 40px var(--cyan-glow);
         }
 
-        .pricing-card.popular {
-            border-color: var(--cyan);
-            border-width: 2px;
-        }
+        .pricing-card.popular { border-color: var(--cyan); border-width: 2px; }
 
         .popular-badge {
             position: absolute;
@@ -166,21 +146,10 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .plan-name {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--cyan);
-        }
-
-        .plan-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
+        .plan-name { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--cyan); }
+        .plan-description { color: var(--text-secondary); margin-bottom: 1.5rem; }
 
         .feature-badge {
             display: inline-block;
@@ -189,38 +158,20 @@
             padding: 0.25rem 0.5rem;
             border-radius: 12px;
             font-size: 0.7rem;
-            font-weight: 600;
             margin-left: 0.5rem;
             border: 1px solid rgba(0, 231, 247, 0.2);
         }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        .price { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .price-period { color: var(--text-secondary); margin-bottom: 2rem; }
 
-        .price-period {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
+        ul.features-list { list-style: none; margin-bottom: 2rem; }
         .features-list li {
             padding: 0.75rem 0;
             border-bottom: 1px solid rgba(0, 231, 247, 0.1);
             color: var(--text-secondary);
         }
-
-        .features-list li:last-child {
-            border-bottom: none;
-        }
+        .features-list li:last-child { border-bottom: none; }
 
         .features-list li::before {
             content: "✓";
@@ -234,15 +185,12 @@
             background: var(--cyan);
             color: var(--dark-bg);
             padding: 1rem;
-            border: none;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
             text-decoration: none;
             display: block;
             text-align: center;
+            transition: 0.3s;
         }
 
         .select-button:hover {
@@ -250,6 +198,7 @@
             box-shadow: 0 10px 30px var(--cyan-glow);
         }
 
+        /* GUARANTEE */
         .guarantee-section {
             background: var(--card-bg);
             padding: 2rem;
@@ -259,15 +208,10 @@
             margin-bottom: 4rem;
         }
 
-        .guarantee-section h3 {
-            color: var(--cyan);
-            margin-bottom: 1rem;
-        }
+        .guarantee-section h3 { color: var(--cyan); margin-bottom: 1rem; }
+        .guarantee-section p { color: var(--text-secondary); }
 
-        .guarantee-section p {
-            color: var(--text-secondary);
-        }
-
+        /* FOOTNOTES */
         .footnotes-section {
             background: rgba(0, 231, 247, 0.03);
             padding: 3rem 2rem;
@@ -280,43 +224,15 @@
             color: var(--cyan);
             margin-bottom: 2rem;
             text-align: center;
-            font-size: 1.5rem;
         }
 
-        .footnote {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
-        }
+        .footnote { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0, 231, 247, 0.1); }
+        .footnote:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 
-        .footnote:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
+        .footnote h4 { color: var(--cyan); margin-bottom: 0.75rem; }
 
-        .footnote h4 {
-            color: var(--cyan);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .footnote p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .faq-section {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .faq-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-
+        /* FAQ */
+        .faq-section { max-width: 800px; margin: 0 auto 4rem; }
         .faq-item {
             background: var(--card-bg);
             padding: 1.5rem;
@@ -324,17 +240,8 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 231, 247, 0.1);
         }
-
-        .faq-item h3 {
-            color: var(--cyan);
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-item p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
+        .faq-item h3 { color: var(--cyan); font-size: 1.1rem; margin-bottom: 0.75rem; }
+        .faq-item p { color: var(--text-secondary); }
 
         footer {
             background: var(--card-bg);
@@ -343,32 +250,26 @@
             text-align: center;
         }
 
-        footer p {
-            color: var(--text-secondary);
-        }
+        footer p { color: var(--text-secondary); }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links { display: none; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
+
 <body>
+
+    <!-- NAV -->
     <nav>
         <div class="nav-container">
             <a href="./index.html" class="logo">
                 <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
+                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00E7F7;" />
+                        <stop offset="100%" style="stop-color:#00B8C4;" />
+                    </linearGradient></defs>
                     <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
                     <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
                     <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
@@ -378,6 +279,7 @@
                 </svg>
                 <span>FusionPredictor</span>
             </a>
+
             <div class="nav-links">
                 <a href="./index.html">Products</a>
                 <a href="./technology.html">Technology</a>
@@ -386,19 +288,23 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero">
         <h1>Simple, Transparent Pricing</h1>
         <p>Choose the bundle that fits your trading style. All plans include TradingView compatibility.</p>
     </section>
 
+    <!-- PRICING GRID -->
     <section class="pricing-section">
         <div class="pricing-grid">
-            <!-- Starter Bundle -->
+
+            <!-- STARTER -->
             <div class="pricing-card">
                 <h2 class="plan-name">Starter Bundle</h2>
                 <p class="plan-description">Pick any 2 indicators <span class="feature-badge">Beginner Friendly</span></p>
                 <div class="price">$45</div>
                 <div class="price-period">per month</div>
+
                 <ul class="features-list">
                     <li>Choose any 2 indicators</li>
                     <li>TradingView compatible</li>
@@ -406,18 +312,21 @@
                     <li>Real-time alerts</li>
                     <li>Cancel anytime</li>
                 </ul>
+
                 <a href="https://buy.stripe.com/test_bJe28qbwigNf56TaUwgUM00" class="select-button">
                     Subscribe – $45/mo
                 </a>
+            </div>
 
-
-            <!-- Pro Bundle (Popular) -->
+            <!-- PRO -->
             <div class="pricing-card popular">
                 <div class="popular-badge">Most Popular</div>
+
                 <h2 class="plan-name">Pro Bundle</h2>
                 <p class="plan-description">Pick any 4 indicators <span class="feature-badge">Trader Favorite</span></p>
                 <div class="price">$75</div>
                 <div class="price-period">per month</div>
+
                 <ul class="features-list">
                     <li>Choose any 4 indicators</li>
                     <li>TradingView compatible</li>
@@ -426,17 +335,19 @@
                     <li>Priority support</li>
                     <li>Cancel anytime</li>
                 </ul>
+
                 <a href="https://buy.stripe.com/test_00w14mbwieF78j58MogUM01" class="select-button">
                     Subscribe – $75/mo
                 </a>
+            </div>
 
-
-            <!-- Master Suite -->
+            <!-- MASTER -->
             <div class="pricing-card">
                 <h2 class="plan-name">Master Suite</h2>
                 <p class="plan-description">All 6 indicators included <span class="feature-badge">Full Access</span></p>
                 <div class="price">$145</div>
                 <div class="price-period">per month</div>
+
                 <ul class="features-list">
                     <li>All 6 indicators</li>
                     <li>TradingView compatible</li>
@@ -446,69 +357,74 @@
                     <li>Early access to new tools</li>
                     <li>Cancel anytime</li>
                 </ul>
+
                 <a href="https://buy.stripe.com/test_14AeVc57U9kNbvhbYAgUM02" class="select-button">
                     Subscribe – $145/mo
                 </a>
+            </div>
 
         </div>
 
-        <!-- Guarantee Section -->
+        <!-- GUARANTEE -->
         <div class="guarantee-section">
             <h3>14-Day Money-Back Guarantee</h3>
             <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
         </div>
 
-        <!-- Important Product Notes -->
+        <!-- NOTES -->
         <div class="footnotes-section">
             <h3>Important Product Notes</h3>
-            
+
             <div class="footnote">
                 <h4>FusionPredict</h4>
-                <p><strong>Timeframe Behavior:</strong> Lower-timeframe projections behave with near real-time responsiveness (depending on volatility), while higher intervals offer great context for directional bias and price approximations. For example, a 1-minute timeframe equals approximately 1 minute in real-time, but full timeframe moves on higher intervals take proportionally longer to complete.</p>
-                <p><strong>Volatility Considerations:</strong> FusionPredict is most precise in calm or moderate volatility. During high-volatility events, price may seek liquidity first before reverting toward the projected level—a natural behavior consistent with advanced gap-reversion dynamics. The targets remain valid; only the order of events can shift during extreme movement.</p>
-                <p><strong>Pure Alignment Advantage:</strong> When all timeframes align in one direction, entries are significantly cleaner without retracement whipping back to your entry point. This pure directional alignment provides the highest-probability setups.</p>
-                <p><strong>Trending Market Caveat:</strong> In strongly trending markets, targets may take longer to reach as momentum can extend beyond normal reversion ranges. Use discretion and consider the broader trend context when taking signals during extreme directional moves.</p>
+                <p><strong>Timeframe Behavior:</strong> Lower-timeframe projections behave with near real-time responsiveness, while higher intervals offer strong directional context. A 1-minute bar equals ~1 minute in real-time; higher intervals take proportionally longer.</p>
+                <p><strong>Volatility Considerations:</strong> FusionPredict excels in calm/moderate volatility. During extreme movement, price may seek liquidity first before reverting to projections.</p>
+                <p><strong>Alignment Advantage:</strong> When all TFs align directionally, entries are significantly cleaner with fewer retracements.</p>
+                <p><strong>Trending Caveat:</strong> Strong trends may delay or extend target reach—use higher-timeframe context.</p>
             </div>
 
             <div class="footnote">
                 <h4>FusionTrend</h4>
-                <p>Go short on red background and long on green background as pullbacks from the higher timeframe. Your choice of HTF can be adjusted in the indicator settings to match your trading style and preferred timeframe.</p>
+                <p>Trade pullbacks back into the higher-timeframe trend bias. Adjust the HTF display within indicator settings.</p>
             </div>
 
             <div class="footnote">
                 <h4>FusionReversal</h4>
-                <p>Heavily trending markets may stay overbought or oversold for extended periods (sometimes weeks). Use discretion and consider the broader market context when taking reversal signals in strong trending conditions.</p>
+                <p>In heavy trends, overbought/oversold conditions can persist. Use these signals with account for broader structure.</p>
             </div>
         </div>
 
-        <!-- FAQ Section -->
+        <!-- FAQ -->
         <div class="faq-section">
             <h2>Frequently Asked Questions</h2>
-            
+
             <div class="faq-item">
                 <h3>Which platform do these indicators work on?</h3>
-                <p>All FusionPredictor indicators are designed for TradingView. You'll need a TradingView account (free or paid) to use them.</p>
+                <p>All FusionPredictor indicators run directly on TradingView. Any TradingView account (free or paid) is compatible.</p>
             </div>
 
             <div class="faq-item">
                 <h3>What markets can I trade with these indicators?</h3>
-                <p>FusionPredictor works on all markets available on TradingView: stocks, forex, crypto, futures, and commodities.</p>
+                <p>FusionPredictor works on stocks, crypto, forex, commodities, and futures—anything TradingView supports.</p>
             </div>
 
             <div class="faq-item">
                 <h3>Can I cancel my subscription?</h3>
-                <p>Yes, you can cancel anytime. Your access will continue until the end of your current billing period.</p>
+                <p>Yes. You may cancel anytime and keep access until your current billing period ends.</p>
             </div>
 
             <div class="faq-item">
                 <h3>Can I upgrade between plans?</h3>
-                <p>Yes, you can upgrade at any time. The price difference will be prorated for the remainder of your billing period.</p>
+                <p>Yes. Upgrading is instant, and Stripe prorates your remaining balance automatically.</p>
             </div>
         </div>
+
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
