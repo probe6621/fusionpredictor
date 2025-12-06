@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Access - FusionPredictor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cyan: #00E7F7;
+            --cyan-glow: rgba(0, 231, 247, 0.3);
+            --dark-bg: #0A0E1A;
+            --card-bg: #131827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+        }
+
+        body {
+            background: var(--dark-bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 4rem auto;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 231, 247, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 0 40px rgba(0, 231, 247, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--cyan);
+        }
+
+        p.description {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.9rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 231, 247, 0.25);
+            background: #0F1323;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        .submit-btn {
+            width: 100%;
+            display: block;
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 1rem 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--cyan-glow);
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 2rem;
+            background: rgba(0, 231, 247, 0.1);
+            border: 1px solid rgba(0, 231, 247, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: var(--cyan);
+            text-align: center;
+        }
+
+        .indicator-select {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Activate Your Access</h1>
+        <p class="description">Thanks for subscribing! Just one last step — enter your TradingView username below so we can grant access to your indicators.</p>
+
+        <form id="activationForm">
+
+            <!-- Email -->
+            <label for="email">Your Email</label>
+            <input type="email" id="email" required placeholder="you@example.com">
+
+            <!-- TradingView Username -->
+            <label for="tvUsername">TradingView Username</label>
+            <input type="text" id="tvUsername" required placeholder="Your TradingView username">
+
+            <!-- Plan Type (auto-populated by URL) -->
+            <label for="plan">Your Subscription Plan</label>
+            <select id="plan" required>
+                <option value="starter">Starter (2 indicators)</option>
+                <option value="pro">Pro (4 indicators)</option>
+                <option value="master">Master Suite (all 6 indicators)</option>
+            </select>
+
+            <!-- Indicator selection (only for Starter & Pro) -->
+            <div id="indicatorOptions" class="indicator-select">
+                <label>Select Your Indicators</label>
+
+                <select id="indicators" multiple size="6">
+                    <option value="FusionPredict">FusionPredict</option>
+                    <option value="FusionTrend">FusionTrend</option>
+                    <option value="FusionReversal">FusionReversal</option>
+                    <option value="FusionScanner">FusionScanner</option>
+                    <option value="FusionFlow">FusionFlow</option>
+                    <option value="FusionLevels">FusionLevels</option>
+                </select>
+
+                <p style="color: var(--text-secondary); font-size: 0.8rem;">
+                    Hold CTRL (or CMD on Mac) to select multiple indicators.
+                </p>
+            </div>
+
+            <button type="submit" class="submit-btn">Activate My Access</button>
+        </form>
+
+        <div id="successBox" class="success-message">
+            ✅ Your activation request has been submitted!  
+            <br><br>
+            Access is typically granted within **5–10 minutes**.  
+            <br><br>
+            If you have any issues, email: **support@fusionpredictor.com**
+        </div>
+    </div>
+
+    <script>
+        // Auto-detect plan from URL ?plan=
+        const params = new URLSearchParams(window.location.search);
+        const planParam = params.get("plan");
+
+        if (planParam) {
+            const planSelect = document.getElementById("plan");
+            if (["starter", "pro", "master"].includes(planParam.toLowerCase())) {
+                planSelect.value = planParam.toLowerCase();
+            }
+        }
+
+        // Show indicator selection for Starter or Pro
+        document.getElementById("plan").addEventListener("change", function() {
+            const plan = this.value;
+            const indicatorOptions = document.getElementById("indicatorOptions");
+
+            if (plan === "starter" || plan === "pro") {
+                indicatorOptions.style.display = "block";
+            } else {
+                indicatorOptions.style.display = "none";
+            }
+        });
+
+        // Submit handler
+        document.getElementById("activationForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const tvUsername = document.getElementById("tvUsername").value;
+            const plan = document.getElementById("plan").value;
+            const indicators = Array.from(document.getElementById("indicators").selectedOptions).map(o => o.value);
+
+            const payload = {
+                email,
+                tvUsername,
+                plan,
+                indicators
+            };
+
+            // Placeholder POST request (backend endpoint will be added soon)
+            await fetch("https://fusionpredictor.com/api/activate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            document.getElementById("successBox").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
