@@ -12,9 +12,10 @@
     <style>
         :root {
             --cyan: #00E7F7;
-            --cyan-glow: rgba(0, 231, 247, 0.25);
+            --cyan-glow: rgba(0, 231, 247, 0.35);
             --dark-bg: #0A0E1A;
             --card-bg: #131827;
+            --card-hover: #1B2338;
             --text-primary: #FFFFFF;
             --text-secondary: #A0AEC0;
             --error-red: #ff6b6b;
@@ -54,10 +55,10 @@
 
         label {
             font-size: 0.95rem;
-            margin-bottom: 0.4rem;
             color: var(--text-secondary);
             display: block;
             font-weight: 500;
+            margin-bottom: 0.4rem;
         }
 
         input, select {
@@ -77,26 +78,59 @@
             box-shadow: 0 0 12px var(--cyan-glow);
         }
 
-        .checkbox-group {
+        /* ----- Premium Toggle Cards ----- */
+        .indicator-grid {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 1rem;
         }
 
-        .checkbox-group label {
+        .indicator-card {
+            padding: 14px 18px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 231, 247, 0.15);
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            background: #0F1323;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 231, 247, 0.25);
-            cursor: pointer;
+            justify-content: space-between;
+            transition: 0.25s;
         }
 
-        .checkbox-group input[type="checkbox"] {
-            transform: scale(1.2);
+        .indicator-card:hover {
+            background: var(--card-hover);
+        }
+
+        .indicator-card.active {
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px var(--cyan-glow);
+        }
+
+        .indicator-card .label {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .indicator-card .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cyan);
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .indicator-card.active .checkbox::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: var(--cyan);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            border-radius: 2px;
         }
 
         .submit-btn {
@@ -140,9 +174,7 @@
         }
 
         @media (max-width: 480px) {
-            .activation-container {
-                padding: 1.8rem;
-            }
+            .activation-container { padding: 1.8rem; }
         }
     </style>
 </head>
@@ -155,15 +187,12 @@
 
     <form id="activationForm">
 
-        <!-- EMAIL -->
         <label>Email Used at Checkout</label>
         <input type="email" id="email" required placeholder="you@example.com">
 
-        <!-- TRADINGVIEW USERNAME -->
         <label>TradingView Username</label>
         <input type="text" id="tv" required placeholder="Your TradingView username">
 
-        <!-- PLAN -->
         <label>Your Subscription Plan</label>
         <select id="plan" required>
             <option value="starter">Starter (2 indicators)</option>
@@ -171,17 +200,41 @@
             <option value="master">Master Suite (all 6 indicators)</option>
         </select>
 
-        <!-- CHECKBOX INDICATOR SELECTION -->
         <div id="indicatorBox">
             <label>Select Your Indicators</label>
 
-            <div class="checkbox-group">
-                <label><input type="checkbox" class="indicator-check" value="FusionPredict"> FusionPredict</label>
-                <label><input type="checkbox" class="indicator-check" value="FusionTrend"> FusionTrend</label>
-                <label><input type="checkbox" class="indicator-check" value="FusionReversal"> FusionReversal</label>
-                <label><input type="checkbox" class="indicator-check" value="FusionFlex"> FusionFlex</label>
-                <label><input type="checkbox" class="indicator-check" value="FusionConfluence"> FusionConfluence</label>
-                <label><input type="checkbox" class="indicator-check" value="FusionScorer"> FusionScorer</label>
+            <div class="indicator-grid">
+
+                <div class="indicator-card" data-value="FusionPredict">
+                    <span class="label">FusionPredict</span>
+                    <span class="checkbox"></span>
+                </div>
+
+                <div class="indicator-card" data-value="FusionTrend">
+                    <span class="label">FusionTrend</span>
+                    <span class="checkbox"></span>
+                </div>
+
+                <div class="indicator-card" data-value="FusionReversal">
+                    <span class="label">FusionReversal</span>
+                    <span class="checkbox"></span>
+                </div>
+
+                <div class="indicator-card" data-value="FusionFlex">
+                    <span class="label">FusionFlex</span>
+                    <span class="checkbox"></span>
+                </div>
+
+                <div class="indicator-card" data-value="FusionConfluence">
+                    <span class="label">FusionConfluence</span>
+                    <span class="checkbox"></span>
+                </div>
+
+                <div class="indicator-card" data-value="FusionScorer">
+                    <span class="label">FusionScorer</span>
+                    <span class="checkbox"></span>
+                </div>
+
             </div>
 
             <small>You may select up to <span id="indicatorLimit">2</span> indicators.</small>
@@ -192,8 +245,7 @@
 
     <div class="success-box" id="successBox">
         ✅ Activation submitted!<br><br>
-        Your indicators will be enabled within <strong>5–10 minutes</strong>.<br><br>
-        Need help? Email: <strong>support@fusionpredictor.com</strong>
+        Your indicators will be enabled within <strong>5–10 minutes</strong>.
     </div>
 
     <div class="error-box" id="errorBox">
@@ -201,21 +253,19 @@
     </div>
 </div>
 
+
 <script>
-    function setMaxIndicatorLimit(plan) {
+    function setLimit(plan) {
         if (plan === "starter") return 2;
         if (plan === "pro") return 4;
         if (plan === "master") return 6;
         return 0;
     }
 
-    function updateIndicatorBox() {
+    function updatePlanUI() {
         const plan = document.getElementById("plan").value;
         const box = document.getElementById("indicatorBox");
-        const limitText = document.getElementById("indicatorLimit");
-
-        const limit = setMaxIndicatorLimit(plan);
-        limitText.textContent = limit;
+        document.getElementById("indicatorLimit").textContent = setLimit(plan);
 
         if (plan === "master") {
             box.style.display = "none";
@@ -224,19 +274,33 @@
         }
     }
 
-    document.getElementById("plan").addEventListener("change", updateIndicatorBox);
-    updateIndicatorBox();
+    document.getElementById("plan").addEventListener("change", updatePlanUI);
+    updatePlanUI();
+
+    document.querySelectorAll(".indicator-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const plan = document.getElementById("plan").value;
+            const limit = setLimit(plan);
+
+            const selected = document.querySelectorAll(".indicator-card.active").length;
+
+            if (!card.classList.contains("active") && selected >= limit) {
+                alert(`You may select up to ${limit} indicators.`);
+                return;
+            }
+
+            card.classList.toggle("active");
+        });
+    });
 
     document.getElementById("activationForm").addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const plan = document.getElementById("plan").value;
-        const limit = setMaxIndicatorLimit(plan);
-
-        let selectedIndicators = [];
+        let indicators = [];
 
         if (plan === "master") {
-            selectedIndicators = [
+            indicators = [
                 "FusionPredict",
                 "FusionTrend",
                 "FusionReversal",
@@ -245,20 +309,15 @@
                 "FusionScorer"
             ];
         } else {
-            const checks = document.querySelectorAll(".indicator-check:checked");
-            selectedIndicators = Array.from(checks).map(c => c.value);
-
-            if (selectedIndicators.length > limit) {
-                alert(`You may select up to ${limit} indicators.`);
-                return;
-            }
+            indicators = Array.from(document.querySelectorAll(".indicator-card.active"))
+                .map(card => card.getAttribute("data-value"));
         }
 
         const payload = {
             email: document.getElementById("email").value,
             tvUsername: document.getElementById("tv").value,
-            plan: plan,
-            indicators: selectedIndicators
+            plan,
+            indicators
         };
 
         try {
@@ -271,13 +330,9 @@
             if (res.ok) {
                 document.getElementById("successBox").style.display = "block";
                 document.getElementById("errorBox").style.display = "none";
-                document.getElementById("activationForm").reset();
-                updateIndicatorBox();
-            } else {
-                throw new Error("Activation failed");
-            }
+            } else throw new Error();
 
-        } catch (err) {
+        } catch {
             document.getElementById("errorBox").style.display = "block";
             document.getElementById("successBox").style.display = "none";
         }
