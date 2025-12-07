@@ -12,10 +12,13 @@
     <style>
         :root {
             --cyan: #00E7F7;
-            --cyan-glow: rgba(0, 231, 247, 0.35);
+            --cyan-soft: rgba(0, 231, 247, 0.25);
+            --cyan-glow: rgba(0, 231, 247, 0.45);
             --dark-bg: #0A0E1A;
             --card-bg: #131827;
-            --card-hover: #1B2338;
+            --pill-bg: #0F1323;
+            --pill-border: rgba(0, 231, 247, 0.25);
+            --pill-hover: #16203A;
             --text-primary: #FFFFFF;
             --text-secondary: #A0AEC0;
             --error-red: #ff6b6b;
@@ -75,62 +78,40 @@
         input:focus, select:focus {
             outline: none;
             border-color: var(--cyan);
-            box-shadow: 0 0 12px var(--cyan-glow);
+            box-shadow: 0 0 12px var(--cyan-soft);
         }
 
-        /* ----- Premium Toggle Cards ----- */
-        .indicator-grid {
+        /* --- Pill-style selection chips --- */
+        .pill-container {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 1rem;
+            margin-top: 0.5rem;
         }
 
-        .indicator-card {
-            padding: 14px 18px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 231, 247, 0.15);
+        .pill {
+            padding: 10px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--pill-border);
+            background: var(--pill-bg);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             transition: 0.25s;
-        }
-
-        .indicator-card:hover {
-            background: var(--card-hover);
-        }
-
-        .indicator-card.active {
-            border-color: var(--cyan);
-            box-shadow: 0 0 15px var(--cyan-glow);
-        }
-
-        .indicator-card .label {
-            font-size: 1rem;
             color: var(--text-primary);
-            font-weight: 500;
+            font-size: 0.95rem;
+            user-select: none;
         }
 
-        .indicator-card .checkbox {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--cyan);
-            border-radius: 4px;
-            display: inline-block;
-            position: relative;
+        .pill:hover {
+            background: var(--pill-hover);
         }
 
-        .indicator-card.active .checkbox::after {
-            content: "";
-            width: 12px;
-            height: 12px;
+        .pill.active {
             background: var(--cyan);
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            border-radius: 2px;
+            color: var(--dark-bg);
+            font-weight: 700;
+            border-color: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan-glow);
         }
 
         .submit-btn {
@@ -149,7 +130,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
+            box-shadow: 0 10px 30px var(--cyan-soft);
         }
 
         .success-box, .error-box {
@@ -174,11 +155,13 @@
         }
 
         @media (max-width: 480px) {
-            .activation-container { padding: 1.8rem; }
+            .activation-container {
+                padding: 1.8rem;
+            }
         }
     </style>
-</head>
 
+</head>
 <body>
 
 <div class="activation-container">
@@ -203,37 +186,14 @@
         <div id="indicatorBox">
             <label>Select Your Indicators</label>
 
-            <div class="indicator-grid">
+            <div class="pill-container">
 
-                <div class="indicator-card" data-value="FusionPredict">
-                    <span class="label">FusionPredict</span>
-                    <span class="checkbox"></span>
-                </div>
-
-                <div class="indicator-card" data-value="FusionTrend">
-                    <span class="label">FusionTrend</span>
-                    <span class="checkbox"></span>
-                </div>
-
-                <div class="indicator-card" data-value="FusionReversal">
-                    <span class="label">FusionReversal</span>
-                    <span class="checkbox"></span>
-                </div>
-
-                <div class="indicator-card" data-value="FusionFlex">
-                    <span class="label">FusionFlex</span>
-                    <span class="checkbox"></span>
-                </div>
-
-                <div class="indicator-card" data-value="FusionConfluence">
-                    <span class="label">FusionConfluence</span>
-                    <span class="checkbox"></span>
-                </div>
-
-                <div class="indicator-card" data-value="FusionScorer">
-                    <span class="label">FusionScorer</span>
-                    <span class="checkbox"></span>
-                </div>
+                <div class="pill" data-value="FusionPredict">FusionPredict</div>
+                <div class="pill" data-value="FusionTrend">FusionTrend</div>
+                <div class="pill" data-value="FusionReversal">FusionReversal</div>
+                <div class="pill" data-value="FusionFlex">FusionFlex</div>
+                <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
+                <div class="pill" data-value="FusionScorer">FusionScorer</div>
 
             </div>
 
@@ -241,6 +201,7 @@
         </div>
 
         <button type="submit" class="submit-btn">Activate My Access</button>
+
     </form>
 
     <div class="success-box" id="successBox">
@@ -255,41 +216,39 @@
 
 
 <script>
-    function setLimit(plan) {
+    function planLimit(plan) {
         if (plan === "starter") return 2;
         if (plan === "pro") return 4;
         if (plan === "master") return 6;
         return 0;
     }
 
-    function updatePlanUI() {
+    function updateUI() {
         const plan = document.getElementById("plan").value;
-        const box = document.getElementById("indicatorBox");
-        document.getElementById("indicatorLimit").textContent = setLimit(plan);
+        const limit = planLimit(plan);
+        document.getElementById("indicatorLimit").textContent = limit;
 
-        if (plan === "master") {
-            box.style.display = "none";
-        } else {
-            box.style.display = "block";
-        }
+        const box = document.getElementById("indicatorBox");
+        box.style.display = plan === "master" ? "none" : "block";
     }
 
-    document.getElementById("plan").addEventListener("change", updatePlanUI);
-    updatePlanUI();
+    document.getElementById("plan").addEventListener("change", updateUI);
+    updateUI();
 
-    document.querySelectorAll(".indicator-card").forEach(card => {
-        card.addEventListener("click", () => {
+    document.querySelectorAll(".pill").forEach(pill => {
+        pill.addEventListener("click", () => {
             const plan = document.getElementById("plan").value;
-            const limit = setLimit(plan);
+            const limit = planLimit(plan);
 
-            const selected = document.querySelectorAll(".indicator-card.active").length;
-
-            if (!card.classList.contains("active") && selected >= limit) {
-                alert(`You may select up to ${limit} indicators.`);
-                return;
+            if (!pill.classList.contains("active")) {
+                const selected = document.querySelectorAll(".pill.active").length;
+                if (selected >= limit) {
+                    alert(`You may select up to ${limit} indicators.`);
+                    return;
+                }
             }
 
-            card.classList.toggle("active");
+            pill.classList.toggle("active");
         });
     });
 
@@ -297,7 +256,7 @@
         e.preventDefault();
 
         const plan = document.getElementById("plan").value;
-        let indicators = [];
+        let indicators;
 
         if (plan === "master") {
             indicators = [
@@ -309,8 +268,8 @@
                 "FusionScorer"
             ];
         } else {
-            indicators = Array.from(document.querySelectorAll(".indicator-card.active"))
-                .map(card => card.getAttribute("data-value"));
+            indicators = Array.from(document.querySelectorAll(".pill.active"))
+                .map(p => p.getAttribute("data-value"));
         }
 
         const payload = {
@@ -332,7 +291,7 @@
                 document.getElementById("errorBox").style.display = "none";
             } else throw new Error();
 
-        } catch {
+        } catch (err) {
             document.getElementById("errorBox").style.display = "block";
             document.getElementById("successBox").style.display = "none";
         }
