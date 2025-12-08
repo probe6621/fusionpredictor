@@ -1,547 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - FusionPredictor</title>
-    <meta name="description" content="Get help with FusionPredictor indicators. Contact our support team or browse our FAQ.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Rewardful Affiliate Tracking -->
-    <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
-    <script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_API_KEY'></script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <title>FusionPredictor – Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact FusionPredictor support for help with subscriptions, TradingView access, billing, or technical issues." />
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
-            color: #e0e0e0;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #0b0e11;
+      color: #f3f3f3;
+    }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b0e11;
+      border-bottom: 1px solid #1d2229;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
+    nav a {
+      color: #c8d1e0;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #06b6d4;
+    }
 
-        .logo img {
-            height: 36px;
-            width: auto;
-        }
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #13171d;
+      border-radius: 12px;
+      border: 1px solid #1e232c;
+    }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-        }
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #06b6d4;
+      text-align: center;
+    }
 
-        .logo-text span {
-            color: #00d4aa;
-        }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #d2dae5;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1px solid #2a313d;
+      background: #0f1318;
+      color: #f3f3f3;
+      font-size: 15px;
+    }
 
-        .nav-links a {
-            color: #b0b0b0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    textarea {
+      height: 140px;
+      resize: vertical;
+    }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #00d4aa;
-        }
+    button {
+      width: 100%;
+      margin-top: 30px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      background: #06b6d4;
+      border: none;
+      border-radius: 8px;
+      color: #0b0e11;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0bd1f3;
+    }
 
-        .nav-links .btn-nav {
-            background: #00d4aa;
-            color: #0a0a0f;
-            padding: 0.6rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-        }
+    .alert {
+      display: none;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      text-align: center;
+    }
 
-        .nav-links .btn-nav:hover {
-            background: #00eabb;
-            color: #0a0a0f;
-        }
+    .alert-success {
+      background: #0d3b28;
+      color: #78f0b1;
+    }
 
-        /* Header */
-        .page-header {
-            text-align: center;
-            padding: 4rem 5% 2rem;
-        }
-
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .page-header p {
-            color: #808080;
-            font-size: 1.1rem;
-        }
-
-        /* Main Content */
-        .support-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 2.5rem;
-        }
-
-        .contact-section h2 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-section .subtitle {
-            color: #808080;
-            margin-bottom: 2rem;
-        }
-
-        .email-box {
-            background: rgba(0, 212, 170, 0.1);
-            border: 1px solid rgba(0, 212, 170, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .email-box p {
-            color: #a0a0a0;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .email-box a {
-            color: #00d4aa;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .email-box a:hover {
-            text-decoration: underline;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: #c0c0c0;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #00d4aa;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #606060;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: linear-gradient(135deg, #00d4aa, #00a885);
-            color: #0a0a0f;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
-        }
-
-        .form-note {
-            text-align: center;
-            margin-top: 1rem;
-            color: #606060;
-            font-size: 0.85rem;
-        }
-
-        /* FAQ Section */
-        .faq-section h2 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .faq-item {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.25rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .faq-question:hover {
-            background: rgba(255,255,255,0.03);
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: #00d4aa;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            padding: 0 1.25rem 1.25rem;
-            color: #a0a0a0;
-            font-size: 0.95rem;
-        }
-
-        /* Success/Error Messages */
-        .form-message {
-            display: none;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .form-message.success {
-            background: rgba(0, 212, 170, 0.15);
-            color: #00d4aa;
-            border: 1px solid rgba(0, 212, 170, 0.3);
-        }
-
-        .form-message.error {
-            background: rgba(255, 100, 100, 0.15);
-            color: #ff6b6b;
-            border: 1px solid rgba(255, 100, 100, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem 5%;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            color: #808080;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #00d4aa;
-        }
-
-        .footer-copy {
-            color: #606060;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .support-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    .alert-error {
+      background: #3b0d0d;
+      color: #ff9a9a;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <a href="./index.html" class="logo">
-            <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor">
-            <span class="logo-text">Fusion<span>Predictor</span></span>
-        </a>
-        <div class="nav-links">
-            <a href="./pricing.html">Pricing</a>
-            <a href="./support.html" class="active">Support</a>
-            <a href="./my-account.html">My Account</a>
-            <a href="./pricing.html" class="btn-nav">Subscribe</a>
-        </div>
-    </nav>
 
-    <section class="page-header">
-        <h1>How Can We Help?</h1>
-        <p>Get support for your FusionPredictor indicators</p>
-    </section>
+<header>
+  <div>
+    <a href="/index.html">
+      <img src="/assets/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" height="34">
+    </a>
+  </div>
 
-    <div class="support-content">
-        <!-- Contact Form -->
-        <div class="contact-section">
-            <h2>Contact Us</h2>
-            <p class="subtitle">We typically respond within 24 hours</p>
+  <nav>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/support.html">Support</a>
+    <a href="/my-account.html">My Account</a>
+  </nav>
+</header>
 
-            <div class="email-box">
-                <p>Email us directly at</p>
-                <a href="/cdn-cgi/l/email-protection#e5969095958a9791a58390968c8a8b959780818c86918a97cb868a88"><span class="__cf_email__" data-cfemail="84f7f1f4f4ebf6f0c4e2f1f7edebeaf4f6e1e0ede7f0ebf6aae7ebe9">[email&#160;protected]</span></a>
-            </div>
+<div class="container">
+  <h1>Contact Support</h1>
 
-            <div class="form-message success" id="successMsg">
-                ✓ Message sent! We'll get back to you soon.
-            </div>
+  <p style="text-align:center; color:#c8d1e0; margin-bottom:25px;">
+    We're here to help with anything — billing, TradingView access, technical issues, or account questions.
+  </p>
 
-            <div class="form-message error" id="errorMsg">
-                Something went wrong. Please email us directly.
-            </div>
+  <!-- SUCCESS / ERROR BANNERS -->
+  <div id="success" class="alert alert-success">Your message has been sent! We'll get back to you shortly.</div>
+  <div id="error" class="alert alert-error">Something went wrong. Please try again.</div>
 
-            <form id="supportForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
-                <input type="hidden" name="subject" value="FusionPredictor Support Request">
-                <input type="hidden" name="from_name" value="FusionPredictor Support">
+  <!-- SUPPORT FORM -->
+  <form id="supportForm" action="https://api.web3forms.com/submit" method="POST">
 
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your name">
-                </div>
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com">
-                </div>
+    <!-- Redirect disabled (we'll handle locally) -->
+    <input type="hidden" name="redirect" value="">
 
-                <div class="form-group">
-                    <label for="topic">Topic</label>
-                    <select id="topic" name="topic" required>
-                        <option value="">Select a topic...</option>
-                        <option value="indicator-access">Indicator Access Issue</option>
-                        <option value="technical">Technical Question</option>
-                        <option value="billing">Billing & Subscription</option>
-                        <option value="cancel">Cancel Subscription</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+    <label>Your Name</label>
+    <input type="text" name="name" required>
 
-                <div class="form-group">
-                    <label for="tvUsername">TradingView Username (if applicable)</label>
-                    <input type="text" id="tvUsername" name="tv_username" placeholder="Your TradingView username">
-                </div>
+    <label>Your Email</label>
+    <input type="email" name="email" required>
 
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Describe your issue or question..."></textarea>
-                </div>
+    <label>Subject</label>
+    <input type="text" name="subject" required>
 
-                <button type="submit" class="btn-submit">Send Message</button>
-                <p class="form-note">Or email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f0c0a0f0f100d0b3f190a0c1610110f0d1a1b161c0b100d511c1012">[email&#160;protected]</a> directly</p>
-            </form>
-        </div>
+    <label>Message</label>
+    <textarea name="message" required></textarea>
 
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
 
-            <div class="faq-item">
-                <div class="faq-question">How do I access my indicators after purchase?</div>
-                <div class="faq-answer">
-                    <p>After completing your purchase, your TradingView username is automatically granted access to your indicators. This usually happens within 5-10 minutes. Search for "FusionPredict" (or other indicator names) in TradingView's indicator search, and you should see them with an "Invite-only" label.</p>
-                </div>
-            </div>
+<script>
+  const form = document.getElementById("supportForm");
+  const success = document.getElementById("success");
+  const error = document.getElementById("error");
 
-            <div class="faq-item">
-                <div class="faq-question">I can't find my indicators on TradingView</div>
-                <div class="faq-answer">
-                    <p>Make sure you're searching in TradingView's Indicators panel (not Scripts). If you still can't find them, double-check that the TradingView username you provided during checkout matches your actual TradingView account. Contact support with your email and username for assistance.</p>
-                </div>
-            </div>
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-            <div class="faq-item">
-                <div class="faq-question">Can I change my TradingView username?</div>
-                <div class="faq-answer">
-                    <p>Yes! Contact support with your current email, old TradingView username, and new TradingView username. We'll update your access within 24 hours.</p>
-                </div>
-            </div>
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
-            <div class="faq-item">
-                <div class="faq-question">How do I cancel my subscription?</div>
-                <div class="faq-answer">
-                    <p>Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3c0c6c3c3dcc1c7f3d5c6c0dadcddc3c1d6d7dad0c7dcc19dd0dcde">[email&#160;protected]</a> with your account email and we'll process your cancellation. You'll retain access until the end of your current billing period. No questions asked.</p>
-                </div>
-            </div>
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
 
-            <div class="faq-item">
-                <div class="faq-question">Can I upgrade or downgrade my plan?</div>
-                <div class="faq-answer">
-                    <p>Yes! Contact support to change your plan. Upgrades take effect immediately with prorated billing. Downgrades take effect at your next billing cycle.</p>
-                </div>
-            </div>
+      if (res.ok) {
+        success.style.display = "block";
+        error.style.display = "none";
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      success.style.display = "none";
+      error.style.display = "block";
+    }
+  });
+</script>
 
-            <div class="faq-item">
-                <div class="faq-question">Do indicators work on all markets?</div>
-                <div class="faq-answer">
-                    <p>Yes! FusionPredictor indicators work on any market available on TradingView—stocks, crypto, forex, futures, and more. They're optimized for timeframes from 1-minute to daily charts.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">What's the refund policy?</div>
-                <div class="faq-answer">
-                    <p>We offer a 14-day money-back guarantee. If you're not satisfied within the first 14 days, contact support for a full refund—no questions asked.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Do I need TradingView Pro?</div>
-                <div class="faq-answer">
-                    <p>The free TradingView plan works, but has limitations on alerts. We recommend TradingView Pro+ or higher if you want to use multiple alerts across different assets.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="./technology.html">Technology</a>
-                <a href="./pricing.html">Pricing</a>
-                <a href="./support.html">Support</a>
-                <a href="./affiliates.html">Affiliates</a>
-            </div>
-            <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const wasActive = item.classList.contains('active');
-                
-                // Close all
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                
-                // Open clicked (if it wasn't already open)
-                if (!wasActive) {
+</body>
+</html>
