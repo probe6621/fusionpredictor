@@ -4,466 +4,574 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - FusionPredictor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --cyan: #00E7F7;
-            --cyan-glow: rgba(0, 231, 247, 0.3);
-            --dark-bg: #0A0E1A;
-            --card-bg: #131827;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0AEC0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
         }
-
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-
-        /* NAVIGATION */
+        
+        /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.25rem;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ffd5;
             text-decoration: none;
         }
-
-        .logo-icon { width: 36px; height: 36px; }
-
+        
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-
+        
         .nav-links a {
-            color: var(--text-secondary);
+            color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s;
             font-weight: 500;
+            transition: color 0.3s;
         }
-
-        .nav-links a:hover { color: var(--cyan); }
-
-        .cta-button {
-            background: var(--cyan);
-            color: var(--dark-bg);
+        
+        .nav-links a:hover {
+            color: #00ffd5;
+        }
+        
+        .btn-nav {
+            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            color: #000;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
-            transition: 0.3s;
             text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .cta-button:hover {
+        
+        .btn-nav:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
+            box-shadow: 0 10px 30px rgba(0, 255, 213, 0.3);
+            color: #000;
         }
-
-        /* HERO */
-        .hero {
-            margin-top: 80px;
-            padding: 4rem 2rem;
-            text-align: center;
-            background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
-        }
-
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
-
-        /* PRICING GRID */
-        .pricing-section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 4rem 2rem;
         }
-
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+        
+        /* Pricing Cards */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
-
+        
         .pricing-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 231, 247, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 2.5rem;
-            padding-bottom: 3.5rem;
-            transition: 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
+        
         .pricing-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--cyan);
-            box-shadow: 0 20px 40px var(--cyan-glow);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 255, 213, 0.1);
         }
-
-        .pricing-card.popular { border-color: var(--cyan); border-width: 2px; }
-
-        .popular-badge {
+        
+        .pricing-card.featured {
+            border-color: #00ffd5;
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            color: #000;
+            padding: 0.25rem 1rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
-            z-index: 5;
         }
-
-        .plan-name { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--cyan); }
-        .plan-description { color: var(--text-secondary); margin-bottom: 1.5rem; }
-
-        .feature-badge {
-            display: inline-block;
-            background: rgba(0, 231, 247, 0.1);
-            color: var(--cyan);
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin-left: 0.5rem;
-            border: 1px solid rgba(0, 231, 247, 0.2);
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #00ffd5;
         }
-
-        .price { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .price-period { color: var(--text-secondary); margin-bottom: 2rem; }
-
-        ul.features-list { list-style: none; margin-bottom: 2rem; }
-        .features-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
-            color: var(--text-secondary);
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
-        .features-list li:last-child { border-bottom: none; }
-
-        .features-list li::before {
-            content: "✓";
-            color: var(--cyan);
-            font-weight: bold;
-            margin-right: 0.75rem;
-        }
-
-        /* BUTTON STYLE */
-        .select-button {
-            display: block;
-            width: calc(100% - 40px);
-            margin: 0 auto;
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
+        
+        .plan-price span {
             font-size: 1rem;
-            transition: 0.3s;
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
+            color: #aaa;
+            font-weight: 400;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .plan-features .check {
+            color: #00ffd5;
+            font-weight: bold;
+        }
+        
+        .btn-subscribe {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             border: none;
-            cursor: pointer;
-        }
-
-        .select-button:hover {
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
-        }
-
-        /* GUARANTEE */
-        .guarantee-section {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 231, 247, 0.1);
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .guarantee-section h3 { color: var(--cyan); margin-bottom: 1rem; }
-        .guarantee-section p { color: var(--text-secondary); }
-
-        /* FOOTNOTES */
-        .footnotes-section {
-            background: rgba(0, 231, 247, 0.03);
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 231, 247, 0.1);
-            margin-bottom: 4rem;
-        }
-
-        .footnotes-section h3 {
-            color: var(--cyan);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .footnote { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0, 231, 247, 0.1); }
-        .footnote:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-
-        .footnote h4 { color: var(--cyan); margin-bottom: 0.75rem; }
-
-        /* FAQ */
-        .faq-section { max-width: 800px; margin: 0 auto 4rem; }
-        .faq-item {
-            background: var(--card-bg);
-            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(0, 231, 247, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            color: #000;
         }
-        .faq-item h3 { color: var(--cyan); margin-bottom: 0.75rem; }
-        .faq-item p { color: var(--text-secondary); }
-
-        footer {
-            background: var(--card-bg);
-            border-top: 1px solid rgba(0, 231, 247, 0.1);
-            padding: 3rem 2rem;
+        
+        .btn-subscribe:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 213, 0.3);
+        }
+        
+        .btn-subscribe:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background: rgba(0, 255, 213, 0.1);
+            border: 1px solid rgba(0, 255, 213, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .guarantee h3 {
+            color: #00ffd5;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Notes Section */
+        .notes {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        
+        .notes h3 {
+            color: #00ffd5;
+            margin-bottom: 1rem;
             text-align: center;
         }
-
-        footer p { color: var(--text-secondary); }
+        
+        .notes ul {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .notes li {
+            margin-bottom: 0.75rem;
+            color: #aaa;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+        
+        /* Modal for TradingView username */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #1a1a2e;
+            border: 1px solid rgba(0, 255, 213, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .modal-content h3 {
+            color: #00ffd5;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-content p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-content input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-content input:focus {
+            outline: none;
+            border-color: #00ffd5;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .modal-buttons button {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+        
+        .btn-confirm {
+            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            border: none;
+            color: #000;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-
 <body>
-
-    <!-- NAV -->
     <nav>
-        <div class="nav-container">
-            <a href="./index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100">
-                    <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#00E7F7;" />
-                        <stop offset="100%" style="stop-color:#00B8C4;" />
-                    </linearGradient></defs>
-                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2"/>
-                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5"/>
-                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3"/>
-                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
-                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
-                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
-                </svg>
-                <span>FusionPredictor</span>
-            </a>
-
-            <div class="nav-links">
-                <a href="./index.html">Products</a>
-                <a href="./technology.html">Technology</a>
-                <a href="./request-invite.html" class="cta-button">Request Invite</a>
-            </div>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">~</span>
+            <span>FusionPredictor</span>
+        </a>
+        <div class="nav-links">
+            <a href="products.html">Products</a>
+            <a href="technology.html">Technology</a>
+            <a href="pricing.html" class="btn-nav">Request Invite</a>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Simple, Transparent Pricing</h1>
-        <p>Choose the bundle that fits your trading style. All plans include TradingView compatibility.</p>
-    </section>
-
-    <!-- PRICING GRID -->
-    <section class="pricing-section">
+    <main>
+        <div class="page-header">
+            <h1>Choose Your Plan</h1>
+            <p>Unlock institutional-grade trading signals</p>
+        </div>
+        
         <div class="pricing-grid">
-
-            <!-- STARTER -->
+            <!-- Starter -->
             <div class="pricing-card">
-                <h2 class="plan-name">Starter Bundle</h2>
-                <p class="plan-description">Pick any 2 indicators <span class="feature-badge">Beginner Friendly</span></p>
-                <div class="price">$45</div>
-                <div class="price-period">per month</div>
-
-                <ul class="features-list">
-                    <li>Choose any 2 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Cancel anytime</li>
+                <div class="plan-name">Starter Bundle</div>
+                <div class="plan-price">$45<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Choose any 2 indicators</li>
+                    <li><span class="check">✓</span> TradingView compatible</li>
+                    <li><span class="check">✓</span> Works on all markets</li>
+                    <li><span class="check">✓</span> Real-time alerts</li>
+                    <li><span class="check">✓</span> Cancel anytime</li>
                 </ul>
-
-                <button class="select-button" onclick="startCheckout('starter')">
+                <button class="btn-subscribe" data-plan="starter" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N">
                     Subscribe – $45/mo
                 </button>
             </div>
-
-            <!-- PRO -->
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-
-                <h2 class="plan-name">Pro Bundle</h2>
-                <p class="plan-description">Pick any 4 indicators <span class="feature-badge">Trader Favorite</span></p>
-                <div class="price">$75</div>
-                <div class="price-period">per month</div>
-
-                <ul class="features-list">
-                    <li>Choose any 4 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Priority support</li>
-                    <li>Cancel anytime</li>
+            
+            <!-- Pro -->
+            <div class="pricing-card featured">
+                <div class="plan-name">Pro Bundle</div>
+                <div class="plan-price">$75<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> Choose any 4 indicators</li>
+                    <li><span class="check">✓</span> TradingView compatible</li>
+                    <li><span class="check">✓</span> Works on all markets</li>
+                    <li><span class="check">✓</span> Real-time alerts</li>
+                    <li><span class="check">✓</span> Priority support</li>
+                    <li><span class="check">✓</span> Cancel anytime</li>
                 </ul>
-
-                <button class="select-button" onclick="startCheckout('pro')">
+                <button class="btn-subscribe" data-plan="pro" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52">
                     Subscribe – $75/mo
                 </button>
             </div>
-
-            <!-- MASTER -->
+            
+            <!-- Master -->
             <div class="pricing-card">
-                <h2 class="plan-name">Master Suite</h2>
-                <p class="plan-description">All 6 indicators included <span class="feature-badge">Full Access</span></p>
-                <div class="price">$145</div>
-                <div class="price-period">per month</div>
-
-                <ul class="features-list">
-                    <li>All 6 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Priority support</li>
-                    <li>Early access to new tools</li>
-                    <li>Cancel anytime</li>
+                <div class="plan-name">Master Suite</div>
+                <div class="plan-price">$145<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> All 6 indicators</li>
+                    <li><span class="check">✓</span> TradingView compatible</li>
+                    <li><span class="check">✓</span> Works on all markets</li>
+                    <li><span class="check">✓</span> Real-time alerts</li>
+                    <li><span class="check">✓</span> Priority support</li>
+                    <li><span class="check">✓</span> Early access to new tools</li>
+                    <li><span class="check">✓</span> Cancel anytime</li>
                 </ul>
-
-                <button class="select-button" onclick="startCheckout('master')">
+                <button class="btn-subscribe" data-plan="master" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV">
                     Subscribe – $145/mo
                 </button>
             </div>
-
         </div>
-
-        <!-- GUARANTEE -->
-        <div class="guarantee-section">
+        
+        <div class="guarantee">
             <h3>14-Day Money-Back Guarantee</h3>
             <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
         </div>
-
-        <!-- NOTES -->
-        <div class="footnotes-section">
+        
+        <div class="notes">
             <h3>Important Product Notes</h3>
-
-            <div class="footnote">
-                <h4>FusionPredict</h4>
-                <p><strong>Timeframe Behavior:</strong> Lower-timeframe projections behave with near real-time responsiveness, while higher intervals offer strong directional context.</p>
-                <p><strong>Volatility Considerations:</strong> FusionPredict excels in calm/moderate volatility. In extreme movement, price may seek liquidity first before reverting.</p>
-                <p><strong>Alignment Advantage:</strong> When all TFs align directionally, entries become significantly cleaner.</p>
-                <p><strong>Trending Caveat:</strong> Strong trends may delay or extend target reach.</p>
-            </div>
-
-            <div class="footnote">
-                <h4>FusionTrend</h4>
-                <p>Trade pullbacks in the direction of the higher timeframe. Adjust HTF in indicator settings.</p>
-            </div>
-
-            <div class="footnote">
-                <h4>FusionReversal</h4>
-                <p>Overbought/oversold conditions can persist during strong trends. Use with broader structure awareness.</p>
-            </div>
-
+            <ul>
+                <li>Indicators are delivered as invite-only TradingView scripts within 24 hours of purchase.</li>
+                <li>You'll need a TradingView account (free tier works, but Pro+ recommended for more alerts).</li>
+                <li>Subscriptions are billed monthly and can be cancelled anytime from your Stripe portal.</li>
+                <li>After subscribing, you'll receive an email with setup instructions and your indicator access.</li>
+            </ul>
         </div>
+    </main>
 
-        <!-- FAQ -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <h3>Which platform do these indicators work on?</h3>
-                <p>All FusionPredictor indicators run on TradingView. Both free and paid TradingView accounts are supported.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What markets can I trade with these indicators?</h3>
-                <p>FusionPredictor works on stocks, crypto, forex, futures, commodities—anything TradingView displays.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I cancel my subscription?</h3>
-                <p>Yes. You may cancel any time and maintain access until the current billing cycle ends.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I upgrade between plans?</h3>
-                <p>Yes. Stripe automatically prorates plan upgrades.</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
     </footer>
 
-    <!-- REFERRAL TRACKING LOADER -->
-    <script src="assets/fusion_ref.js"></script>
+    <!-- TradingView Username Modal -->
+    <div class="modal" id="usernameModal">
+        <div class="modal-content">
+            <h3>Enter Your TradingView Username</h3>
+            <p>We need your TradingView username to grant access to your indicators after purchase.</p>
+            <input type="text" id="tvUsername" placeholder="Your TradingView username" />
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-confirm" id="confirmBtn" onclick="proceedToCheckout()">Continue to Checkout</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- CHECKOUT LOGIC -->
     <script>
-    async function startCheckout(plan) {
-        const ref = window.getFusionRef ? window.getFusionRef() : null;
+        const API_BASE = 'https://api.fusionpredictor.com';
+        let selectedPriceId = null;
+        let selectedPlan = null;
 
-        const priceMap = {
-            starter: "price_1Sbx58C8ubNLiCPcuh1xod9N",
-            pro:     "price_1Sbx68C8ubNLiCPcxUzZWB52",
-            master:  "price_1Sbx6uC8ubNLiCPc7kM9VbhV"
-        };
-
-        const price_id = priceMap[plan];
-
-        const res = await fetch("https://api.fusionpredictor.com/create-checkout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ price_id, ref })
+        // Add click handlers to all subscribe buttons
+        document.querySelectorAll('.btn-subscribe').forEach(button => {
+            button.addEventListener('click', function() {
+                selectedPriceId = this.dataset.price;
+                selectedPlan = this.dataset.plan;
+                openModal();
+            });
         });
 
-        const data = await res.json();
-
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            alert("Checkout session failed.");
+        function openModal() {
+            document.getElementById('usernameModal').classList.add('active');
+            document.getElementById('tvUsername').focus();
         }
-    }
-    </script>
 
+        function closeModal() {
+            document.getElementById('usernameModal').classList.remove('active');
+            document.getElementById('tvUsername').value = '';
+            selectedPriceId = null;
+            selectedPlan = null;
+        }
+
+        async function proceedToCheckout() {
+            const username = document.getElementById('tvUsername').value.trim();
+            
+            if (!username) {
+                alert('Please enter your TradingView username');
+                return;
+            }
+
+            const confirmBtn = document.getElementById('confirmBtn');
+            confirmBtn.disabled = true;
+            confirmBtn.innerHTML = '<span class="spinner"></span>Processing...';
+
+            try {
+                const response = await fetch(`${API_BASE}/create-checkout`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        price_id: selectedPriceId,
+                        tv_username: username,
+                        ref: getRefCode()
+                    })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Failed to create checkout session');
+                }
+
+                const data = await response.json();
+                
+                if (data.url) {
+                    // Redirect to Stripe Checkout
+                    window.location.href = data.url;
+                } else {
+                    throw new Error('No checkout URL received');
+                }
+            } catch (error) {
+                console.error('Checkout error:', error);
+                alert('Error: ' + error.message);
+                confirmBtn.disabled = false;
+                confirmBtn.innerHTML = 'Continue to Checkout';
+            }
+        }
+
+        function getRefCode() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('ref') || null;
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('usernameModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Enter key submits
+        document.getElementById('tvUsername').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                proceedToCheckout();
+            }
+        });
+    </script>
 </body>
 </html>
