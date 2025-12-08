@@ -441,11 +441,10 @@
     async function startCheckout(plan) {
         const ref = window.getFusionRef ? window.getFusionRef() : null;
 
-        // STRIPE PRICE IDS WILL BE FILLED IN NEXT STEP
         const priceMap = {
-            starter: "price_STARTER_REPLACE_ME",
-            pro:     "price_PRO_REPLACE_ME",
-            master:  "price_MASTER_REPLACE_ME"
+            starter: "price_1Sbx58C8ubNLiCPcuh1xod9N",
+            pro:     "price_1Sbx68C8ubNLiCPcxUzZWB52",
+            master:  "price_1Sbx6uC8ubNLiCPc7kM9VbhV"
         };
 
         const price_id = priceMap[plan];
