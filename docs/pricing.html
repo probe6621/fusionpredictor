@@ -1,617 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - FusionPredictor</title>
-    <meta name="description" content="Choose your FusionPredictor plan. Professional trading indicators for TradingView starting at $45/month.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Rewardful Affiliate Tracking -->
-    <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
-    <script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_API_KEY'></script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing – FusionPredictor Trading Indicators</title>
+  <meta name="description" content="Choose your FusionPredictor plan. Get institutional-grade trading indicators for TradingView starting at $45/month.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Rewardful Affiliate Tracking -->
+  <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
+  <style>
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1419;
+      --bg-card: #141a22;
+      --bg-card-hover: #1a222c;
+      --cyan: #00e7f7;
+      --cyan-dim: #00b8c5;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --gold: #ffaa00;
+      --text-primary: #f0f4f8;
+      --text-secondary: #8b9bb4;
+      --text-muted: #5a6a7e;
+      --border: rgba(0, 231, 247, 0.12);
+      --border-hover: rgba(0, 231, 247, 0.25);
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
-            color: #e0e0e0;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-        .logo img {
-            height: 32px;
-            width: auto;
-        }
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(10, 13, 18, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .logo span {
-            color: #00d4aa;
-        }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
 
-        .nav-links a {
-            color: #b0b0b0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .logo-mark { width: 42px; height: 42px; }
 
-        .nav-links a:hover {
-            color: #00d4aa;
-        }
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
 
-        .nav-links a.active {
-            color: #00d4aa;
-        }
+    .logo-text span { color: var(--cyan); }
 
-        /* Header */
-        .page-header {
-            text-align: center;
-            padding: 4rem 5% 2rem;
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-        .page-header p {
-            color: #808080;
-            font-size: 1.1rem;
-        }
+    nav a:hover, nav a.active { color: var(--cyan); }
 
-        /* Pricing Grid */
-        .pricing-section {
-            padding: 2rem 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .btn-nav {
+      background: var(--cyan);
+      color: var(--bg-primary) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    /* Page Hero */
+    .page-hero {
+      padding: 9rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
 
-        .pricing-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
-        }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
 
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 170, 0.3);
-        }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
 
-        .pricing-card.featured {
-            border-color: #00d4aa;
-            position: relative;
-        }
+    .page-hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+    }
 
-        .pricing-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #00d4aa, #00a885);
-            color: #0a0a0f;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+    /* Pricing Grid */
+    .pricing-section {
+      padding: 2rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .pricing-card h3 {
-            color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #00d4aa;
-            margin-bottom: 0.25rem;
-        }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
 
-        .price-period {
-            color: #808080;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
+    .pricing-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
 
-        .features-list {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 2rem;
-        }
+    .pricing-card.featured {
+      border-color: var(--cyan);
+      box-shadow: 0 0 40px var(--cyan-glow);
+    }
 
-        .features-list li {
-            padding: 0.6rem 0;
-            color: #c0c0c0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    .pricing-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cyan);
+      color: var(--bg-primary);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      letter-spacing: 0.05em;
+    }
 
-        .features-list li::before {
-            content: '✓';
-            color: #00d4aa;
-            font-weight: 700;
-        }
+    .pricing-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
 
-        .btn-subscribe {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #00d4aa, #00a885);
-            color: #0a0a0f;
-            padding: 1rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .price {
+      font-size: 3.5rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan);
+      line-height: 1;
+    }
 
-        .btn-subscribe:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
-        }
+    .price-period {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
 
-        /* Info Sections */
-        .info-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-        }
+    .features-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
 
-        .guarantee-box {
-            background: linear-gradient(145deg, rgba(0, 212, 170, 0.1), rgba(0, 212, 170, 0.05));
-            border: 1px solid rgba(0, 212, 170, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    .features-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
 
-        .guarantee-box h3 {
-            color: #00d4aa;
-            margin-bottom: 0.75rem;
-        }
+    .features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 600;
+    }
 
-        .guarantee-box p {
-            color: #a0a0a0;
-        }
+    .btn-subscribe {
+      width: 100%;
+      padding: 1rem;
+      background: var(--cyan);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 15px var(--cyan-glow);
+    }
 
-        .notes-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 2rem;
-        }
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--cyan-glow-strong);
+    }
 
-        .notes-box h3 {
-            color: #fff;
-            margin-bottom: 1rem;
-        }
+    .pricing-card.featured .btn-subscribe {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
 
-        .notes-box ul {
-            list-style: none;
-        }
+    /* Info Section */
+    .info-section {
+      padding: 3rem 2rem 5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
 
-        .notes-box li {
-            padding: 0.5rem 0;
-            color: #909090;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
 
-        .notes-box li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #00d4aa;
-        }
+    .info-box h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem 5%;
-            margin-top: 2rem;
-            text-align: center;
-        }
+    .info-box p, .info-box li {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
 
-        footer p {
-            color: #606060;
-            font-size: 0.9rem;
-        }
+    .info-box ul {
+      list-style: none;
+    }
 
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
+    .info-box li {
+      padding: 0.3rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+    .info-box li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+    }
 
-        .modal {
-            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-        }
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
 
-        .modal h3 {
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-        .modal p {
-            color: #a0a0a0;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
 
-        .modal input {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
+    .footer-links a:hover { color: var(--cyan); }
 
-        .modal input:focus {
-            outline: none;
-            border-color: #00d4aa;
-        }
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
 
-        .modal input::placeholder {
-            color: #606060;
-        }
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+    .modal-overlay.active {
+      display: flex;
+    }
 
-        .btn-cancel {
-            flex: 1;
-            padding: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            background: transparent;
-            color: #a0a0a0;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: border-color 0.3s, color 0.3s;
-        }
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+    }
 
-        .btn-cancel:hover {
-            border-color: #fff;
-            color: #fff;
-        }
+    .modal h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
 
-        .btn-confirm {
-            flex: 1;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #00d4aa, #00a885);
-            color: #0a0a0f;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+    .modal p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
 
-        .btn-confirm:hover {
-            transform: translateY(-2px);
-        }
+    .modal input {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      margin-bottom: 1rem;
+    }
 
-        .btn-confirm:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+    .modal input:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
+    .modal input::placeholder {
+      color: var(--text-muted);
+    }
 
-            .nav-links {
-                gap: 1.5rem;
-            }
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+    }
 
-            .page-header h1 {
-                font-size: 2rem;
-            }
+    .btn-cancel {
+      flex: 1;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+    .btn-cancel:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
 
-            .modal-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
+    .btn-confirm {
+      flex: 1;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      background: var(--cyan);
+      color: var(--bg-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-confirm:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-confirm:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 1rem; }
+      nav { display: none; }
+      .page-hero { padding: 7rem 1.5rem 3rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .modal-buttons { flex-direction: column; }
+    }
+  </style>
 </head>
-<!-- Rewardful Tracking - Add your API key from Rewardful dashboard -->
-<script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
-<script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_REWARDFUL_API_KEY'></script>
-
 <body>
+
+<!-- Header -->
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
     <nav>
-        <a href="./index.html" class="logo">
-            <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor">
-            Fusion<span>Predictor</span>
-        </a>
-        <div class="nav-links">
-            <a href="./pricing.html" class="active">Pricing</a>
-            <a href="./support.html">Support</a>
-            <a href="./my-account.html">My Account</a>
-        </div>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="my-account.html">My Account</a>
     </nav>
+  </div>
+</header>
 
-    <section class="page-header">
-        <h1>Choose Your Plan</h1>
-        <p>Unlock institutional-grade trading signals</p>
-    </section>
+<!-- Page Hero -->
+<section class="page-hero">
+  <h1>Choose Your Plan</h1>
+  <p>Unlock institutional-grade trading signals on TradingView</p>
+</section>
 
-    <section class="pricing-section">
-        <div class="pricing-grid">
-            <!-- Starter -->
-            <div class="pricing-card">
-                <h3>Starter Bundle</h3>
-                <div class="price">$45</div>
-                <div class="price-period">per month</div>
-                <ul class="features-list">
-                    <li>Choose any 2 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Cancel anytime</li>
-                </ul>
-                <button class="btn-subscribe" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N" data-plan="starter">
-                    Subscribe – $45/mo
-                </button>
-            </div>
+<!-- Pricing Cards -->
+<section class="pricing-section">
+  <div class="pricing-grid">
 
-            <!-- Pro -->
-            <div class="pricing-card featured">
-                <h3>Pro Bundle</h3>
-                <div class="price">$75</div>
-                <div class="price-period">per month</div>
-                <ul class="features-list">
-                    <li>Choose any 4 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Priority support</li>
-                    <li>Cancel anytime</li>
-                </ul>
-                <button class="btn-subscribe" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52" data-plan="pro">
-                    Subscribe – $75/mo
-                </button>
-            </div>
-
-            <!-- Master -->
-            <div class="pricing-card">
-                <h3>Master Suite</h3>
-                <div class="price">$145</div>
-                <div class="price-period">per month</div>
-                <ul class="features-list">
-                    <li>All 6 indicators</li>
-                    <li>TradingView compatible</li>
-                    <li>Works on all markets</li>
-                    <li>Real-time alerts</li>
-                    <li>Priority support</li>
-                    <li>Early access to new tools</li>
-                    <li>Cancel anytime</li>
-                </ul>
-                <button class="btn-subscribe" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV" data-plan="master">
-                    Subscribe – $145/mo
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section class="info-section">
-        <div class="guarantee-box">
-            <h3>14-Day Money-Back Guarantee</h3>
-            <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
-        </div>
-
-        <div class="notes-box">
-            <h3>Important Product Notes</h3>
-            <ul>
-                <li>Indicators are delivered as invite-only TradingView scripts immediately after purchase.</li>
-                <li>You'll need a TradingView account (free tier works, but Pro+ recommended for more alerts).</li>
-                <li>Subscriptions are billed monthly and can be cancelled anytime.</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 FusionPredictor. All rights reserved.</p>
-    </footer>
-
-    <!-- Username Modal -->
-    <div class="modal-overlay" id="usernameModal">
-        <div class="modal">
-            <h3>Enter Your TradingView Username</h3>
-            <p>We need your TradingView username to grant access to your indicators after purchase.</p>
-            <input type="text" id="tvUsername" placeholder="Your TradingView username" autocomplete="off">
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-                <button class="btn-confirm" id="confirmBtn" onclick="proceedToCheckout()">Continue to Checkout</button>
-            </div>
-        </div>
+    <!-- Starter -->
+    <div class="pricing-card">
+      <h3>Starter Bundle</h3>
+      <div class="price">$45</div>
+      <div class="price-period">per month</div>
+      <ul class="features-list">
+        <li>Choose any 2 indicators</li>
+        <li>TradingView compatible</li>
+        <li>Works on all markets</li>
+        <li>Real-time alerts</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <button class="btn-subscribe" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N" data-plan="starter">
+        Subscribe – $45/mo
+      </button>
     </div>
 
-    <script>
-        const API_BASE = 'https://api.fusionpredictor.com';
-        let selectedPriceId = null;
-        let selectedPlan = null;
+    <!-- Pro (Featured) -->
+    <div class="pricing-card featured">
+      <h3>Pro Bundle</h3>
+      <div class="price">$75</div>
+      <div class="price-period">per month</div>
+      <ul class="features-list">
+        <li>Choose any 4 indicators</li>
+        <li>TradingView compatible</li>
+        <li>Works on all markets</li>
+        <li>Real-time alerts</li>
+        <li>Priority support</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <button class="btn-subscribe" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52" data-plan="pro">
+        Subscribe – $75/mo
+      </button>
+    </div>
 
-        // Add click handlers to all subscribe buttons
-        document.querySelectorAll('.btn-subscribe').forEach(button => {
-            button.addEventListener('click', function() {
-                selectedPriceId = this.dataset.price;
-                selectedPlan = this.dataset.plan;
-                openModal();
-            });
-        });
+    <!-- Master -->
+    <div class="pricing-card">
+      <h3>Master Suite</h3>
+      <div class="price">$145</div>
+      <div class="price-period">per month</div>
+      <ul class="features-list">
+        <li>All 6 indicators</li>
+        <li>TradingView compatible</li>
+        <li>Works on all markets</li>
+        <li>Real-time alerts</li>
+        <li>Priority support</li>
+        <li>Early access to new tools</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <button class="btn-subscribe" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV" data-plan="master">
+        Subscribe – $145/mo
+      </button>
+    </div>
 
-        function openModal() {
-            document.getElementById('usernameModal').classList.add('active');
-            document.getElementById('tvUsername').focus();
-        }
+  </div>
+</section>
 
-        function closeModal() {
-            document.getElementById('usernameModal').classList.remove('active');
-            document.getElementById('tvUsername').value = '';
-            selectedPriceId = null;
-            selectedPlan = null;
-        }
+<!-- Info Section -->
+<section class="info-section">
+  <div class="info-box">
+    <h3>🛡️ 14-Day Money-Back Guarantee</h3>
+    <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
+  </div>
+  <div class="info-box">
+    <h3>📋 Important Notes</h3>
+    <ul>
+      <li>Indicators delivered instantly via TradingView invite</li>
+      <li>Works with free TradingView (Pro+ recommended for more alerts)</li>
+      <li>Subscriptions billed monthly, cancel anytime</li>
+    </ul>
+  </div>
+</section>
 
-        async function proceedToCheckout() {
-            const username = document.getElementById('tvUsername').value.trim();
-            
-            if (!username) {
-                alert('Please enter your TradingView username');
-                return;
-            }
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
 
-            const confirmBtn = document.getElementById('confirmBtn');
-            confirmBtn.disabled = true;
-            confirmBtn.innerHTML = 'Loading...';
+<!-- Username Modal -->
+<div class="modal-overlay" id="usernameModal">
+  <div class="modal">
+    <h3>Enter Your TradingView Username</h3>
+    <p>We need your TradingView username to grant access to your indicators after purchase.</p>
+    <input type="text" id="tvUsername" placeholder="Your TradingView username" autocomplete="off">
+    <div class="modal-buttons">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-confirm" id="confirmBtn" onclick="proceedToCheckout()">Continue to Checkout</button>
+    </div>
+  </div>
+</div>
 
-            try {
-                const response = await fetch(`${API_BASE}/create-checkout`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        price_id: selectedPriceId,
-                        tv_username: username,
-                        ref: getRefCode()
-                    })
-                });
+<script>
+  const API_BASE = 'https://api.fusionpredictor.com';
+  let selectedPriceId = null;
+  let selectedPlan = null;
 
-                if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(error.detail || 'Failed to create checkout session');
-                }
+  // Add click handlers to all subscribe buttons
+  document.querySelectorAll('.btn-subscribe').forEach(button => {
+    button.addEventListener('click', function() {
+      selectedPriceId = this.dataset.price;
+      selectedPlan = this.dataset.plan;
+      openModal();
+    });
+  });
 
-                const data = await response.json();
-                
-                if (data.url) {
-                    window.location.href = data.url;
-                } else {
-                    throw new Error('No checkout URL received');
-                }
-            } catch (error) {
-                console.error('Checkout error:', error);
-                alert('Error: ' + error.message);
-                confirmBtn.disabled = false;
-                confirmBtn.innerHTML = 'Continue to Checkout';
-            }
-        }
+  function openModal() {
+    document.getElementById('usernameModal').classList.add('active');
+    document.getElementById('tvUsername').focus();
+  }
 
-        function getRefCode() {
-            // Try Rewardful first (returns referral ID if visitor came via affiliate link)
-            if (typeof Rewardful !== 'undefined' && Rewardful.referral) {
-                return Rewardful.referral;
-            }
-            // Fallback to URL param (legacy support)
-            const params = new URLSearchParams(window.location.search);
-            return params.get('ref') || params.get('via') || null;
-        }
+  function closeModal() {
+    document.getElementById('usernameModal').classList.remove('active');
+    document.getElementById('tvUsername').value = '';
+    selectedPriceId = null;
+    selectedPlan = null;
+  }
 
-        // Close modal on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
+  async function proceedToCheckout() {
+    const username = document.getElementById('tvUsername').value.trim();
+    
+    if (!username) {
+      alert('Please enter your TradingView username');
+      return;
+    }
 
-        // Close modal on outside click
-        document.getElementById('usernameModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
+    const confirmBtn = document.getElementById('confirmBtn');
+    confirmBtn.disabled = true;
+    confirmBtn.innerHTML = 'Loading...';
 
-        // Enter key submits
-        document.getElementById('tvUsername').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                proceedToCheckout();
-            }
-        });
-    </script>
+    try {
+      const response = await fetch(`${API_BASE}/create-checkout`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          price_id: selectedPriceId,
+          tv_username: username,
+          ref: getRefCode()
+        })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.detail || 'Failed to create checkout session');
+      }
+
+      const data = await response.json();
+      
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Error: ' + error.message);
+      confirmBtn.disabled = false;
+      confirmBtn.innerHTML = 'Continue to Checkout';
+    }
+  }
+
+  function getRefCode() {
+    // Try Rewardful first
+    if (typeof Rewardful !== 'undefined' && Rewardful.referral) {
+      return Rewardful.referral;
+    }
+    // Fallback to URL param
+    const params = new URLSearchParams(window.location.search);
+    return params.get('ref') || params.get('via') || null;
+  }
+
+  // Close modal on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Close modal on outside click
+  document.getElementById('usernameModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Enter key submits
+  document.getElementById('tvUsername').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') proceedToCheckout();
+  });
+</script>
+
 </body>
 </html>
