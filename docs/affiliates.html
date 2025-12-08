@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Program - FusionPredictor</title>
+    <meta name="description" content="Earn 40% recurring commission promoting FusionPredictor trading indicators. Join our affiliate program for trading influencers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Rewardful Affiliate Tracking -->
+    <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+    <script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_API_KEY'></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo-text span {
+            color: #00d4aa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00d4aa;
+        }
+
+        .nav-links .btn-nav {
+            background: #00d4aa;
+            color: #0a0a0f;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-links .btn-nav:hover {
+            background: #00eabb;
+            color: #0a0a0f;
+        }
+
+        .affiliate-login {
+            color: #00d4aa !important;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 5% 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.15);
+            color: #00d4aa;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: #00d4aa;
+        }
+
+        .hero p {
+            color: #a0a0a0;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Commission Highlight */
+        .commission-highlight {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .commission-stat {
+            text-align: center;
+        }
+
+        .commission-stat .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #00d4aa;
+            line-height: 1;
+        }
+
+        .commission-stat .label {
+            color: #808080;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+        }
+
+        /* Program Details */
+        .program-details {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .program-details h2 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .detail-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #808080;
+        }
+
+        .detail-value {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .detail-value.highlight {
+            color: #00d4aa;
+            font-size: 1.1rem;
+        }
+
+        .terms-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .terms-section h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-list {
+            color: #808080;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .terms-list li {
+            margin-bottom: 0.5rem;
+            list-style: none;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .terms-list li::before {
+            content: "•";
+            color: #00d4aa;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Benefits */
+        .benefits {
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 212, 170, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d4aa;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .benefit-text p {
+            color: #808080;
+            font-size: 0.9rem;
+        }
+
+        /* Registration Form */
+        .registration-form {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .registration-form h2 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .registration-form .subtitle {
+            color: #808080;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            color: #c0c0c0;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #ff6b6b;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00d4aa;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #606060;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #00d4aa;
+        }
+
+        .checkbox-group label {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .checkbox-group label a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        .checkbox-group label a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            color: #0a0a0f;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success/Error Messages */
+        .form-message {
+            display: none;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .form-message.success {
+            background: rgba(0, 212, 170, 0.15);
+            color: #00d4aa;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .form-message.error {
+            background: rgba(255, 100, 100, 0.15);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step::after {
+            content: "→";
+            position: absolute;
+            right: -1.25rem;
+            top: 30px;
+            color: #404040;
+            font-size: 1.5rem;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0a0f;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #808080;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 5%;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #00d4aa;
+        }
+
+        .footer-copy {
+            color: #606060;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .commission-highlight {
+                gap: 2rem;
+            }
+
+            .commission-stat .number {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="./index.html" class="logo">
+            <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor">
+            <span class="logo-text">Fusion<span>Predictor</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="./technology.html">Technology</a>
+            <a href="./pricing.html">Pricing</a>
+            <a href="./support.html">Support</a>
+            <a href="./affiliates.html" class="active">Affiliates</a>
+            <a href="https://fusionpredictor.getrewardful.com" class="affiliate-login" target="_blank">Login →</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">AFFILIATE PROGRAM</div>
+        <h1>Earn <span class="highlight">40% Recurring</span> Commission</h1>
+        <p>Partner with FusionPredictor and earn industry-leading commissions promoting professional trading indicators to your audience.</p>
+
+        <div class="commission-highlight">
+            <div class="commission-stat">
+                <div class="number">40%</div>
+                <div class="label">Recurring Commission</div>
+            </div>
+            <div class="commission-stat">
+                <div class="number">90</div>
+                <div class="label">Day Cookie Window</div>
+            </div>
+            <div class="commission-stat">
+                <div class="number">$18-58</div>
+                <div class="label">Per Sale Monthly</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Program Details -->
+        <div class="program-details">
+            <h2>📊 Commission & Program Details</h2>
+            
+            <div class="detail-row">
+                <span class="detail-label">Commission Rate</span>
+                <span class="detail-value highlight">40% Recurring</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Commission Type</span>
+                <span class="detail-value">Percent of Sale</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Attribution Window</span>
+                <span class="detail-value">90 Days</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Conversion Action</span>
+                <span class="detail-value">Processed Payment</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Payment Method</span>
+                <span class="detail-value">Monthly Direct Deposit</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Minimum Payout</span>
+                <span class="detail-value">$50</span>
+            </div>
+
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <div class="benefit-text">
+                        <h4>Lifetime Recurring</h4>
+                        <p>Earn commission every month your referral stays subscribed</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-text">
+                        <h4>High Conversion Product</h4>
+                        <p>Indicators with 95%+ accuracy rate that traders actually use</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">
+                        <h4>Marketing Resources</h4>
+                        <p>Get banners, videos, and promotional content to share</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div class="benefit-text">
+                        <h4>Dedicated Support</h4>
+                        <p>Direct line to our team for any questions or custom campaigns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h3>Program Terms</h3>
+                <ul class="terms-list">
+                    <li><strong>60-day holdback:</strong> Commissions are held for 60 days before becoming payable to account for our 14-day refund policy and potential chargebacks</li>
+                    <li><strong>Refund reversal:</strong> If a referred customer refunds or disputes a charge, the associated commission is reversed</li>
+                    <li><strong>Attribution window:</strong> 90-day cookie means you get credit for sales up to 90 days after someone clicks your link</li>
+                    <li><strong>Monthly payouts:</strong> Approved commissions are paid monthly (minimum $50)</li>
+                    <li><strong>Month-to-month:</strong> Either party may terminate with 30 days notice; you keep commissions already earned</li>
+                    <li><strong>No false claims:</strong> Do not guarantee profits or make misleading performance claims</li>
+                    <li><strong>Ethical marketing:</strong> Content must be honest and comply with platform rules</li>
+                    <li><strong>No paid ads:</strong> Google/Facebook/TikTok paid ads promoting FusionPredictor are not permitted</li>
+                    <li><strong>Confidentiality:</strong> Do not disclose subscriber data, internal metrics, or proprietary technology</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="registration-form">
+            <h2>Apply to Join</h2>
+            <p class="subtitle">Fill out the form below and we'll review your application within 48 hours.</p>
+
+            <div class="form-message success" id="successMsg">
+                ✓ Application submitted! We'll review and get back to you within 48 hours.
+            </div>
+
+            <div class="form-message error" id="errorMsg">
+                Something went wrong. Please email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70111616191c191104150330160503191f1e000215141913041f025e131f1d">[email&#160;protected]</a> directly.
+            </div>
+
+            <form id="affiliateForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
+                <input type="hidden" name="subject" value="New Affiliate Application - FusionPredictor">
+                <input type="hidden" name="from_name" value="FusionPredictor Affiliates">
+                <input type="hidden" name="redirect" value="https://fusionpredictor.com/affiliates.html?success=true">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span class="required">*</span></label>
+                        <input type="text" name="first_name" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span class="required">*</span></label>
+                        <input type="text" name="last_name" required placeholder="Smith">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" name="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Website or Social Media URL <span class="required">*</span></label>
+                    <input type="url" name="website" required placeholder="https://youtube.com/c/yourchannel">
+                </div>
+
+                <div class="form-group">
+                    <label>How will you promote FusionPredictor? <span class="required">*</span></label>
+                    <textarea name="promotion_method" required placeholder="Describe your promotional strategy - YouTube videos, social media posts, blog reviews, Discord community, etc."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Primary Audience Location</label>
+                        <select name="audience_location">
+                            <option value="">Select region...</option>
+                            <option value="us">United States</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="latam">Latin America</option>
+                            <option value="global">Global/Mixed</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estimated Audience Size</label>
+                        <select name="audience_size">
+                            <option value="">Select range...</option>
+                            <option value="small">Under 1,000</option>
+                            <option value="medium">1,000 - 10,000</option>
+                            <option value="large">10,000 - 100,000</option>
+                            <option value="xlarge">100,000+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms_accepted" required>
+                    <label for="terms">I agree to the <a href="./affiliate-terms.html" target="_blank">Affiliate Program Terms</a> and understand that commissions are subject to the 60-day holdback period and program guidelines.</label>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Apply</h3>
+                <p>Fill out the application form with your details</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Get Approved</h3>
+                <p>We review applications within 48 hours</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Share Your Link</h3>
+                <p>Promote with your unique referral link</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Earn Monthly</h3>
+                <p>Get 40% of every subscription, every month</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="./technology.html">Technology</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./support.html">Support</a>
+                <a href="./affiliates.html">Affiliates</a>
+            </div>
+            <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Check for success redirect
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMsg').style.display = 'block';
+            document.getElementById('affiliateForm').style.display = 'none';
+            // Clean URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Form submission handling
+        document.getElementByI
