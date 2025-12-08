@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Rewardful Affiliate Tracking -->
+    <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+    <script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_API_KEY'></script>
+    
     <style>
         * {
             margin: 0;
@@ -34,10 +39,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
         }
 
         .logo span {
@@ -385,12 +398,20 @@
         }
     </style>
 </head>
+<!-- Rewardful Tracking - Add your API key from Rewardful dashboard -->
+<script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+<script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_REWARDFUL_API_KEY'></script>
+
 <body>
     <nav>
-        <a href="./index.html" class="logo">Fusion<span>Predictor</span></a>
+        <a href="./index.html" class="logo">
+            <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor">
+            Fusion<span>Predictor</span>
+        </a>
         <div class="nav-links">
-            <a href="./technology.html">Technology</a>
             <a href="./pricing.html" class="active">Pricing</a>
+            <a href="./support.html">Support</a>
+            <a href="./my-account.html">My Account</a>
         </div>
     </nav>
 
@@ -562,8 +583,13 @@
         }
 
         function getRefCode() {
+            // Try Rewardful first (returns referral ID if visitor came via affiliate link)
+            if (typeof Rewardful !== 'undefined' && Rewardful.referral) {
+                return Rewardful.referral;
+            }
+            // Fallback to URL param (legacy support)
             const params = new URLSearchParams(window.location.search);
-            return params.get('ref') || null;
+            return params.get('ref') || params.get('via') || null;
         }
 
         // Close modal on escape key
