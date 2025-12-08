@@ -11,10 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --brand: #00f6c2;      /* Your brand glow color */
+      --text-light: #e4e8ef;
+      --card-bg: #13171d;
+      --border: #1e232c;
+    }
+
     body {
       margin:0;
       background:#0b0e11;
-      color:#e4e8ef;
+      color:var(--text-light);
       font-family:Inter, Arial, sans-serif;
     }
 
@@ -33,7 +40,7 @@
       margin-left:24px;
       font-weight:500;
     }
-    nav a:hover { color:#06b6d4; }
+    nav a:hover { color:var(--brand); }
 
     .hero {
       text-align:center;
@@ -70,17 +77,19 @@
     }
 
     .cta-subscribe {
-      background:#06b6d4;
+      background:var(--brand);
       color:#0b0e11;
     }
-    .cta-subscribe:hover { background:#0ed4f5; }
+    .cta-subscribe:hover {
+      background:#4dffe0;
+    }
 
     .cta-learn {
-      border:2px solid #06b6d4;
-      color:#06b6d4;
+      border:2px solid var(--brand);
+      color:var(--brand);
     }
     .cta-learn:hover {
-      background:#06b6d430;
+      background:rgba(0, 246, 194, 0.15);
     }
 
     .section {
@@ -104,19 +113,21 @@
     }
 
     .indicator-card {
-      background:#13171d;
+      background:var(--card-bg);
       border-radius:12px;
       padding:28px;
-      border:1px solid #1e232c;
+      border:1px solid var(--border);
       transition: all .2s ease;
       text-align:left;
       display:block;
       text-decoration:none;
-      color:#e4e8ef;
+      color:var(--text-light);
     }
+
     .indicator-card:hover {
       transform:translateY(-4px);
-      border-color:#06b6d4;
+      border-color:var(--brand);
+      box-shadow:0 0 12px rgba(0, 246, 194, 0.2);
     }
 
     .indicator-card img {
@@ -129,7 +140,7 @@
     .indicator-card h3 {
       margin:0 0 12px;
       font-size:20px;
-      color:#06b6d4;
+      color:var(--brand);
       font-weight:600;
     }
 
@@ -154,7 +165,7 @@
       text-decoration:none;
     }
 
-    footer a:hover { color:#06b6d4; }
+    footer a:hover { color:var(--brand); }
   </style>
 </head>
 
@@ -164,7 +175,7 @@
 <header>
   <div style="display:flex;align-items:center;">
     <img src="assets/fusion-arrowmark-primary.svg" height="34" style="margin-right:10px;">
-    <div style="font-size:20px; font-weight:600;">Fusion <span style="color:#06b6d4;">Predictor</span></div>
+    <div style="font-size:20px; font-weight:600;">Fusion <span style="color:var(--brand);">Predictor</span></div>
   </div>
   <nav>
     <a href="pricing.html">Pricing</a>
