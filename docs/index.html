@@ -12,160 +12,179 @@
 
   <style>
     :root {
-      --brand: #00f6c2;      /* Your brand glow color */
+      --brand: #00f6c2;
       --text-light: #e4e8ef;
+      --text-muted: #c8d1e0;
+      --bg: #0b0e11;
       --card-bg: #13171d;
       --border: #1e232c;
     }
 
     body {
-      margin:0;
-      background:#0b0e11;
-      color:var(--text-light);
-      font-family:Inter, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-light);
+      font-family: Inter, Arial, sans-serif;
     }
 
+    /* HEADER */
     header {
-      padding:24px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:#0b0e11;
-      border-bottom:1px solid #1d2229;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      border-bottom: 1px solid #1d2229;
     }
 
     nav a {
-      color:#c8d1e0;
-      text-decoration:none;
-      margin-left:24px;
-      font-weight:500;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 500;
     }
-    nav a:hover { color:var(--brand); }
 
+    nav a:hover { color: var(--brand); }
+
+    /* HERO */
     .hero {
-      text-align:center;
-      padding:120px 20px 90px;
+      text-align: center;
+      padding: 120px 20px 90px;
       background: radial-gradient(ellipse at top, #111722, #0b0e11);
     }
 
     .hero h1 {
-      font-size:48px;
-      margin:0 0 20px;
-      color:#ffffff;
-      font-weight:700;
+      font-size: 48px;
+      margin: 0 0 20px;
+      color: #ffffff;
+      font-weight: 700;
+      font-family: Space Grotesk, sans-serif;
     }
 
     .hero p {
-      max-width:650px;
-      margin:auto;
-      font-size:18px;
-      color:#c8d1e0;
-      line-height:1.6;
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .cta-buttons {
-      margin-top:40px;
+      margin-top: 40px;
     }
 
     .cta-buttons a {
-      display:inline-block;
-      padding:14px 28px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
-      margin:0 10px;
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 10px;
     }
 
     .cta-subscribe {
-      background:var(--brand);
-      color:#0b0e11;
+      background: var(--brand);
+      color: #0b0e11;
     }
+
     .cta-subscribe:hover {
-      background:#4dffe0;
+      background: #4dffe0;
     }
 
     .cta-learn {
-      border:2px solid var(--brand);
-      color:var(--brand);
-    }
-    .cta-learn:hover {
-      background:rgba(0, 246, 194, 0.15);
+      border: 2px solid var(--brand);
+      color: var(--brand);
     }
 
+    .cta-learn:hover {
+      background: rgba(0, 246, 194, 0.15);
+    }
+
+    /* SECTION */
     .section {
-      max-width:1200px;
-      margin:70px auto;
-      padding:0 20px;
+      max-width: 1200px;
+      margin: 70px auto;
+      padding: 0 20px;
     }
 
     h2.section-title {
-      font-size:32px;
-      text-align:center;
-      margin-bottom:40px;
-      color:#ffffff;
-      font-family:Space Grotesk, sans-serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ffffff;
+      font-family: Space Grotesk, sans-serif;
     }
 
+    /* CARD GRID */
     .indicator-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
     }
 
     .indicator-card {
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:28px;
-      border:1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
       transition: all .2s ease;
-      text-align:left;
-      display:block;
-      text-decoration:none;
-      color:var(--text-light);
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-light);
     }
 
     .indicator-card:hover {
-      transform:translateY(-4px);
-      border-color:var(--brand);
-      box-shadow:0 0 12px rgba(0, 246, 194, 0.2);
+      transform: translateY(-4px);
+      border-color: var(--brand);
+      box-shadow: 0 0 14px rgba(0, 246, 194, 0.22);
     }
 
+    /* LOGOS */
     .indicator-card img {
-      width:60px;
-      height:auto;
-      margin-bottom:18px;
-      display:block;
+      width: 76px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 6px rgba(0, 246, 194, 0.45));
+      transition: 0.15s ease;
+    }
+
+    .indicator-card:hover img {
+      opacity: 1;
+      filter: drop-shadow(0 0 12px rgba(0, 246, 194, 0.75));
     }
 
     .indicator-card h3 {
-      margin:0 0 12px;
-      font-size:20px;
-      color:var(--brand);
-      font-weight:600;
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: var(--brand);
+      font-weight: 600;
     }
 
     .indicator-card p {
-      margin:0;
-      font-size:15px;
-      line-height:1.55;
-      color:#c8d1e0;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text-muted);
     }
 
+    /* FOOTER */
     footer {
-      margin-top:90px;
-      padding:40px;
-      text-align:center;
-      color:#7a8696;
-      font-size:14px;
+      margin-top: 90px;
+      padding: 40px;
+      text-align: center;
+      color: #7a8696;
+      font-size: 14px;
     }
 
     footer a {
-      color:#7a8696;
-      margin:0 12px;
-      text-decoration:none;
+      color: #7a8696;
+      margin: 0 12px;
+      text-decoration: none;
     }
 
-    footer a:hover { color:var(--brand); }
+    footer a:hover { color: var(--brand); }
   </style>
 </head>
 
@@ -175,23 +194,24 @@
 <header>
   <div style="display:flex;align-items:center;">
     <img src="assets/fusion-arrowmark-primary.svg" height="34" style="margin-right:10px;">
-    <div style="font-size:20px; font-weight:600;">Fusion <span style="color:var(--brand);">Predictor</span></div>
+    <div style="font-size:20px;font-weight:600;">
+      Fusion <span style="color:var(--brand);">Predictor</span>
+    </div>
   </div>
+
   <nav>
     <a href="pricing.html">Pricing</a>
     <a href="support.html">Support</a>
     <a href="my-account.html">My Account</a>
-    <a href="pricing.html" class="cta-subscribe" style="padding:8px 18px; border-radius:6px;">Subscribe</a>
+    <a href="pricing.html" class="cta-subscribe" style="padding:8px 18px;border-radius:6px;">Subscribe</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
   <h1>Professional Trading Indicators for TradingView</h1>
-  <p>
-    Six powerful indicators combining multi-timeframe analysis, divergence detection,
-    trend prediction, and institutional confluence — engineered for precision.
-  </p>
+  <p>Six powerful indicators combining multi-timeframe analysis, divergence detection,
+     trend prediction, and institutional confluence — engineered for precision.</p>
 
   <div class="cta-buttons">
     <a href="pricing.html" class="cta-subscribe">Subscribe Now</a>
@@ -208,37 +228,37 @@
     <a class="indicator-card" href="fusionpredict.html">
       <img src="assets/fusionpredict-logo.svg" alt="FusionPredict Logo">
       <h3>FusionPredict</h3>
-      <p>Precise price projections across six timeframes. Shows where price is likely headed next using dynamic probability engines.</p>
+      <p>Precise multi-timeframe projections engineered to anticipate price direction.</p>
     </a>
 
     <a class="indicator-card" href="fusionflex.html">
       <img src="assets/fusion-flex-logo.svg" alt="FusionFlex Logo">
       <h3>FusionFlex</h3>
-      <p>Zero-repaint trend engine keeping you aligned with momentum. Identifies optimal entry and exit zones in real time.</p>
+      <p>Zero-repaint momentum engine offering adaptive trend identification.</p>
     </a>
 
     <a class="indicator-card" href="fusionconfluence.html">
       <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence Logo">
       <h3>FusionConfluence</h3>
-      <p>Institutional-grade confluence detection. Highlights where multiple timeframe signals overlap for high-probability setups.</p>
+      <p>Institutional-grade multi-timeframe confluence detection for smart entries.</p>
     </a>
 
     <a class="indicator-card" href="fusiontrend.html">
       <img src="assets/fusion-trend-logo.svg" alt="FusionTrend Logo">
       <h3>FusionTrend</h3>
-      <p>Trend strength visualization with adaptive filtering. Helps you stay in strong moves and avoid choppy environments.</p>
+      <p>High-clarity trend structure visualization with momentum alignment.</p>
     </a>
 
     <a class="indicator-card" href="fusionreversal.html">
       <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal Logo">
       <h3>FusionReversal</h3>
-      <p>Real-time exhaustion and divergence detection. Identifies turning points before traditional indicators react.</p>
+      <p>Divergence + exhaustion detection to anticipate turning points early.</p>
     </a>
 
     <a class="indicator-card" href="fusionscorer.html">
       <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer Logo">
       <h3>FusionScorer</h3>
-      <p>Multi-signal scoring engine that quantifies market structure, trend, momentum, and liquidity behavior into a single score.</p>
+      <p>A unified scoring engine evaluating liquidity, structure, and trend strength.</p>
     </a>
 
   </div>
