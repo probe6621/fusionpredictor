@@ -1,187 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Support – FusionPredictor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Get support for your FusionPredictor indicators, subscriptions, TradingView access, billing, or technical issues." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support – FusionPredictor Help Center</title>
+  <meta name="description" content="Get help with FusionPredictor indicators. Contact support, FAQ, and troubleshooting guides.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background: #0b0e11;
-      color: #e4e8ef;
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1419;
+      --bg-card: #141a22;
+      --cyan: #00e7f7;
+      --cyan-dim: #00b8c5;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --text-primary: #f0f4f8;
+      --text-secondary: #8b9bb4;
+      --text-muted: #5a6a7e;
+      --border: rgba(0, 231, 247, 0.12);
+      --border-hover: rgba(0, 231, 247, 0.25);
     }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Header */
     header {
-      padding: 20px 40px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(10, 13, 18, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #0b0e11;
-      border-bottom: 1px solid #1d2229;
     }
-    nav a {
-      color: #c8d1e0;
-      margin-left: 22px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #06b6d4;
     }
 
-    .page-wrap {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+    .logo-mark { width: 42px; height: 42px; }
 
-    .contact-card {
-      background: #13171d;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #1e232c;
-      flex: 1;
-      margin-bottom: 40px;
-    }
-
-    h1, h2 {
-      color: #06b6d4;
-      margin-top: 0;
-    }
-
-    label {
-      display: block;
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border-radius: 8px;
-      border: 1px solid #2a313d;
-      background: #0f1318;
-      color: #e4e8ef;
-      font-size: 15px;
-    }
-
-    textarea { height: 140px; resize: vertical; }
-
-    button {
-      margin-top: 30px;
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
+    .logo-text {
+      font-size: 1.35rem;
       font-weight: 600;
-      background: #06b6d4;
-      border: none;
-      border-radius: 8px;
-      color: #0b0e11;
-      cursor: pointer;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
     }
-    button:hover { background: #0cd7f7; }
+
+    .logo-text span { color: var(--cyan); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--cyan); }
+
+    .btn-subscribe {
+      background: var(--cyan);
+      color: var(--bg-primary) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 9rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    /* Main Content */
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    /* Contact Form */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .contact-card h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card > p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-card a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--text-secondary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--cyan);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--cyan-glow-strong);
+    }
 
     .alert {
       display: none;
-      margin-top: 20px;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 15px;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
       text-align: center;
     }
+
     .alert-success {
-      background: #0d3b28;
-      color: #78f0b1;
-    }
-    .alert-error {
-      background: #3b0d0d;
-      color: #ff9a9a;
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(0, 255, 136, 0.3);
     }
 
-    /* FAQ Styles */
+    .alert-error {
+      background: rgba(255, 107, 107, 0.15);
+      color: #ff6b6b;
+      border: 1px solid rgba(255, 107, 107, 0.3);
+    }
+
+    /* FAQ Section */
+    .faq-section h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
     details {
-      background: #13171d;
-      border: 1px solid #1e232c;
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 16px;
-      cursor: pointer;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+    }
+
+    details:hover {
+      border-color: var(--border-hover);
+    }
+
+    details[open] {
+      border-color: var(--cyan);
     }
 
     details summary {
-      font-size: 18px;
+      padding: 1.1rem 1.25rem;
+      font-size: 1rem;
       font-weight: 500;
-      color: #f3f3f3;
-      outline: none;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: var(--cyan);
+      font-weight: 300;
+    }
+
+    details[open] summary::after {
+      content: '−';
     }
 
     details p {
-      margin-top: 12px;
-      color: #c8d1e0;
-      line-height: 1.5;
+      padding: 0 1.25rem 1.25rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
-    @media (min-width: 900px) {
+    details a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    details a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cyan); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
       .support-grid {
-        display: flex;
-        gap: 40px;
+        grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 1rem; }
+      nav { display: none; }
+      .page-hero { padding: 7rem 1.5rem 2rem; }
     }
   </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
+<!-- Header -->
 <header>
-  <a href="/index.html">
-    <img src="/assets/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" height="34">
-  </a>
-  <nav>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/support.html">Support</a>
-    <a href="/my-account.html">My Account</a>
-  </nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
+    <nav>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html" class="active">Support</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="my-account.html">My Account</a>
+    </nav>
+  </div>
 </header>
 
-<div class="page-wrap">
+<!-- Page Hero -->
+<section class="page-hero">
+  <h1>How Can We Help?</h1>
+  <p>We typically respond within 24 hours</p>
+</section>
 
-  <h1 style="text-align:center; margin-bottom:40px;">Support</h1>
+<!-- Main Content -->
+<div class="support-grid">
 
-  <div class="support-grid">
-    <!-- CONTACT FORM -->
-    <div class="contact-card">
+  <!-- Contact Form -->
+  <div class="contact-card">
+    <h2>Contact Us</h2>
+    <p>
+      Fill out the form below or email us directly at 
+      <a href="mailto:support@fusionpredictor.com">support@fusionpredictor.com</a>
+    </p>
 
-      <h2>Contact Us</h2>
-      <p style="color:#c8d1e0; margin-bottom:20px;">
-        We typically respond within 24 hours.  
-        <br><br>
-        Email us directly at:<br>
-        <strong style="color:#06b6d4;">support@fusionpredictor.com</strong>
-      </p>
+    <div id="success" class="alert alert-success">
+      ✓ Message sent! We'll get back to you shortly.
+    </div>
+    <div id="error" class="alert alert-error">
+      Something went wrong. Please try again or email us directly.
+    </div>
 
-      <!-- Success / Error Alerts -->
-      <div id="success" class="alert alert-success">
-        Your message has been sent! We'll get back to you shortly.
-      </div>
-      <div id="error" class="alert alert-error">
-        Something went wrong. Please try again.
-      </div>
+    <form id="supportForm">
+      <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
 
-      <!-- Form -->
-      <form id="supportForm">
-        <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
-
+      <div class="form-group">
         <label>Your Name</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" required placeholder="John Smith">
+      </div>
 
+      <div class="form-group">
         <label>Your Email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" required placeholder="you@example.com">
+      </div>
 
+      <div class="form-group">
         <label>Topic</label>
         <select name="topic" required>
           <option value="">Select a topic...</option>
@@ -191,105 +433,116 @@
           <option>Technical Issue</option>
           <option>General Question</option>
         </select>
+      </div>
 
+      <div class="form-group">
         <label>TradingView Username (if applicable)</label>
-        <input type="text" name="tv_username">
+        <input type="text" name="tv_username" placeholder="Your TradingView username">
+      </div>
 
+      <div class="form-group">
         <label>Message</label>
-        <textarea name="message" required></textarea>
+        <textarea name="message" required placeholder="Describe your issue or question..."></textarea>
+      </div>
 
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-
-    <!-- FAQ -->
-    <div style="flex:1;">
-      <h2>Frequently Asked Questions</h2>
-
-      <details>
-        <summary>How do I access my indicators after purchase?</summary>
-        <p>
-          Once your payment is completed, our system automatically grants TradingView access
-          to the username you entered at checkout.  
-          <br><br>
-          You will find your indicators in TradingView under:<br>
-          <strong>Indicators → Invite-Only Scripts</strong>
-        </p>
-      </details>
-
-      <details>
-        <summary>I can't find my indicators on TradingView</summary>
-        <p>
-          Common reasons include:<br><br>
-          • Incorrect TradingView username entered<br>
-          • You used your email instead of your username<br>
-          • Username contains spaces or capitals<br><br>
-          If unsure, email us at <strong style="color:#06b6d4;">support@fusionpredictor.com</strong>.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can I change my TradingView username?</summary>
-        <p>
-          Yes — simply email us your old and new username and we will update your access.
-        </p>
-      </details>
-
-      <details>
-        <summary>How do I cancel my subscription?</summary>
-        <p>
-          Visit your billing portal:<br>
-          <a href="/my-account.html" style="color:#06b6d4;">fusionpredictor.com/my-account.html</a><br><br>
-          Your access remains active until the end of your billing period.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can I upgrade or downgrade my plan?</summary>
-        <p>
-          Yes — you may change your plan anytime through your billing portal.
-        </p>
-      </details>
-
-      <details>
-        <summary>Do the indicators work on all markets?</summary>
-        <p>
-          Yes — they work on crypto, forex, futures, indices, and stocks.
-        </p>
-      </details>
-
-      <details>
-        <summary>What is the refund policy?</summary>
-        <p>
-          Because access to our proprietary indicators is delivered instantly,
-          <strong>we do not offer refunds once access has been granted</strong>.
-          <br><br>
-          Refunds are only issued for:<br>
-          • Duplicate charges<br>
-          • Technical issues preventing access<br>
-          • Charges after cancellation<br><br>
-          Full policy:<br>
-          <a href="/refunds.html" style="color:#06b6d4;">fusionpredictor.com/refunds.html</a>
-        </p>
-      </details>
-
-      <details>
-        <summary>Do I need TradingView Pro?</summary>
-        <p>
-          No — FusionPredictor works on all account levels.<br><br>
-          Pro/Premium is recommended for multi-chart, multi-timeframe setups.
-        </p>
-      </details>
-    </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
   </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How do I access my indicators after purchase?</summary>
+      <p>
+        Once payment completes, our system automatically grants TradingView access 
+        to the username you entered at checkout. Find your indicators in TradingView under:
+        <strong>Indicators → Invite-Only Scripts</strong>
+      </p>
+    </details>
+
+    <details>
+      <summary>I can't find my indicators on TradingView</summary>
+      <p>
+        Common reasons include incorrect TradingView username, using your email 
+        instead of username, or typos with spaces/capitals. Double-check your username 
+        and contact us if the issue persists.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I change my TradingView username?</summary>
+      <p>
+        Yes — simply email us your old and new username and we'll update your access 
+        within 24 hours.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I cancel my subscription?</summary>
+      <p>
+        Visit your billing portal at 
+        <a href="my-account.html">fusionpredictor.com/my-account.html</a>. 
+        Your access remains active until the end of your billing period.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I upgrade or downgrade my plan?</summary>
+      <p>
+        Yes — you can change your plan anytime through the billing portal. 
+        Changes take effect on your next billing cycle.
+      </p>
+    </details>
+
+    <details>
+      <summary>Do the indicators work on all markets?</summary>
+      <p>
+        Yes — FusionPredictor indicators work on crypto, forex, futures, indices, 
+        and stocks. Any asset available on TradingView is supported.
+      </p>
+    </details>
+
+    <details>
+      <summary>What is the refund policy?</summary>
+      <p>
+        We offer a 14-day money-back guarantee. If you're not satisfied, contact us 
+        within 14 days for a full refund. After access is granted, refunds are only 
+        issued for duplicate charges, technical issues, or charges after cancellation. 
+        <a href="refunds.html">Full policy →</a>
+      </p>
+    </details>
+
+    <details>
+      <summary>Do I need TradingView Pro?</summary>
+      <p>
+        No — FusionPredictor works on all TradingView account levels including free. 
+        However, Pro/Premium is recommended for more alerts and multi-chart layouts.
+      </p>
+    </details>
+  </div>
+
 </div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
 
 <script>
   const form = document.getElementById("supportForm");
   const success = document.getElementById("success");
   const error = document.getElementById("error");
 
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(form).entries());
