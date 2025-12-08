@@ -367,6 +367,22 @@
       width: 60px;
       height: 60px;
       flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      padding: 8px;
+    }
+
+    .card-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Hide any text elements embedded in SVG logos */
+    .card-logo text,
+    .card-logo tspan {
+      display: none !important;
     }
 
     .card-title-group {
@@ -424,8 +440,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
       opacity: 0.9;
       transition: all 0.3s;
+    }
+
+    /* Specific positioning for confluence chart which needs centering */
+    .card-preview-confluence img {
+      object-position: center 40%;
     }
 
     .indicator-card:hover .card-preview img {
@@ -448,9 +470,24 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin-top: 3rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 1000px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .feature-item {
@@ -644,7 +681,9 @@
     <!-- FusionPredict -->
     <a href="fusionpredict.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusionpredict-logo.svg" alt="FusionPredict" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusionpredict-logo.svg" alt="FusionPredict">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionPredict</div>
           <span class="card-badge badge-accuracy">97.9% Win Rate</span>
@@ -662,7 +701,9 @@
     <!-- FusionFlex -->
     <a href="fusionflex.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusion-flex-logo.svg" alt="FusionFlex" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusion-flex-logo.svg" alt="FusionFlex">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionFlex</div>
           <span class="card-badge badge-feature">Zero Repaint</span>
@@ -680,7 +721,9 @@
     <!-- FusionConfluence -->
     <a href="fusionconfluence.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionConfluence</div>
           <span class="card-badge badge-accuracy">95% Win Rate</span>
@@ -690,7 +733,7 @@
         Detects when multiple timeframes align at critical price levels, signaling 
         high-probability exhaustion zones. Institutional-grade confluence detection.
       </p>
-      <div class="card-preview">
+      <div class="card-preview card-preview-confluence">
         <img src="assets/fusionconfluence_chart_promo.png" alt="FusionConfluence Chart">
       </div>
     </a>
@@ -698,7 +741,9 @@
     <!-- FusionReversal -->
     <a href="fusionreversal.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionReversal</div>
           <span class="card-badge badge-accuracy">94.8% Win Rate</span>
@@ -716,7 +761,9 @@
     <!-- FusionScorer -->
     <a href="fusionscorer.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionScorer</div>
           <span class="card-badge badge-gold">Institutional Logic</span>
@@ -734,7 +781,9 @@
     <!-- FusionTrend -->
     <a href="fusiontrend.html" class="indicator-card">
       <div class="card-header">
-        <img src="assets/fusion-trend-logo.svg" alt="FusionTrend" class="card-logo">
+        <div class="card-logo">
+          <img src="assets/fusion-trend-logo.svg" alt="FusionTrend">
+        </div>
         <div class="card-title-group">
           <div class="card-title">FusionTrend</div>
           <span class="card-badge badge-feature">Continuation Edge</span>
