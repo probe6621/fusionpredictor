@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Rewardful Affiliate Tracking -->
+    <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+    <script async src='https://r.wdfl.co/rw.js' data-rewardful='YOUR_API_KEY'></script>
+    
     <style>
         * {
             margin: 0;
@@ -34,10 +39,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
         }
 
         .logo span {
@@ -290,10 +303,14 @@
 </head>
 <body>
     <nav>
-        <a href="./index.html" class="logo">Fusion<span>Predictor</span></a>
+        <a href="./index.html" class="logo">
+            <img src="./assets/fusion-arrowmark-primary.svg" alt="FusionPredictor">
+            Fusion<span>Predictor</span>
+        </a>
         <div class="nav-links">
-            <a href="./technology.html">Technology</a>
             <a href="./pricing.html">Pricing</a>
+            <a href="./support.html">Support</a>
+            <a href="./my-account.html">My Account</a>
             <a href="./pricing.html" class="btn-nav">Subscribe</a>
         </div>
     </nav>
@@ -359,10 +376,6 @@
             <div class="footer-links">
                 <a href="./technology.html">Technology</a>
                 <a href="./pricing.html">Pricing</a>
-                <a href="mailto:support@fusionpredictor.com">Support</a>
+                <a href="/cdn-cgi/l/email-protection#5c2f292c2c332e281c3a292f3533322c2e3938353f28332e723f3331">Support</a>
             </div>
-            <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+            <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.
