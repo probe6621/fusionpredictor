@@ -1,0 +1,106 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyanGradientFP" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00cccc;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="neonGlowFP">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="mtfConvergenceGlow">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background glow for multi-timeframe emphasis -->
+  <circle cx="280" cy="150" r="80" fill="url(#mtfConvergenceGlow)" opacity="0.3"/>
+  
+  <!-- 6 Arrows representing 6 timeframes: 1m, 5m, 10m, 15m, 30m, 1h -->
+  <!-- 1m timeframe (smallest arrow) -->
+  <g class="arrow 1m-arrow">
+    <path d="M 40 180 L 160 120 L 157 117 M 160 120 L 157 123" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="1.5" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="0.6"/>
+  </g>
+  
+  <!-- 5m timeframe -->
+  <g class="arrow 5m-arrow">
+    <path d="M 40 165 L 180 135 L 177 132 M 180 135 L 177 138" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="2" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="0.7"/>
+  </g>
+  
+  <!-- 10m timeframe -->
+  <g class="arrow 10m-arrow">
+    <path d="M 40 150 L 200 150 L 197 147 M 200 150 L 197 153" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="2.5" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="0.8"/>
+  </g>
+  
+  <!-- 15m timeframe -->
+  <g class="arrow 15m-arrow">
+    <path d="M 40 135 L 220 165 L 217 162 M 220 165 L 217 168" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="3" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="0.9"/>
+  </g>
+  
+  <!-- 30m timeframe -->
+  <g class="arrow 30m-arrow">
+    <path d="M 40 120 L 240 180 L 237 177 M 240 180 L 237 183" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="3.5" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="1"/>
+  </g>
+  
+  <!-- 1h timeframe (largest arrow) -->
+  <g class="arrow 1h-arrow">
+    <path d="M 40 105 L 260 195 L 257 192 M 260 195 L 257 198" 
+          stroke="url(#cyanGradientFP)" 
+          stroke-width="4" 
+          fill="none" 
+          filter="url(#neonGlowFP)"
+          opacity="1"/>
+  </g>
+  
+  <!-- Multi-Timeframe Convergence Point (MTF Engine Core) -->
+  <g class="mtf-convergence-point">
+    <circle cx="280" cy="150" r="20" fill="url(#mtfConvergenceGlow)" filter="url(#neonGlowFP)"/>
+    <circle cx="280" cy="150" r="8" fill="#00ffff" filter="url(#neonGlowFP)"/>
+    <circle cx="280" cy="150" r="4" fill="#ffffff"/>
+  </g>
+  
+  <!-- Convergence lines showing all timeframes pointing to MTF Engine -->
+  <g class="mtf-extension-lines">
+    <line x1="160" y1="120" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="1" opacity="0.3"/>
+    <line x1="180" y1="135" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="1.5" opacity="0.4"/>
+    <line x1="200" y1="150" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="2" opacity="0.5"/>
+    <line x1="220" y1="165" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="2.5" opacity="0.6"/>
+    <line x1="240" y1="180" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="3" opacity="0.7"/>
+    <line x1="260" y1="195" x2="280" y2="150" stroke="url(#cyanGradientFP)" stroke-width="3.5" opacity="0.8"/>
+  </g>
+  
+  <!-- MTF Engine text indicator -->
+  <text x="280" y="190" font-family="Arial, sans-serif" font-size="10" fill="#00ffff" text-anchor="middle" font-weight="bold">
+    MTF
+  </text>
+</svg>
