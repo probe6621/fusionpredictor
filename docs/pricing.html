@@ -4,450 +4,466 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - FusionPredictor</title>
+    <meta name="description" content="Choose your FusionPredictor plan. Professional trading indicators for TradingView starting at $45/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            color: #e0e0e0;
             min-height: 100vh;
+            line-height: 1.6;
         }
-        
+
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 5%;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        
+
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #00ffd5;
+            color: #fff;
             text-decoration: none;
         }
-        
-        .logo-icon {
-            font-size: 1.8rem;
+
+        .logo span {
+            color: #00d4aa;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-        
+
         .nav-links a {
-            color: #ffffff;
+            color: #b0b0b0;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
-            color: #00ffd5;
+            color: #00d4aa;
         }
-        
-        .btn-nav {
-            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
-            color: #000;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
+
+        .nav-links a.active {
+            color: #00d4aa;
         }
-        
-        .btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 255, 213, 0.3);
-            color: #000;
-        }
-        
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        
+
+        /* Header */
         .page-header {
             text-align: center;
-            margin-bottom: 3rem;
+            padding: 4rem 5% 2rem;
         }
-        
+
         .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
         }
-        
+
         .page-header p {
-            font-size: 1.2rem;
-            color: #aaa;
+            color: #808080;
+            font-size: 1.1rem;
         }
-        
-        /* Pricing Cards */
+
+        /* Pricing Grid */
+        .pricing-section {
+            padding: 2rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
         }
-        
+
         .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, border-color 0.3s;
         }
-        
+
         .pricing-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 255, 213, 0.1);
+            border-color: rgba(0, 212, 170, 0.3);
         }
-        
+
         .pricing-card.featured {
-            border-color: #00ffd5;
+            border-color: #00d4aa;
             position: relative;
         }
-        
+
         .pricing-card.featured::before {
-            content: 'MOST POPULAR';
+            content: 'Most Popular';
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
-            color: #000;
-            padding: 0.25rem 1rem;
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            color: #0a0a0f;
+            padding: 0.3rem 1rem;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #00ffd5;
+
+        .pricing-card h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
-        
-        .plan-price {
+
+        .price {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: #00d4aa;
+            margin-bottom: 0.25rem;
         }
-        
-        .plan-price span {
-            font-size: 1rem;
-            color: #aaa;
-            font-weight: 400;
+
+        .price-period {
+            color: #808080;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
         }
-        
-        .plan-features {
+
+        .features-list {
             list-style: none;
-            margin: 2rem 0;
             text-align: left;
+            margin-bottom: 2rem;
         }
-        
-        .plan-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        .features-list li {
+            padding: 0.6rem 0;
+            color: #c0c0c0;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
-        
-        .plan-features li:last-child {
-            border-bottom: none;
+
+        .features-list li::before {
+            content: '✓';
+            color: #00d4aa;
+            font-weight: 700;
         }
-        
-        .plan-features .check {
-            color: #00ffd5;
-            font-weight: bold;
-        }
-        
+
         .btn-subscribe {
+            display: block;
             width: 100%;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            color: #0a0a0f;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
             font-weight: 600;
+            font-size: 1rem;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
-            color: #000;
         }
-        
+
         .btn-subscribe:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 255, 213, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
         }
-        
-        .btn-subscribe:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        /* Guarantee Section */
-        .guarantee {
-            background: rgba(0, 255, 213, 0.1);
-            border: 1px solid rgba(0, 255, 213, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .guarantee h3 {
-            color: #00ffd5;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Notes Section */
-        .notes {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-        
-        .notes h3 {
-            color: #00ffd5;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .notes ul {
-            max-width: 600px;
+
+        /* Info Sections */
+        .info-section {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 2rem 5%;
         }
-        
-        .notes li {
+
+        .guarantee-box {
+            background: linear-gradient(145deg, rgba(0, 212, 170, 0.1), rgba(0, 212, 170, 0.05));
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .guarantee-box h3 {
+            color: #00d4aa;
             margin-bottom: 0.75rem;
-            color: #aaa;
         }
-        
+
+        .guarantee-box p {
+            color: #a0a0a0;
+        }
+
+        .notes-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .notes-box h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .notes-box ul {
+            list-style: none;
+        }
+
+        .notes-box li {
+            padding: 0.5rem 0;
+            color: #909090;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .notes-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #00d4aa;
+        }
+
         /* Footer */
         footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 5%;
+            margin-top: 2rem;
             text-align: center;
-            padding: 2rem;
-            color: #666;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 4rem;
         }
-        
-        /* Modal for TradingView username */
-        .modal {
+
+        footer p {
+            color: #606060;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
             align-items: center;
+            justify-content: center;
         }
-        
-        .modal.active {
+
+        .modal-overlay.active {
             display: flex;
         }
-        
-        .modal-content {
-            background: #1a1a2e;
-            border: 1px solid rgba(0, 255, 213, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
+
+        .modal {
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
             max-width: 400px;
             width: 90%;
+            text-align: center;
         }
-        
-        .modal-content h3 {
-            color: #00ffd5;
-            margin-bottom: 1rem;
+
+        .modal h3 {
+            color: #fff;
+            margin-bottom: 0.75rem;
         }
-        
-        .modal-content p {
-            color: #aaa;
+
+        .modal p {
+            color: #a0a0a0;
             margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
-        
-        .modal-content input {
+
+        .modal input {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
             color: #fff;
             font-size: 1rem;
             margin-bottom: 1rem;
         }
-        
-        .modal-content input:focus {
+
+        .modal input:focus {
             outline: none;
-            border-color: #00ffd5;
+            border-color: #00d4aa;
         }
-        
+
+        .modal input::placeholder {
+            color: #606060;
+        }
+
         .modal-buttons {
             display: flex;
             gap: 1rem;
         }
-        
-        .modal-buttons button {
-            flex: 1;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
+
         .btn-cancel {
+            flex: 1;
+            padding: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #a0a0a0;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .btn-cancel:hover {
+            border-color: #fff;
             color: #fff;
         }
-        
+
         .btn-confirm {
-            background: linear-gradient(135deg, #00ffd5 0%, #00b4d8 100%);
+            flex: 1;
+            padding: 0.9rem;
             border: none;
-            color: #000;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            color: #0a0a0f;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
-        
-        /* Loading spinner */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            border-top-color: #000;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 8px;
+
+        .btn-confirm:hover {
+            transform: translateY(-2px);
         }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+
+        .btn-confirm:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
-        
-        /* Responsive */
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            nav {
+                flex-direction: column;
+                gap: 1rem;
             }
-            
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
             .page-header h1 {
                 font-size: 2rem;
             }
-            
+
             .pricing-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="logo">
-            <span class="logo-icon">~</span>
-            <span>FusionPredictor</span>
-        </a>
+        <a href="./index.html" class="logo">Fusion<span>Predictor</span></a>
         <div class="nav-links">
-            <a href="products.html">Products</a>
-            <a href="technology.html">Technology</a>
-            <a href="pricing.html" class="btn-nav">Request Invite</a>
+            <a href="./technology.html">Technology</a>
+            <a href="./pricing.html" class="active">Pricing</a>
         </div>
     </nav>
 
-    <main>
-        <div class="page-header">
-            <h1>Choose Your Plan</h1>
-            <p>Unlock institutional-grade trading signals</p>
-        </div>
-        
+    <section class="page-header">
+        <h1>Choose Your Plan</h1>
+        <p>Unlock institutional-grade trading signals</p>
+    </section>
+
+    <section class="pricing-section">
         <div class="pricing-grid">
             <!-- Starter -->
             <div class="pricing-card">
-                <div class="plan-name">Starter Bundle</div>
-                <div class="plan-price">$45<span>/month</span></div>
-                <ul class="plan-features">
-                    <li><span class="check">✓</span> Choose any 2 indicators</li>
-                    <li><span class="check">✓</span> TradingView compatible</li>
-                    <li><span class="check">✓</span> Works on all markets</li>
-                    <li><span class="check">✓</span> Real-time alerts</li>
-                    <li><span class="check">✓</span> Cancel anytime</li>
+                <h3>Starter Bundle</h3>
+                <div class="price">$45</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>Choose any 2 indicators</li>
+                    <li>TradingView compatible</li>
+                    <li>Works on all markets</li>
+                    <li>Real-time alerts</li>
+                    <li>Cancel anytime</li>
                 </ul>
-                <button class="btn-subscribe" data-plan="starter" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N">
+                <button class="btn-subscribe" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N" data-plan="starter">
                     Subscribe – $45/mo
                 </button>
             </div>
-            
+
             <!-- Pro -->
             <div class="pricing-card featured">
-                <div class="plan-name">Pro Bundle</div>
-                <div class="plan-price">$75<span>/month</span></div>
-                <ul class="plan-features">
-                    <li><span class="check">✓</span> Choose any 4 indicators</li>
-                    <li><span class="check">✓</span> TradingView compatible</li>
-                    <li><span class="check">✓</span> Works on all markets</li>
-                    <li><span class="check">✓</span> Real-time alerts</li>
-                    <li><span class="check">✓</span> Priority support</li>
-                    <li><span class="check">✓</span> Cancel anytime</li>
+                <h3>Pro Bundle</h3>
+                <div class="price">$75</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>Choose any 4 indicators</li>
+                    <li>TradingView compatible</li>
+                    <li>Works on all markets</li>
+                    <li>Real-time alerts</li>
+                    <li>Priority support</li>
+                    <li>Cancel anytime</li>
                 </ul>
-                <button class="btn-subscribe" data-plan="pro" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52">
+                <button class="btn-subscribe" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52" data-plan="pro">
                     Subscribe – $75/mo
                 </button>
             </div>
-            
+
             <!-- Master -->
             <div class="pricing-card">
-                <div class="plan-name">Master Suite</div>
-                <div class="plan-price">$145<span>/month</span></div>
-                <ul class="plan-features">
-                    <li><span class="check">✓</span> All 6 indicators</li>
-                    <li><span class="check">✓</span> TradingView compatible</li>
-                    <li><span class="check">✓</span> Works on all markets</li>
-                    <li><span class="check">✓</span> Real-time alerts</li>
-                    <li><span class="check">✓</span> Priority support</li>
-                    <li><span class="check">✓</span> Early access to new tools</li>
-                    <li><span class="check">✓</span> Cancel anytime</li>
+                <h3>Master Suite</h3>
+                <div class="price">$145</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>All 6 indicators</li>
+                    <li>TradingView compatible</li>
+                    <li>Works on all markets</li>
+                    <li>Real-time alerts</li>
+                    <li>Priority support</li>
+                    <li>Early access to new tools</li>
+                    <li>Cancel anytime</li>
                 </ul>
-                <button class="btn-subscribe" data-plan="master" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV">
+                <button class="btn-subscribe" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV" data-plan="master">
                     Subscribe – $145/mo
                 </button>
             </div>
         </div>
-        
-        <div class="guarantee">
+    </section>
+
+    <section class="info-section">
+        <div class="guarantee-box">
             <h3>14-Day Money-Back Guarantee</h3>
             <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
         </div>
-        
-        <div class="notes">
+
+        <div class="notes-box">
             <h3>Important Product Notes</h3>
             <ul>
                 <li>Indicators are delivered as invite-only TradingView scripts within 24 hours of purchase.</li>
@@ -456,18 +472,18 @@
                 <li>After subscribing, you'll receive an email with setup instructions and your indicator access.</li>
             </ul>
         </div>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
+        <p>© 2025 FusionPredictor. All rights reserved.</p>
     </footer>
 
-    <!-- TradingView Username Modal -->
-    <div class="modal" id="usernameModal">
-        <div class="modal-content">
+    <!-- Username Modal -->
+    <div class="modal-overlay" id="usernameModal">
+        <div class="modal">
             <h3>Enter Your TradingView Username</h3>
             <p>We need your TradingView username to grant access to your indicators after purchase.</p>
-            <input type="text" id="tvUsername" placeholder="Your TradingView username" />
+            <input type="text" id="tvUsername" placeholder="Your TradingView username" autocomplete="off">
             <div class="modal-buttons">
                 <button class="btn-cancel" onclick="closeModal()">Cancel</button>
                 <button class="btn-confirm" id="confirmBtn" onclick="proceedToCheckout()">Continue to Checkout</button>
@@ -511,7 +527,7 @@
 
             const confirmBtn = document.getElementById('confirmBtn');
             confirmBtn.disabled = true;
-            confirmBtn.innerHTML = '<span class="spinner"></span>Processing...';
+            confirmBtn.innerHTML = 'Loading...';
 
             try {
                 const response = await fetch(`${API_BASE}/create-checkout`, {
@@ -534,7 +550,6 @@
                 const data = await response.json();
                 
                 if (data.url) {
-                    // Redirect to Stripe Checkout
                     window.location.href = data.url;
                 } else {
                     throw new Error('No checkout URL received');
