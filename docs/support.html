@@ -2,30 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FusionPredictor – Support</title>
+  <title>Support – FusionPredictor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contact FusionPredictor support for help with subscriptions, TradingView access, billing, or technical issues." />
+  <meta name="description" content="Get support for your FusionPredictor indicators, subscriptions, TradingView access, billing, or technical issues." />
 
   <style>
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
       background: #0b0e11;
-      color: #f3f3f3;
+      color: #e4e8ef;
     }
 
     header {
-      padding: 20px;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #0b0e11;
       border-bottom: 1px solid #1d2229;
     }
-
     nav a {
       color: #c8d1e0;
-      margin-left: 20px;
+      margin-left: 22px;
       text-decoration: none;
       font-weight: 500;
     }
@@ -33,48 +32,48 @@
       color: #06b6d4;
     }
 
-    .container {
-      max-width: 700px;
+    .page-wrap {
+      max-width: 1100px;
       margin: 60px auto;
-      padding: 30px;
-      background: #13171d;
-      border-radius: 12px;
-      border: 1px solid #1e232c;
+      padding: 0 20px;
     }
 
-    h1 {
-      margin-top: 0;
-      font-size: 28px;
+    .contact-card {
+      background: #13171d;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #1e232c;
+      flex: 1;
+      margin-bottom: 40px;
+    }
+
+    h1, h2 {
       color: #06b6d4;
-      text-align: center;
+      margin-top: 0;
     }
 
     label {
       display: block;
       margin-top: 20px;
       font-size: 14px;
-      color: #d2dae5;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 12px;
       margin-top: 6px;
       border-radius: 8px;
       border: 1px solid #2a313d;
       background: #0f1318;
-      color: #f3f3f3;
+      color: #e4e8ef;
       font-size: 15px;
     }
 
-    textarea {
-      height: 140px;
-      resize: vertical;
-    }
+    textarea { height: 140px; resize: vertical; }
 
     button {
-      width: 100%;
       margin-top: 30px;
+      width: 100%;
       padding: 14px;
       font-size: 16px;
       font-weight: 600;
@@ -84,9 +83,7 @@
       color: #0b0e11;
       cursor: pointer;
     }
-    button:hover {
-      background: #0bd1f3;
-    }
+    button:hover { background: #0cd7f7; }
 
     .alert {
       display: none;
@@ -96,28 +93,54 @@
       font-size: 15px;
       text-align: center;
     }
-
     .alert-success {
       background: #0d3b28;
       color: #78f0b1;
     }
-
     .alert-error {
       background: #3b0d0d;
       color: #ff9a9a;
+    }
+
+    /* FAQ Styles */
+    details {
+      background: #13171d;
+      border: 1px solid #1e232c;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    details summary {
+      font-size: 18px;
+      font-weight: 500;
+      color: #f3f3f3;
+      outline: none;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: #c8d1e0;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 900px) {
+      .support-grid {
+        display: flex;
+        gap: 40px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div>
-    <a href="/index.html">
-      <img src="/assets/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" height="34">
-    </a>
-  </div>
-
+  <a href="/index.html">
+    <img src="/assets/fusion-arrowmark-primary.svg" alt="FusionPredictor Logo" height="34">
+  </a>
   <nav>
     <a href="/pricing.html">Pricing</a>
     <a href="/support.html">Support</a>
@@ -125,40 +148,140 @@
   </nav>
 </header>
 
-<div class="container">
-  <h1>Contact Support</h1>
+<div class="page-wrap">
 
-  <p style="text-align:center; color:#c8d1e0; margin-bottom:25px;">
-    We're here to help with anything — billing, TradingView access, technical issues, or account questions.
-  </p>
+  <h1 style="text-align:center; margin-bottom:40px;">Support</h1>
 
-  <!-- SUCCESS / ERROR BANNERS -->
-  <div id="success" class="alert alert-success">Your message has been sent! We'll get back to you shortly.</div>
-  <div id="error" class="alert alert-error">Something went wrong. Please try again.</div>
+  <div class="support-grid">
+    <!-- CONTACT FORM -->
+    <div class="contact-card">
 
-  <!-- SUPPORT FORM -->
-  <form id="supportForm" action="https://api.web3forms.com/submit" method="POST">
+      <h2>Contact Us</h2>
+      <p style="color:#c8d1e0; margin-bottom:20px;">
+        We typically respond within 24 hours.  
+        <br><br>
+        Email us directly at:<br>
+        <strong style="color:#06b6d4;">support@fusionpredictor.com</strong>
+      </p>
 
-    <!-- Web3Forms Access Key -->
-    <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
+      <!-- Success / Error Alerts -->
+      <div id="success" class="alert alert-success">
+        Your message has been sent! We'll get back to you shortly.
+      </div>
+      <div id="error" class="alert alert-error">
+        Something went wrong. Please try again.
+      </div>
 
-    <!-- Redirect disabled (we'll handle locally) -->
-    <input type="hidden" name="redirect" value="">
+      <!-- Form -->
+      <form id="supportForm">
+        <input type="hidden" name="access_key" value="51c53368-2402-4c91-96f7-bafb917b3659">
 
-    <label>Your Name</label>
-    <input type="text" name="name" required>
+        <label>Your Name</label>
+        <input type="text" name="name" required>
 
-    <label>Your Email</label>
-    <input type="email" name="email" required>
+        <label>Your Email</label>
+        <input type="email" name="email" required>
 
-    <label>Subject</label>
-    <input type="text" name="subject" required>
+        <label>Topic</label>
+        <select name="topic" required>
+          <option value="">Select a topic...</option>
+          <option>Indicator Access</option>
+          <option>Billing or Subscription</option>
+          <option>TradingView Username Change</option>
+          <option>Technical Issue</option>
+          <option>General Question</option>
+        </select>
 
-    <label>Message</label>
-    <textarea name="message" required></textarea>
+        <label>TradingView Username (if applicable)</label>
+        <input type="text" name="tv_username">
 
-    <button type="submit">Send Message</button>
-  </form>
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- FAQ -->
+    <div style="flex:1;">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>How do I access my indicators after purchase?</summary>
+        <p>
+          Once your payment is completed, our system automatically grants TradingView access
+          to the username you entered at checkout.  
+          <br><br>
+          You will find your indicators in TradingView under:<br>
+          <strong>Indicators → Invite-Only Scripts</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>I can't find my indicators on TradingView</summary>
+        <p>
+          Common reasons include:<br><br>
+          • Incorrect TradingView username entered<br>
+          • You used your email instead of your username<br>
+          • Username contains spaces or capitals<br><br>
+          If unsure, email us at <strong style="color:#06b6d4;">support@fusionpredictor.com</strong>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I change my TradingView username?</summary>
+        <p>
+          Yes — simply email us your old and new username and we will update your access.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I cancel my subscription?</summary>
+        <p>
+          Visit your billing portal:<br>
+          <a href="/my-account.html" style="color:#06b6d4;">fusionpredictor.com/my-account.html</a><br><br>
+          Your access remains active until the end of your billing period.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I upgrade or downgrade my plan?</summary>
+        <p>
+          Yes — you may change your plan anytime through your billing portal.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do the indicators work on all markets?</summary>
+        <p>
+          Yes — they work on crypto, forex, futures, indices, and stocks.
+        </p>
+      </details>
+
+      <details>
+        <summary>What is the refund policy?</summary>
+        <p>
+          Because access to our proprietary indicators is delivered instantly,
+          <strong>we do not offer refunds once access has been granted</strong>.
+          <br><br>
+          Refunds are only issued for:<br>
+          • Duplicate charges<br>
+          • Technical issues preventing access<br>
+          • Charges after cancellation<br><br>
+          Full policy:<br>
+          <a href="/refunds.html" style="color:#06b6d4;">fusionpredictor.com/refunds.html</a>
+        </p>
+      </details>
+
+      <details>
+        <summary>Do I need TradingView Pro?</summary>
+        <p>
+          No — FusionPredictor works on all account levels.<br><br>
+          Pro/Premium is recommended for multi-chart, multi-timeframe setups.
+        </p>
+      </details>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -169,8 +292,7 @@
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data = Object.fromEntries(new FormData(form).entries());
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
