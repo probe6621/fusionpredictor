@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FusionPredictor - Professional Trading Indicators</title>
+    <title>FusionPredictor - Professional Trading Indicators for TradingView</title>
+    <meta name="description" content="Six powerful indicators combining multi-timeframe analysis, divergence detection, and institutional confluence for precision trading decisions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,63 +15,33 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --cyan: #00E7F7;
-            --cyan-glow: rgba(0, 231, 247, 0.3);
-            --dark-bg: #0A0E1A;
-            --card-bg: #131827;
-            --card-hover: #1a2138;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0AEC0;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.25rem;
-            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .logo-icon {
-            width: 36px;
-            height: 36px;
+        .logo span {
+            color: #00d4aa;
         }
 
         .nav-links {
@@ -80,62 +51,52 @@
         }
 
         .nav-links a {
+            color: #b0b0b0;
             text-decoration: none;
-            color: var(--text-secondary);
-            transition: color 0.3s;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--cyan);
+            color: #00d4aa;
         }
 
-        .cta-button {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 0.75rem 1.5rem;
+        .nav-links .btn-nav {
+            background: #00d4aa;
+            color: #0a0a0f;
+            padding: 0.6rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
+        .nav-links .btn-nav:hover {
+            background: #00eabb;
+            color: #0a0a0f;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 231, 247, 0.05) 0%, transparent 50%);
-        }
-
-        .hero-content {
+            padding: 5rem 5% 4rem;
             max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--text-secondary);
+            font-size: 1.25rem;
+            color: #a0a0a0;
             margin-bottom: 2.5rem;
-            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -145,365 +106,263 @@
             flex-wrap: wrap;
         }
 
-        .secondary-button {
-            background: transparent;
-            color: var(--cyan);
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--cyan);
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4aa, #00a885);
+            color: #0a0a0f;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
             text-decoration: none;
-            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .secondary-button:hover {
-            background: var(--cyan);
-            color: var(--dark-bg);
+        .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
         }
 
-        /* Products Section */
-        .products-section {
-            padding: 6rem 2rem;
+        .btn-secondary {
+            background: transparent;
+            color: #00d4aa;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid #00d4aa;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        /* Suite Section */
+        .suite {
+            padding: 4rem 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-header {
+        .suite h2 {
             text-align: center;
-            margin-bottom: 4rem;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
         }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+        .suite-subtitle {
+            text-align: center;
+            color: #808080;
+            margin-bottom: 3rem;
+        }
+
+        .indicators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .indicator-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .indicator-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4aa;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .indicator-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .indicator-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
         }
 
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Product Cards Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 231, 247, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cyan), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--cyan);
-            background: var(--card-hover);
-            box-shadow: 0 20px 40px var(--cyan-glow);
-        }
-
-        .product-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 4px 12px var(--cyan-glow));
-            transition: transform 0.4s;
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .product-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--cyan);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .product-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .product-tag {
+        .indicator-badge {
             display: inline-block;
-            background: rgba(0, 231, 247, 0.1);
-            color: var(--cyan);
-            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 170, 0.15);
+            color: #00d4aa;
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-top: 1rem;
-            border: 1px solid rgba(0, 231, 247, 0.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 5%;
+        }
+
+        .cta-section a {
+            display: inline-block;
         }
 
         /* Footer */
         footer {
-            background: var(--card-bg);
-            border-top: 1px solid rgba(0, 231, 247, 0.1);
-            padding: 3rem 2rem;
-            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 5%;
+            margin-top: 2rem;
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: #808080;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--cyan);
+            color: #00d4aa;
         }
 
-        footer p {
-            color: var(--text-secondary);
+        .footer-copy {
+            color: #606060;
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             .nav-links {
-                display: none;
+                gap: 1rem;
             }
 
-            .product-grid {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .indicators-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
-            .hero {
-                padding: 6rem 1.5rem 3rem;
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <a href="./index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
-                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
-                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
-                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
-                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
-                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
-                </svg>
-                <span>FusionPredictor</span>
-            </a>
-            <div class="nav-links">
-                <a href="./technology.html">Technology</a>
-                <a href="./pricing.html">Pricing</a>
-                <a href="./request-invite.html" class="cta-button">Request Invite</a>
-            </div>
+        <a href="./index.html" class="logo">Fusion<span>Predictor</span></a>
+        <div class="nav-links">
+            <a href="./technology.html">Technology</a>
+            <a href="./pricing.html">Pricing</a>
+            <a href="./pricing.html" class="btn-nav">Subscribe</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Professional Trading Indicators for TradingView</h1>
-            <p>Six powerful indicators combining multi-timeframe analysis, divergence detection, and institutional confluence for precision trading decisions.</p>
-            <div class="hero-buttons">
-                <a href="./request-invite.html" class="cta-button">Request Invite</a>
-                <a href="./pricing.html" class="secondary-button">View Pricing</a>
-            </div>
+        <h1>Professional Trading Indicators for TradingView</h1>
+        <p>Six powerful indicators combining multi-timeframe analysis, divergence detection, and institutional confluence for precision trading decisions.</p>
+        <div class="hero-buttons">
+            <a href="./pricing.html" class="btn-primary">Subscribe Now</a>
+            <a href="./technology.html" class="btn-secondary">Learn More</a>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="section-header">
-            <h2>The Complete Suite</h2>
-            <p>Six specialized indicators designed to work together or independently</p>
-        </div>
+    <section class="suite">
+        <h2>The Complete Suite</h2>
+        <p class="suite-subtitle">Six specialized indicators designed to work together or independently</p>
 
-        <div class="product-grid">
-            <!-- FusionPredict -->
-            <a href="./fusionpredict.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="predict" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#predict)" stroke-width="2" fill="none"/>
-                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#predict)" stroke-width="2.5" fill="none"/>
-                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#predict)" stroke-width="3" fill="none"/>
-                    <circle cx="65" cy="50" r="10" fill="#00E7F7" opacity="0.3"/>
-                    <circle cx="65" cy="50" r="4" fill="#00E7F7"/>
-                </svg>
+        <div class="indicators-grid">
+            <a href="./fusionpredict.html" class="indicator-card">
                 <h3>FusionPredict</h3>
                 <p>Predicts precise price targets across 6 timeframes with exceptional accuracy. Shows exactly where price is headed next.</p>
-                <span class="product-tag">97.9% Win Rate</span>
+                <span class="indicator-badge">97.9% Win Rate</span>
             </a>
 
-            <!-- FusionFlex -->
-            <a href="./fusionflex.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="flex" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 20 60 L 40 45 L 60 50 L 80 35" stroke="url(#flex)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <circle cx="40" cy="45" r="4" fill="#00E7F7"/>
-                    <circle cx="60" cy="50" r="4" fill="#00E7F7"/>
-                    <circle cx="80" cy="35" r="4" fill="#00E7F7"/>
-                </svg>
+            <a href="./fusionflex.html" class="indicator-card">
                 <h3>FusionFlex</h3>
                 <p>Zero repaint trend engine that hugs price in real-time. Keeps you in winning trades when other indicators exit too early.</p>
-                <span class="product-tag">Zero Repaint</span>
+                <span class="indicator-badge">Zero Repaint</span>
             </a>
 
-            <!-- FusionConfluence -->
-            <a href="./fusionconfluence.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="confluence" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="50" cy="50" r="25" stroke="url(#confluence)" stroke-width="2" fill="none"/>
-                    <circle cx="50" cy="50" r="15" stroke="url(#confluence)" stroke-width="2" fill="none"/>
-                    <circle cx="50" cy="50" r="5" fill="#00E7F7"/>
-                    <line x1="50" y1="25" x2="50" y2="75" stroke="url(#confluence)" stroke-width="2"/>
-                    <line x1="25" y1="50" x2="75" y2="50" stroke="url(#confluence)" stroke-width="2"/>
-                </svg>
+            <a href="./fusionconfluence.html" class="indicator-card">
                 <h3>FusionConfluence</h3>
                 <p>Detects when multiple timeframes align at critical price levels, signaling high-probability exhaustion zones.</p>
-                <span class="product-tag">95% Win Rate</span>
+                <span class="indicator-badge">95% Win Rate</span>
             </a>
 
-            <!-- FusionReversal -->
-            <a href="./fusionreversal.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="reversal" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 20 70 Q 35 20 50 50 T 80 30" stroke="url(#reversal)" stroke-width="3" fill="none"/>
-                    <path d="M 75 25 L 80 30 L 75 35" stroke="url(#reversal)" stroke-width="2" fill="none"/>
-                    <path d="M 45 45 L 50 50 L 45 55" stroke="url(#reversal)" stroke-width="2" fill="none"/>
-                </svg>
+            <a href="./fusionreversal.html" class="indicator-card">
                 <h3>FusionReversal</h3>
                 <p>Catches reversals before they happen by spotting divergence patterns invisible to standard indicators.</p>
-                <span class="product-tag">94.8% Win Rate</span>
+                <span class="indicator-badge">94.8% Win Rate</span>
             </a>
 
-            <!-- FusionScorer -->
-            <a href="./fusionscorer.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="scorer" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <rect x="20" y="60" width="15" height="20" fill="url(#scorer)" opacity="0.5"/>
-                    <rect x="42" y="45" width="15" height="35" fill="url(#scorer)" opacity="0.7"/>
-                    <rect x="64" y="30" width="15" height="50" fill="url(#scorer)"/>
-                    <text x="27" y="90" fill="#00E7F7" font-size="12" font-weight="bold">3</text>
-                    <text x="49" y="90" fill="#00E7F7" font-size="12" font-weight="bold">4</text>
-                    <text x="71" y="90" fill="#00E7F7" font-size="12" font-weight="bold">5</text>
-                </svg>
+            <a href="./fusionscorer.html" class="indicator-card">
                 <h3>FusionScorer</h3>
                 <p>Scores trade setups from 0-5 based on institutional positioning. Only trade when the score is 3 or higher.</p>
-                <span class="product-tag">Institutional Logic</span>
+                <span class="indicator-badge">Institutional Logic</span>
             </a>
 
-            <!-- FusionTrend -->
-            <a href="./fusiontrend.html" class="product-card">
-                <svg class="product-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="trend" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 15 75 L 30 60 L 45 65 L 60 45 L 75 50 L 85 30" stroke="url(#trend)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <line x1="15" y1="75" x2="85" y2="30" stroke="url(#trend)" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
-                    <circle cx="85" cy="30" r="5" fill="#00E7F7"/>
-                </svg>
+            <a href="./fusiontrend.html" class="indicator-card">
                 <h3>FusionTrend</h3>
                 <p>Identifies high-probability trend continuation entries. Filters out noise and shows only the best setups.</p>
-                <span class="product-tag">Continuation Edge</span>
+                <span class="indicator-badge">Continuation Edge</span>
             </a>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="./pricing.html" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">View Pricing Plans</a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="cta-section">
+        <a href="./pricing.html" class="btn-primary">View Pricing Plans</a>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="./technology.html">Technology</a>
                 <a href="./pricing.html">Pricing</a>
-                <a href="./request-invite.html">Request Invite</a>
+                <a href="mailto:support@fusionpredictor.com">Support</a>
             </div>
-            <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
+            <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
         </div>
     </footer>
 </body>
-    <script src="assets/fusion_ref.js"></script>
 </html>
