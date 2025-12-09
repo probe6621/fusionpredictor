@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FusionPredictor – Professional Trading Indicators for TradingView</title>
-  <meta name="description" content="Six powerful indicators combining multi-timeframe analysis, divergence detection, trend prediction, and institutional confluence — engineered for precision.">
+  <meta name="description" content="Six powerful indicators combining multi-timeframe analysis, exhaustion detection, trend prediction, and institutional confluence — engineered for precision.">
   
   <!-- Rewardful Affiliate Tracking -->
   <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
@@ -374,7 +374,8 @@
       flex-shrink: 0;
       overflow: hidden;
       border-radius: 12px;
-      background: var(--bg-secondary);
+      background: linear-gradient(135deg, rgba(0, 231, 247, 0.15) 0%, rgba(20, 26, 34, 0.9) 100%);
+      border: 1px solid var(--border);
       padding: 8px;
     }
 
@@ -382,6 +383,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      filter: brightness(1.3) saturate(1.2);
     }
 
     /* Hide any text elements embedded in SVG logos */
@@ -654,7 +656,7 @@
   <div class="hero-badge">LIVE ON TRADINGVIEW</div>
   <h1>Professional Trading Indicators<br><span class="gradient">Engineered for Precision</span></h1>
   <p class="hero-subtitle">
-    Six powerful indicators combining multi-timeframe analysis, divergence detection, 
+    Six powerful indicators combining multi-timeframe analysis, exhaustion detection, 
     trend prediction, and institutional confluence — all in one suite.
   </p>
   <div class="hero-cta">
@@ -723,8 +725,8 @@
         </div>
       </div>
       <p class="card-description">
-        Zero repaint trend engine that hugs price in real-time. Keeps you in winning 
-        trades when other indicators exit too early. Adaptive to any market condition.
+        Zero repaint trend engine that hugs price in real-time. Great for bots and 
+        automated trading. Keeps you in winning trades when other indicators exit too early.
       </p>
       <div class="card-preview">
         <img src="assets/fusionflex_chart_promo.png" alt="FusionFlex Chart">
@@ -763,7 +765,7 @@
         </div>
       </div>
       <p class="card-description">
-        Catches reversals before they happen by spotting divergence patterns invisible 
+        Catches reversals before they happen by detecting exhaustion invisible 
         to standard indicators. Premium/discount zone detection included.
       </p>
       <div class="card-preview">

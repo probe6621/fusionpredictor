@@ -201,6 +201,52 @@
       display: block;
     }
 
+    /* Important Notes */
+    .notes-section {
+      margin-bottom: 4rem;
+    }
+
+    .notes-section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .note-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .note-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--green);
+    }
+
+    .note-card.caution h3 {
+      color: var(--gold);
+    }
+
+    .note-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .notes-grid { grid-template-columns: 1fr; }
+    }
+
     /* Features Grid */
     .features-section {
       margin-bottom: 4rem;
@@ -406,15 +452,37 @@
     </div>
   </section>
 
+  <section class="notes-section">
+    <h2>Important Notes</h2>
+    <div class="notes-grid">
+      <div class="note-card">
+        <h3>Real-Time Targets</h3>
+        <p>1 minute means 1 minute. A 5-minute target hits in roughly 5 minutes. Even the 1-hour target typically completes within 45 minutes - not the 10-12 hours a traditional hourly chart spans. Speed varies with volatility.</p>
+      </div>
+      <div class="note-card">
+        <h3>Multi-Timeframe Alignment</h3>
+        <p>When all 6 timeframes (1m through 1hr) point the same direction, you're at a pivot. These are high-conviction entries - price is far less likely to retrace against you when exhaustion is confirmed across all horizons.</p>
+      </div>
+      <div class="note-card caution">
+        <h3>Momentum First</h3>
+        <p>Gap reversion begins once momentum dissipates. If price is hunting liquidity, that move completes before reversion kicks in. Don't fight active momentum - let it exhaust first.</p>
+      </div>
+      <div class="note-card caution">
+        <h3>Best Accuracy</h3>
+        <p>Highest accuracy on 1-5 minute charts (97%+). Performance naturally degrades above 15 minutes due to gap-centered logic. Use higher timeframes for directional bias, lower timeframes for precision entries.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="how-section">
     <h2>How It Works</h2>
     <ul class="how-list">
-      <li>Gap analysis identifies price inefficiencies across multiple timeframes</li>
-      <li>Each timeframe shows its target level with visual indicators</li>
-      <li>Green arrows mark bullish targets, showing price should move up</li>
-      <li>Red arrows mark bearish targets, showing price should move down</li>
-      <li>When all timeframes align "ALL LONG" or "ALL SHORT", take the trade</li>
-      <li>Average target price gives you an exact level to watch</li>
+      <li>Gap analysis identifies price displacement from fair value across 6 timeframes (1m, 5m, 10m, 15m, 30m, 1hr)</li>
+      <li>Each timeframe displays its predicted target level with directional indicators</li>
+      <li>Green arrows mark bullish targets (price should move up to fill the gap)</li>
+      <li>Red arrows mark bearish targets (price should move down to fill the gap)</li>
+      <li>"ALL LONG" or "ALL SHORT" signals when all 6 timeframes align - these are pivot entries</li>
+      <li>The alignment table shows exact targets for each timeframe plus signal strength</li>
     </ul>
   </section>
 
