@@ -1,0 +1,39 @@
+cat > /tmp/success.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to FusionPredictor!</title>
+  <style>
+    body { background:#0a0d12; color:#f0f4f8; font-family:'Outfit',sans-serif; margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    .container { text-align:center; max-width:500px; padding:2rem; }
+    .icon { font-size:4rem; margin-bottom:1rem; }
+    h1 { color:#00e7f7; margin-bottom:0.5rem; }
+    p { color:#8b9bb4; line-height:1.7; margin-bottom:1.5rem; }
+    .steps { background:#141a22; border:1px solid rgba(0,231,247,0.12); border-radius:12px; padding:1.5rem; text-align:left; margin:1.5rem 0; }
+    .steps li { padding:0.5rem 0; color:#8b9bb4; }
+    .btn { display:inline-block; background:#00e7f7; color:#0a0d12; padding:0.9rem 2rem; border-radius:8px; text-decoration:none; font-weight:600; }
+    .btn:hover { transform:translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🎉</div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for subscribing to FusionPredictor. Your indicators will be activated shortly.</p>
+    <div class="steps">
+      <strong style="color:#f0f4f8;">What happens next:</strong>
+      <ol>
+        <li>You'll receive access within a few minutes</li>
+        <li>Open TradingView and go to Indicators</li>
+        <li>Search "Invite-Only" to find your new indicators</li>
+        <li>Check your email for a welcome message</li>
+      </ol>
+    </div>
+    <a href="https://tradingview.com" class="btn">Open TradingView</a>
+    <p style="margin-top:2rem;font-size:0.9rem;">Questions? <a href="support.html" style="color:#00e7f7;">Contact Support</a></p>
+  </div>
+</body>
+</html>
+EOF
