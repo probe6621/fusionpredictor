@@ -230,6 +230,7 @@
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
+      text-align: center;
     }
 
     .concept-card p {
@@ -640,10 +641,10 @@
       <div class="step">
         <div class="step-number">1</div>
         <div class="step-content">
-          <h3>Oscillator Analysis</h3>
+          <h3>Market Sentiment Analysis</h3>
           <p>
-            Five oscillators (RSI, Stochastic, MFI, CMF, CCI) are analyzed across each timeframe. 
-            Their values are normalized and combined into a "Ribbon Average" representing market sentiment.
+            Proprietary algorithms analyze market conditions across each timeframe, 
+            producing a normalized sentiment score that captures the current state.
           </p>
         </div>
       </div>
@@ -651,10 +652,10 @@
       <div class="step">
         <div class="step-number">2</div>
         <div class="step-content">
-          <h3>Gap Calculation</h3>
+          <h3>Displacement Detection</h3>
           <p>
-            The difference between the Ribbon Average and a smoothed Confluence Meter reveals 
-            how far price has displaced from equilibrium. Larger gaps = stronger reversion signals.
+            The engine calculates how far price has moved from fair value. 
+            Larger displacements signal stronger reversion opportunities.
           </p>
         </div>
       </div>
@@ -664,8 +665,8 @@
         <div class="step-content">
           <h3>Target Projection</h3>
           <p>
-            Current price is adjusted by the gap multiplied by visible range to produce a concrete 
-            price target. Each timeframe generates its own target independently.
+            Each timeframe generates its own independent price target based on 
+            the displacement and current market structure.
           </p>
         </div>
       </div>
