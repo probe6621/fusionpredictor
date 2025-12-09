@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Kit – FusionPredictor Press & Affiliate Resources</title>
+  <meta name="description" content="Download FusionPredictor logos, brand guidelines, and marketing assets for affiliates and press.">
+  
+  <!-- Rewardful Affiliate Tracking -->
+  <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1419;
+      --bg-card: #141a22;
+      --bg-card-hover: #1a222c;
+      --cyan: #00e7f7;
+      --cyan-dim: #00b8c5;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --gold: #ffaa00;
+      --text-primary: #f0f4f8;
+      --text-secondary: #8b9bb4;
+      --text-muted: #5a6a7e;
+      --border: rgba(0, 231, 247, 0.12);
+      --border-hover: rgba(0, 231, 247, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(10, 13, 18, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-mark { width: 42px; height: 42px; }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span { color: var(--cyan); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--cyan); }
+
+    .btn-subscribe {
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--cyan-glow-strong);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    /* Logo Grid */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .logo-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .logo-preview {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .logo-preview img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .logo-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .logo-card span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Color Palette */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .color-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .color-swatch {
+      height: 80px;
+    }
+
+    .color-info {
+      padding: 1rem;
+    }
+
+    .color-info h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .color-info code {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Guidelines */
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .guideline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .guideline-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .guideline-card ul {
+      list-style: none;
+    }
+
+    .guideline-card li {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .guideline-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+
+    .guideline-card.dont li::before {
+      content: '✕';
+      color: var(--red);
+    }
+
+    /* Download Section */
+    .download-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+
+    .download-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .download-content h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .download-content p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .download-btn {
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px var(--cyan-glow);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--cyan-glow-strong);
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 3rem auto 0;
+    }
+
+    .contact-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-box a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cyan); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 1rem; }
+      nav { display: none; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
+    <nav>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="support.html">Support</a>
+      <a href="pricing.html" class="btn-subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <h1>Brand Kit & Press Resources</h1>
+  <p>
+    Official logos, colors, and guidelines for affiliates, press, and partners. 
+    Use these assets when promoting FusionPredictor.
+  </p>
+</section>
+
+<!-- Primary Logos -->
+<section class="section">
+  <div class="section-header">
+    <h2>Primary Logos</h2>
+    <p>Use the Arrowmark logo for all FusionPredictor brand representations</p>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--bg-primary);">
+        <img src="assets/fusion-arrowmark-primary.svg" alt="Primary Logo">
+      </div>
+      <h4>Primary (Dark BG)</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview" style="background: #ffffff;">
+        <img src="assets/fusion-arrowmark-primary.svg" alt="Light Background">
+      </div>
+      <h4>On Light Background</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--bg-primary);">
+        <img src="assets/fusion-arrowmark-compact.svg" alt="Compact Logo">
+      </div>
+      <h4>Compact</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview" style="background: var(--bg-primary);">
+        <img src="assets/fusion-arrowmark-icon.svg" alt="Icon">
+      </div>
+      <h4>Icon Only</h4>
+      <span>SVG</span>
+    </div>
+  </div>
+</section>
+
+<!-- Indicator Logos -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-header">
+    <h2>Indicator Logos</h2>
+    <p>Individual logos for each indicator in the suite</p>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusionpredict-logo.svg" alt="FusionPredict">
+      </div>
+      <h4>FusionPredict</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusion-flex-logo.svg" alt="FusionFlex">
+      </div>
+      <h4>FusionFlex</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence">
+      </div>
+      <h4>FusionConfluence</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal">
+      </div>
+      <h4>FusionReversal</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer">
+      </div>
+      <h4>FusionScorer</h4>
+      <span>SVG</span>
+    </div>
+    <div class="logo-card">
+      <div class="logo-preview">
+        <img src="assets/fusion-trend-logo.svg" alt="FusionTrend">
+      </div>
+      <h4>FusionTrend</h4>
+      <span>SVG</span>
+    </div>
+  </div>
+</section>
+
+<!-- Color Palette -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-header">
+    <h2>Color Palette</h2>
+    <p>Official brand colors for consistent representation</p>
+  </div>
+
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background: #00e7f7;"></div>
+      <div class="color-info">
+        <h4>Primary Cyan</h4>
+        <code>#00E7F7</code>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #00ff88;"></div>
+      <div class="color-info">
+        <h4>Success Green</h4>
+        <code>#00FF88</code>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #ffaa00;"></div>
+      <div class="color-info">
+        <h4>Accent Gold</h4>
+        <code>#FFAA00</code>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #0a0d12;"></div>
+      <div class="color-info">
+        <h4>Background Dark</h4>
+        <code>#0A0D12</code>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #f0f4f8;"></div>
+      <div class="color-info">
+        <h4>Text Primary</h4>
+        <code>#F0F4F8</code>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #8b9bb4;"></div>
+      <div class="color-info">
+        <h4>Text Secondary</h4>
+        <code>#8B9BB4</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guidelines -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-header">
+    <h2>Usage Guidelines</h2>
+    <p>Follow these rules when using FusionPredictor assets</p>
+  </div>
+
+  <div class="guidelines-grid">
+    <div class="guideline-card">
+      <h3>✅ Do</h3>
+      <ul>
+        <li>Use official logos from this page</li>
+        <li>Maintain clear space around logos</li>
+        <li>Use on dark or light backgrounds</li>
+        <li>Link to fusionpredictor.com</li>
+        <li>Mention accurate win rate statistics</li>
+        <li>Disclose affiliate relationship</li>
+      </ul>
+    </div>
+    <div class="guideline-card dont">
+      <h3>❌ Don't</h3>
+      <ul>
+        <li>Modify or distort logos</li>
+        <li>Change brand colors</li>
+        <li>Add effects or shadows to logos</li>
+        <li>Guarantee trading profits</li>
+        <li>Make false performance claims</li>
+        <li>Use on busy/clashing backgrounds</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Download -->
+<section class="download-section">
+  <div class="download-content">
+    <h2>Download Complete Brand Kit</h2>
+    <p>
+      Get all logos in SVG format, color codes, and guidelines in one ZIP file.
+    </p>
+    <a href="mailto:support@fusionpredictor.com?subject=Brand Kit Request" class="download-btn">
+      📦 Request Brand Kit
+    </a>
+  </div>
+
+  <div class="contact-box">
+    <h3>Need Custom Assets?</h3>
+    <p>For custom sizes, formats, or co-branded materials, contact us:</p>
+    <a href="mailto:support@fusionpredictor.com">support@fusionpredictor.com</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="affiliates.html">Affiliates</a>
+    <a href="affiliate-terms.html">Affiliate Terms</a>
+    <a href="support.html">Support</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

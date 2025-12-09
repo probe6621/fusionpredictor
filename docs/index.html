@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FusionPredictor – Professional Trading Indicators for TradingView</title>
   <meta name="description" content="Six powerful indicators combining multi-timeframe analysis, divergence detection, trend prediction, and institutional confluence — engineered for precision.">
+  
+  <!-- Rewardful Affiliate Tracking -->
+  <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -440,14 +445,22 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: center 60%;
       opacity: 0.9;
       transition: all 0.3s;
     }
 
-    /* Specific positioning for confluence chart which needs centering */
+    /* Specific positioning adjustments per indicator */
     .card-preview-confluence img {
-      object-position: center 40%;
+      object-position: center 50%;
+    }
+
+    .card-preview-predict img {
+      object-position: center 70%;
+    }
+
+    .card-preview-flex img {
+      object-position: center 65%;
     }
 
     .indicator-card:hover .card-preview img {

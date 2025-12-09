@@ -1,408 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FusionReversal - Catch Reversals Before They Happen</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --cyan: #00E7F7;
-            --cyan-glow: rgba(0, 231, 247, 0.3);
-            --dark-bg: #0A0E1A;
-            --card-bg: #131827;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0AEC0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 231, 247, 0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.25rem;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--cyan);
-        }
-
-        .cta-button {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
-        }
-
-        .hero {
-            margin-top: 80px;
-            padding: 4rem 2rem;
-            text-align: center;
-            background: radial-gradient(circle at 50% 30%, rgba(0, 231, 247, 0.08) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .product-badge {
-            display: inline-block;
-            background: rgba(0, 231, 247, 0.1);
-            color: var(--cyan);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 231, 247, 0.3);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2.5rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--cyan);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-        }
-
-        .product-showcase {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .showcase-image {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 231, 247, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 231, 247, 0.15);
-        }
-
-        .features {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 231, 247, 0.1);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--cyan);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px var(--cyan-glow);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            color: var(--cyan);
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .cta-section {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 231, 247, 0.08) 0%, transparent 60%);
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .secondary-button {
-            background: transparent;
-            color: var(--cyan);
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--cyan);
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .secondary-button:hover {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: var(--card-bg);
-            border-top: 1px solid rgba(0, 231, 247, 0.1);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .stats-row {
-                gap: 2rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FusionReversal – Divergence-Based Reversal Detection | FusionPredictor</title>
+  <meta name="description" content="Catches reversals before they happen with 94.8% accuracy using divergence patterns.">
+  
+  <!-- Rewardful Affiliate Tracking -->
+  <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1419;
+      --bg-card: #141a22;
+      --cyan: #00e7f7;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --red: #ff6b6b;
+      --text-primary: #f0f4f8;
+      --text-secondary: #8b9bb4;
+      --text-muted: #5a6a7e;
+      --border: rgba(0, 231, 247, 0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: -1; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; background: rgba(10, 13, 18, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-mark { width: 42px; height: 42px; }
+    .logo-text { font-size: 1.35rem; font-weight: 600; color: var(--text-primary); }
+    .logo-text span { color: var(--cyan); }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--cyan); }
+    .btn-subscribe { background: var(--cyan); color: var(--bg-primary); padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 600; box-shadow: 0 0 20px var(--cyan-glow); }
+    .btn-subscribe:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--cyan-glow-strong); }
+    main { max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+    .indicator-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+    .indicator-info h1 { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .badge { display: inline-block; font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 6px; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.5rem; }
+    .badge-accuracy { background: rgba(0, 255, 136, 0.15); color: var(--green); }
+    .indicator-info p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem; }
+    .btn-primary { display: inline-block; background: var(--cyan); color: var(--bg-primary); padding: 1rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 20px var(--cyan-glow); transition: all 0.25s; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--cyan-glow-strong); }
+    .chart-preview { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); }
+    .chart-preview img { width: 100%; height: auto; display: block; }
+    .features-section { margin-bottom: 4rem; }
+    .features-section h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; text-align: center; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cyan); }
+    .feature-card p { font-size: 0.95rem; color: var(--text-secondary); }
+    .how-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; margin-bottom: 4rem; }
+    .how-section h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; text-align: center; }
+    .how-list { list-style: none; max-width: 700px; margin: 0 auto; }
+    .how-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; font-size: 1.05rem; color: var(--text-secondary); }
+    .how-list li::before { content: '→'; color: var(--cyan); font-weight: 600; }
+    .cta-section { text-align: center; padding: 4rem 0; }
+    .cta-section h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
+    .cta-section p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+    footer { padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--text-muted); font-size: 0.85rem; }
+    @media (max-width: 900px) { .indicator-hero { grid-template-columns: 1fr; text-align: center; } .indicator-info h1 { font-size: 2.25rem; } .features-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { nav { display: none; } }
+  </style>
 </head>
 <body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
     <nav>
-        <div class="nav-container">
-            <a href="./index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 15 60 L 45 40 L 43 38 M 45 40 L 43 42" stroke="url(#logoGradient)" stroke-width="2" fill="none" opacity="0.7"/>
-                    <path d="M 15 50 L 50 50 L 48 48 M 50 50 L 48 52" stroke="url(#logoGradient)" stroke-width="2.5" fill="none" opacity="0.85"/>
-                    <path d="M 15 40 L 55 60 L 53 58 M 55 60 L 53 62" stroke="url(#logoGradient)" stroke-width="3" fill="none" opacity="1"/>
-                    <circle cx="65" cy="50" r="8" fill="#00E7F7" opacity="0.4"/>
-                    <circle cx="65" cy="50" r="3" fill="#00E7F7"/>
-                    <circle cx="65" cy="50" r="1.5" fill="#ffffff"/>
-                </svg>
-                <span>FusionPredictor</span>
-            </a>
-            <div class="nav-links">
-                <a href="./index.html">Products</a>
-                <a href="./pricing.html">Pricing</a>
-                <a href="./request-invite.html" class="cta-button">Request Invite</a>
-            </div>
-        </div>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="my-account.html">My Account</a>
+      <a href="pricing.html" class="btn-subscribe">Subscribe</a>
     </nav>
+  </div>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="product-badge">REVERSAL DETECTION</div>
-            <h1>FusionReversal</h1>
-            <p class="subtitle">Catch Reversals Before They Happen</p>
-            <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary);">
-                Spots divergence patterns invisible to standard indicators. Get in early with tight invalidation before the crowd sees it.
-            </p>
+<main>
+  <section class="indicator-hero">
+    <div class="indicator-info">
+      <h1>FusionReversal</h1>
+      <span class="badge badge-accuracy">94.8% Win Rate</span>
+      <p>
+        Catches reversals before they happen by spotting divergence patterns invisible 
+        to standard indicators. Includes premium/discount zone detection for optimal 
+        entry timing. Counter-trend trading with precision.
+      </p>
+      <a href="pricing.html" class="btn-primary">Subscribe Now</a>
+    </div>
+    <div class="chart-preview">
+      <img src="assets/fusionreversal_chart_promo.png" alt="FusionReversal in action">
+    </div>
+  </section>
 
-            <div class="stats-row">
-                <div class="stat">
-                    <div class="stat-number">94.8%</div>
-                    <div class="stat-label">Win Rate</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">Early</div>
-                    <div class="stat-label">Entry Timing</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">Tight</div>
-                    <div class="stat-label">Stop Loss</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Divergence Detection</h3>
+        <p>Spots hidden divergences between price and momentum that signal imminent reversals.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Premium Zones</h3>
+        <p>Highlights overbought areas where price is likely to reverse down - ideal for shorts.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Discount Zones</h3>
+        <p>Identifies oversold areas where price is likely to bounce - ideal for longs.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Visual Signals</h3>
+        <p>Clear SELL arrows at premium zones, BUY arrows at discount zones. No guessing.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Zone Shading</h3>
+        <p>Red shading for premium zones, green for discount. See the opportunity instantly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Reversal Alerts</h3>
+        <p>Get notified when divergence forms in premium or discount zones.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="product-showcase">
-        <img src="./assets/fusionreversal_chart_promo.jpg" alt="FusionReversal Chart" class="showcase-image">
-    </section>
+  <section class="how-section">
+    <h2>How It Works</h2>
+    <ul class="how-list">
+      <li>FusionReversal identifies premium (overbought) and discount (oversold) zones</li>
+      <li>Scans for RSI divergence when price enters these extreme zones</li>
+      <li>SELL signal appears when divergence forms in premium zone (price too high)</li>
+      <li>BUY signal appears when divergence forms in discount zone (price too low)</li>
+      <li>Red shading highlights premium zones - look for short opportunities</li>
+      <li>Green shading highlights discount zones - look for long opportunities</li>
+    </ul>
+  </section>
 
-    <section class="features">
-        <h2 class="section-title">What You Get</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>Early Reversal Detection</h3>
-                <p>Catch reversals at the beginning of the move, not after everyone else sees it. Maximum profit potential.</p>
-            </div>
+  <section class="cta-section">
+    <h2>Ready to Catch Reversals Early?</h2>
+    <p>Join traders using FusionReversal to profit from counter-trend moves.</p>
+    <a href="pricing.html" class="btn-primary">Get Started</a>
+  </section>
+</main>
 
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>High-Probability Zones Only</h3>
-                <p>Signals fire only in extreme zones where reversals have the highest probability of success.</p>
-            </div>
+<footer>
+  <div class="footer-links">
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
 
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>Hidden Divergence Patterns</h3>
-                <p>Detects divergence patterns that standard indicators miss completely. Your edge over the crowd.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Multi-Timeframe Confirmation</h3>
-                <p>Filters signals with higher timeframe agreement to increase conviction and reduce noise.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">✅</div>
-                <h3>Clean Visual Signals</h3>
-                <p>Green BUY triangles and red SELL triangles appear exactly where you should enter. No confusion.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h3>Tight Risk Control</h3>
-                <p>Entry at the turn means tight stop losses. Maximize your reward-to-risk ratio on every trade.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <h2>Stop Chasing Reversals</h2>
-        <p>Join traders catching reversals early with FusionReversal</p>
-        <div class="cta-buttons">
-            <a href="./request-invite.html" class="cta-button">Request Invite</a>
-            <a href="./pricing.html" class="secondary-button">View Pricing</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 FusionPredictor. All rights reserved.</p>
-    </footer>
 </body>
 </html>
