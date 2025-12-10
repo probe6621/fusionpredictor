@@ -14,9 +14,6 @@
   <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
   
   <style>
-    /* (all style rules you sent — preserved exactly) */
-    /* I have NOT modified anything — this is your original CSS */
-
     :root {
       --bg-primary: #0a0d12;
       --bg-secondary: #0f1419;
@@ -150,8 +147,324 @@
       color: var(--text-secondary);
     }
 
-    /* Pricing, Info, Footer, Modal styling remain unchanged... */
+    /* Pricing Section */
+    .pricing-section {
+      padding: 2rem 5% 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 231, 247, 0.3);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--cyan);
+      position: relative;
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-dim));
+      color: var(--bg-primary);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .pricing-card h3 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-period {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .features-list li {
+      padding: 0.6rem 0;
+      color: #c0c0c0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .features-list li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .btn-subscribe {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-dim));
+      color: var(--bg-primary);
+      padding: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px var(--cyan-glow-strong);
+    }
+
+    /* Info Section */
+    .info-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+
+    .info-box {
+      background: linear-gradient(145deg, rgba(0, 231, 247, 0.1), rgba(0, 231, 247, 0.05));
+      border: 1px solid rgba(0, 231, 247, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .info-box:last-child {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+    }
+
+    .info-box h3 {
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .info-box:last-child h3 {
+      color: #fff;
+    }
+
+    .info-box p {
+      color: var(--text-secondary);
+    }
+
+    .info-box ul {
+      list-style: none;
+    }
+
+    .info-box li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .info-box li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem 5%;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .modal h3 {
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal p {
+      color: #a0a0a0;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .modal input {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal input:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+
+    .modal input::placeholder {
+      color: #606060;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-cancel {
+      flex: 1;
+      padding: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      background: transparent;
+      color: #a0a0a0;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .btn-cancel:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .btn-confirm {
+      flex: 1;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-dim));
+      color: var(--bg-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .btn-confirm:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-confirm:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-buttons {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -269,7 +582,121 @@
   <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
 </footer>
 
-<!-- Modal + JS unchanged... -->
+<!-- Username Modal -->
+<div class="modal-overlay" id="usernameModal">
+  <div class="modal">
+    <h3>Enter Your TradingView Username</h3>
+    <p>We need your TradingView username to grant access to your indicators after purchase.</p>
+    <input type="text" id="tvUsername" placeholder="Your TradingView username" autocomplete="off">
+    <div class="modal-buttons">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-confirm" id="confirmBtn" onclick="proceedToCheckout()">Continue to Checkout</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    const API_BASE = 'https://api.fusionpredictor.com';
+    let selectedPriceId = null;
+    let selectedPlan = null;
+
+    // Add click handlers to all subscribe buttons
+    document.querySelectorAll('.btn-subscribe').forEach(button => {
+        button.addEventListener('click', function() {
+            selectedPriceId = this.dataset.price;
+            selectedPlan = this.dataset.plan;
+            openModal();
+        });
+    });
+
+    function openModal() {
+        document.getElementById('usernameModal').classList.add('active');
+        document.getElementById('tvUsername').focus();
+    }
+
+    function closeModal() {
+        document.getElementById('usernameModal').classList.remove('active');
+        document.getElementById('tvUsername').value = '';
+        selectedPriceId = null;
+        selectedPlan = null;
+    }
+
+    async function proceedToCheckout() {
+        const username = document.getElementById('tvUsername').value.trim();
+        
+        if (!username) {
+            alert('Please enter your TradingView username');
+            return;
+        }
+
+        const confirmBtn = document.getElementById('confirmBtn');
+        confirmBtn.disabled = true;
+        confirmBtn.innerHTML = 'Loading...';
+
+        try {
+            const response = await fetch(`${API_BASE}/create-checkout`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    price_id: selectedPriceId,
+                    tv_username: username,
+                    ref: getRefCode()
+                })
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.detail || 'Failed to create checkout session');
+            }
+
+            const data = await response.json();
+            
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                throw new Error('No checkout URL received');
+            }
+        } catch (error) {
+            console.error('Checkout error:', error);
+            alert('Error: ' + error.message);
+            confirmBtn.disabled = false;
+            confirmBtn.innerHTML = 'Continue to Checkout';
+        }
+    }
+
+    function getRefCode() {
+        // Try Rewardful first (returns referral ID if visitor came via affiliate link)
+        if (typeof Rewardful !== 'undefined' && Rewardful.referral) {
+            return Rewardful.referral;
+        }
+        // Fallback to URL param (legacy support)
+        const params = new URLSearchParams(window.location.search);
+        return params.get('ref') || params.get('via') || null;
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Close modal on outside click
+    document.getElementById('usernameModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Enter key submits
+    document.getElementById('tvUsername').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            proceedToCheckout();
+        }
+    });
+</script>
 
 </body>
 </html>
