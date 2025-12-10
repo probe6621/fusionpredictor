@@ -1,302 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activate Access - FusionPredictor</title>
+###############################################################
+# TRIAL ACTIVATION (Influencer/Demo Access)
+###############################################################
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+import json
+from datetime import datetime, timedelta
+from pathlib import Path
 
-    <style>
-        :root {
-            --cyan: #00E7F7;
-            --cyan-soft: rgba(0, 231, 247, 0.25);
-            --cyan-glow: rgba(0, 231, 247, 0.45);
-            --dark-bg: #0A0E1A;
-            --card-bg: #131827;
-            --pill-bg: #0F1323;
-            --pill-border: rgba(0, 231, 247, 0.25);
-            --pill-hover: #16203A;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0AEC0;
-            --error-red: #ff6b6b;
-        }
+TRIALS_FILE = "/home/paulroberts/fusion_api/trials.json"
 
-        body {
-            background: var(--dark-bg);
-            font-family: 'Inter', sans-serif;
-            padding: 2rem;
-            color: var(--text-primary);
-        }
+class TrialActivateRequest(BaseModel):
+    tv_username: str
+    trial_days: int = 14
+    influencer: str = "direct"
 
-        .activation-container {
-            max-width: 600px;
-            margin: 4rem auto;
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 231, 247, 0.15);
-            box-shadow: 0 0 40px rgba(0, 231, 247, 0.05);
-        }
+def load_trials():
+    if Path(TRIALS_FILE).exists():
+        with open(TRIALS_FILE, 'r') as f:
+            return json.load(f)
+    return []
 
-        h1 {
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--cyan);
-        }
+def save_trials(trials):
+    with open(TRIALS_FILE, 'w') as f:
+        json.dump(trials, f, indent=2)
 
-        p.subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.4rem;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 0.85rem;
-            border-radius: 10px;
-            background: #0F1323;
-            border: 1px solid rgba(0, 231, 247, 0.25);
-            color: var(--text-primary);
-            margin-bottom: 1.4rem;
-            font-size: 1rem;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--cyan);
-            box-shadow: 0 0 12px var(--cyan-soft);
-        }
-
-        /* --- Pill-style selection chips --- */
-        .pill-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .pill {
-            padding: 10px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--pill-border);
-            background: var(--pill-bg);
-            cursor: pointer;
-            transition: 0.25s;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            user-select: none;
-        }
-
-        .pill:hover {
-            background: var(--pill-hover);
-        }
-
-        .pill.active {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            font-weight: 700;
-            border-color: var(--cyan);
-            box-shadow: 0 0 12px var(--cyan-glow);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--cyan);
-            color: var(--dark-bg);
-            font-weight: 700;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1.1rem;
-            border: none;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-soft);
-        }
-
-        .success-box, .error-box {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .success-box {
-            background: rgba(0, 231, 247, 0.15);
-            color: var(--cyan);
-            border: 1px solid rgba(0, 231, 247, 0.35);
-        }
-
-        .error-box {
-            background: rgba(255, 100, 100, 0.15);
-            color: var(--error-red);
-            border: 1px solid rgba(255, 100, 100, 0.35);
-        }
-
-        @media (max-width: 480px) {
-            .activation-container {
-                padding: 1.8rem;
-            }
-        }
-    </style>
-
-</head>
-<body>
-
-<div class="activation-container">
-    <h1>Activate Your Access</h1>
-    <p class="subtitle">Enter your TradingView username to unlock your invite-only indicators.</p>
-
-    <form id="activationForm">
-
-        <label>Email Used at Checkout</label>
-        <input type="email" id="email" required placeholder="you@example.com">
-
-        <label>TradingView Username</label>
-        <input type="text" id="tv" required placeholder="Your TradingView username">
-
-        <label>Your Subscription Plan</label>
-        <select id="plan" required>
-            <option value="starter">Starter (2 indicators)</option>
-            <option value="pro">Pro (4 indicators)</option>
-            <option value="master">Master Suite (all 6 indicators)</option>
-        </select>
-
-        <div id="indicatorBox">
-            <label>Select Your Indicators</label>
-
-            <div class="pill-container">
-
-                <div class="pill" data-value="FusionPredict">FusionPredict</div>
-                <div class="pill" data-value="FusionTrend">FusionTrend</div>
-                <div class="pill" data-value="FusionReversal">FusionReversal</div>
-                <div class="pill" data-value="FusionFlex">FusionFlex</div>
-                <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
-                <div class="pill" data-value="FusionScorer">FusionScorer</div>
-
-            </div>
-
-            <small>You may select up to <span id="indicatorLimit">2</span> indicators.</small>
-        </div>
-
-        <button type="submit" class="submit-btn">Activate My Access</button>
-
-    </form>
-
-    <div class="success-box" id="successBox">
-        ✅ Activation submitted!<br><br>
-        Your indicators will be enabled within <strong>5–10 minutes</strong>.
-    </div>
-
-    <div class="error-box" id="errorBox">
-        ❌ Something went wrong. Please check your info and try again.
-    </div>
-</div>
-
-
-<script>
-    function planLimit(plan) {
-        if (plan === "starter") return 2;
-        if (plan === "pro") return 4;
-        if (plan === "master") return 6;
-        return 0;
-    }
-
-    function updateUI() {
-        const plan = document.getElementById("plan").value;
-        const limit = planLimit(plan);
-        document.getElementById("indicatorLimit").textContent = limit;
-
-        const box = document.getElementById("indicatorBox");
-        box.style.display = plan === "master" ? "none" : "block";
-    }
-
-    document.getElementById("plan").addEventListener("change", updateUI);
-    updateUI();
-
-    document.querySelectorAll(".pill").forEach(pill => {
-        pill.addEventListener("click", () => {
-            const plan = document.getElementById("plan").value;
-            const limit = planLimit(plan);
-
-            if (!pill.classList.contains("active")) {
-                const selected = document.querySelectorAll(".pill.active").length;
-                if (selected >= limit) {
-                    alert(`You may select up to ${limit} indicators.`);
-                    return;
-                }
-            }
-
-            pill.classList.toggle("active");
-        });
-    });
-
-    document.getElementById("activationForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const plan = document.getElementById("plan").value;
-        let indicators;
-
-        if (plan === "master") {
-            indicators = [
-                "FusionPredict",
-                "FusionTrend",
-                "FusionReversal",
-                "FusionFlex",
-                "FusionConfluence",
-                "FusionScorer"
-            ];
-        } else {
-            indicators = Array.from(document.querySelectorAll(".pill.active"))
-                .map(p => p.getAttribute("data-value"));
-        }
-
-        const payload = {
-            email: document.getElementById("email").value,
-            tvUsername: document.getElementById("tv").value,
-            plan,
-            indicators
-        };
-
-        try {
-            const res = await fetch("https://api.fusionpredictor.com/activate", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-
-            if (res.ok) {
-                document.getElementById("successBox").style.display = "block";
-                document.getElementById("errorBox").style.display = "none";
-            } else throw new Error();
-
-        } catch (err) {
-            document.getElementById("errorBox").style.display = "block";
-            document.getElementById("successBox").style.display = "none";
-        }
-    });
-</script>
-
-</body>
-</html>
+@app.post("/trial-activate")
+async def trial_activate(payload: TrialActivateRequest):
+    try:
+        logger.info(f"Trial activation: {payload.tv_username}, {payload.trial_days} days, influencer={payload.influencer}")
+        
+        # Grant all 6 indicators
+        client = TradingViewClient()
+        all_indicators = ["FusionFlex", "FusionTrend", "FusionConfluence", "FusionReversal", "FusionScorer", "FusionPredict-MTF"]
+        
+        results = []
+        for indicator in all_indicators:
+            result = client.grant_access(payload.tv_username, indicator)
+            results.append(result)
+            status = "✓" if result['success'] else "✗"
+            logger.info(f"  {status} {indicator}: {result.get('status', result.get('error', 'failed'))}")
+        
+        # Calculate expiration date
+        expiration = (datetime.utcnow() + timedelta(days=payload.trial_days)).isoformat()
+        
+        # Save trial record
+        trials = load_trials()
+        trials.append({
+            "tv_username": payload.tv_username,
+            "influencer": payload.influencer,
+            "trial_days": payload.trial_days,
+            "granted_at": datetime.utcnow().isoformat(),
+            "expires_at": expiration,
+            "indicators": all_indicators,
+            "revoked": False
+        })
+        save_trials(trials)
+        
+        all_success = all(r['success'] for r in results)
+        if all_success:
+            logger.info(f"✅ Trial activated: {payload.tv_username} expires {expiration}")
+            return {"success": True, "expires_at": expiration}
+        else:
+            failed = [r['script'] for r in results if not r['success']]
+            raise HTTPException(status_code=500, detail=f"Some indicators failed: {failed}")
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Trial activation error: {e}")
+        raise HTTPException(status_code=500, detail
