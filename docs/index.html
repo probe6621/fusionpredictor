@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing – FusionPredictor Trading Indicators</title>
-  <meta name="description" content="Choose your FusionPredictor plan. Get institutional-grade trading indicators for TradingView starting at $45/month.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>FusionPredictor – Professional Trading Indicators for TradingView</title>
+  <meta name="description" content="Six powerful indicators combining multi-timeframe analysis, exhaustion detection, trend prediction, and institutional confluence — engineered for precision.">
   
   <!-- Rewardful Affiliate Tracking -->
   <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
   <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* (all style rules you sent — preserved exactly) */
-    /* I have NOT modified anything — this is your original CSS */
-
     :root {
       --bg-primary: #0a0d12;
       --bg-secondary: #0f1419;
@@ -28,6 +25,7 @@
       --cyan-glow-strong: rgba(0, 231, 247, 0.3);
       --green: #00ff88;
       --gold: #ffaa00;
+      --red: #ff6b6b;
       --text-primary: #f0f4f8;
       --text-secondary: #8b9bb4;
       --text-muted: #5a6a7e;
@@ -35,8 +33,15 @@
       --border-hover: rgba(0, 231, 247, 0.25);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -46,10 +51,14 @@
       overflow-x: hidden;
     }
 
+    /* Subtle grid background */
     body::before {
       content: '';
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-image: 
         linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px);
@@ -58,10 +67,12 @@
       z-index: -1;
     }
 
-    /* Header */
+    /* ===== HEADER / NAV ===== */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 1rem 2rem;
       background: rgba(10, 13, 18, 0.85);
@@ -84,7 +95,10 @@
       text-decoration: none;
     }
 
-    .logo-mark { width: 42px; height: 42px; }
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+    }
 
     .logo-text {
       font-size: 1.35rem;
@@ -93,7 +107,9 @@
       letter-spacing: -0.02em;
     }
 
-    .logo-text span { color: var(--cyan); }
+    .logo-text span {
+      color: var(--cyan);
+    }
 
     nav {
       display: flex;
@@ -109,55 +125,466 @@
       transition: color 0.2s;
     }
 
-    nav a:hover, nav a.active { color: var(--cyan); }
+    nav a:hover {
+      color: var(--cyan);
+    }
 
-    .btn-nav {
+    .btn-subscribe {
       background: var(--cyan);
-      color: var(--bg-primary) !important;
+      color: var(--bg-primary);
       padding: 0.6rem 1.4rem;
       border-radius: 8px;
       font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px var(--cyan-glow);
     }
 
-    /* Page Hero */
-    .page-hero {
-      padding: 9rem 2rem 4rem;
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--cyan-glow-strong);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 231, 247, 0.08);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--cyan);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--cyan) 0%, #00ff88 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px var(--cyan-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--cyan-glow-strong);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: var(--cyan-glow);
+    }
+
+    /* ===== STATS ROW ===== */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* ===== SUITE SECTION ===== */
+    .suite-section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== INDICATOR GRID ===== */
+    .indicator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .indicator-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .indicator-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .indicator-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .indicator-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-logo {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 231, 247, 0.15) 0%, rgba(20, 26, 34, 0.9) 100%);
+      border: 1px solid var(--border);
+      padding: 8px;
+    }
+
+    .card-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(1.3) saturate(1.2);
+    }
+
+    .card-title-group {
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-accuracy {
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--green);
+    }
+
+    .badge-feature {
+      background: rgba(0, 231, 247, 0.15);
+      color: var(--cyan);
+    }
+
+    .badge-gold {
+      background: rgba(255, 170, 0, 0.15);
+      color: var(--gold);
+    }
+
+    .card-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-preview {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      opacity: 0.9;
+      transition: all 0.3s;
+    }
+
+    .indicator-card:hover .card-preview img {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    /* ===== FEATURES SECTION ===== */
+    .features-section {
+      padding: 6rem 2rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 1000px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.25rem;
+      background: var(--cyan-glow);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-item p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 8rem 2rem;
       text-align: center;
       position: relative;
     }
 
-    .page-hero::before {
+    .cta-section::before {
       content: '';
       position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
       height: 600px;
       background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
       pointer-events: none;
       opacity: 0.4;
     }
 
-    .page-hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+    .cta-section h2 {
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      position: relative;
     }
 
-    .page-hero p {
-      font-size: 1.15rem;
+    .cta-section p {
       color: var(--text-secondary);
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      position: relative;
     }
 
-    /* Pricing, Info, Footer, Modal styling remain unchanged... */
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
 <header>
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -166,98 +593,221 @@
     </a>
     <nav>
       <a href="technology.html">Technology</a>
-      <a href="pricing.html" class="active">Pricing</a>
+      <a href="pricing.html">Pricing</a>
       <a href="support.html">Support</a>
       <a href="affiliates.html">Affiliates</a>
       <a href="my-account.html">My Account</a>
+      <a href="pricing.html" class="btn-subscribe">Subscribe</a>
     </nav>
   </div>
 </header>
 
-<!-- Page Hero -->
-<section class="page-hero">
-  <h1>Choose Your Plan</h1>
-  <p>Unlock institutional-grade trading signals on TradingView</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">LIVE ON TRADINGVIEW</div>
+  <h1>Professional Trading Indicators<br><span class="gradient">Engineered for Precision</span></h1>
+  <p class="hero-subtitle">
+    Six powerful indicators combining multi-timeframe analysis, exhaustion detection, 
+    trend prediction, and institutional confluence — all in one suite.
+  </p>
+  <div class="hero-cta">
+    <a href="pricing.html" class="btn-primary">Subscribe Now</a>
+    <a href="#suite" class="btn-secondary">Explore Suite</a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-value">97.9%</div>
+      <div class="stat-label">Win Rate (5min)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Indicators</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Repaint</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">∞</div>
+      <div class="stat-label">Assets Supported</div>
+    </div>
+  </div>
 </section>
 
-<!-- Pricing Section -->
-<section class="pricing-section">
-  <div class="pricing-grid">
+<!-- INDICATOR SUITE -->
+<section class="suite-section" id="suite">
+  <div class="section-header">
+    <h2>The Complete Suite</h2>
+    <p>Six specialized indicators designed to work together or independently across any market</p>
+  </div>
 
-    <!-- Starter -->
-    <div class="pricing-card">
-      <h3>Starter Bundle</h3>
-      <div class="price">$45</div>
-      <div class="price-period">per month</div>
-      <ul class="features-list">
-        <li>Choose any 2 indicators</li>
-        <li>TradingView compatible</li>
-        <li>Works on all markets</li>
-        <li>Real-time alerts</li>
-        <li>Cancel anytime</li>
-      </ul>
-      <button class="btn-subscribe" data-price="price_1Sbx58C8ubNLiCPcuh1xod9N" data-plan="starter">
-        Subscribe – $45/mo
-      </button>
-    </div>
+  <div class="indicator-grid">
 
-    <!-- Pro -->
-    <div class="pricing-card featured">
-      <h3>Pro Bundle</h3>
-      <div class="price">$75</div>
-      <div class="price-period">per month</div>
-      <ul class="features-list">
-        <li>Choose any 4 indicators</li>
-        <li>TradingView compatible</li>
-        <li>Works on all markets</li>
-        <li>Real-time alerts</li>
-        <li>Priority support</li>
-        <li>Cancel anytime</li>
-      </ul>
-      <button class="btn-subscribe" data-price="price_1Sbx68C8ubNLiCPcxUzZWB52" data-plan="pro">
-        Subscribe – $75/mo
-      </button>
-    </div>
+    <!-- FusionPredict -->
+    <a href="fusionpredict.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusionpredict-logo.svg" alt="FusionPredict">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionPredict</div>
+          <span class="card-badge badge-accuracy">97.9% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Predicts precise price targets across 6 timeframes with exceptional accuracy. 
+        Shows exactly where price is headed next using multi-timeframe gap analysis.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionpredict_chart_promo.png" alt="FusionPredict Chart">
+      </div>
+    </a>
 
-    <!-- Master -->
-    <div class="pricing-card">
-      <h3>Master Suite</h3>
-      <div class="price">$145</div>
-      <div class="price-period">per month</div>
-      <ul class="features-list">
-        <li>All 6 indicators</li>
-        <li>TradingView compatible</li>
-        <li>Works on all markets</li>
-        <li>Real-time alerts</li>
-        <li>Priority support</li>
-        <li>Early access to new tools</li>
-        <li>Cancel anytime</li>
-      </ul>
-      <button class="btn-subscribe" data-price="price_1Sbx6uC8ubNLiCPc7kM9VbhV" data-plan="master">
-        Subscribe – $145/mo
-      </button>
-    </div>
+    <!-- FusionFlex -->
+    <a href="fusionflex.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-flex-logo.svg" alt="FusionFlex">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionFlex</div>
+          <span class="card-badge badge-feature">Zero Repaint</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Zero repaint trend engine that hugs price in real-time. Great for bots and 
+        automated trading. Keeps you in winning trades when other indicators exit too early.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionflex_chart_promo.png" alt="FusionFlex Chart">
+      </div>
+    </a>
+
+    <!-- FusionConfluence -->
+    <a href="fusionconfluence.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionConfluence</div>
+          <span class="card-badge badge-accuracy">95% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Detects when multiple timeframes align at critical price levels, signaling 
+        high-probability exhaustion zones. Institutional-grade confluence detection.
+      </p>
+      <div class="card-preview card-preview-confluence">
+        <img src="assets/fusionconfluence_chart_promo.png" alt="FusionConfluence Chart">
+      </div>
+    </a>
+
+    <!-- FusionReversal -->
+    <a href="fusionreversal.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionReversal</div>
+          <span class="card-badge badge-accuracy">94.8% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Catches reversals before they happen by detecting exhaustion invisible 
+        to standard indicators. Premium/discount zone detection included.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionreversal_chart_promo.png" alt="FusionReversal Chart">
+      </div>
+    </a>
+
+    <!-- FusionScorer -->
+    <a href="fusionscorer.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionScorer</div>
+          <span class="card-badge badge-gold">Institutional Logic</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Scores trade setups from 0-5 based on institutional positioning. 
+        Combines session sweeps, SMT divergence, FVG zones, and structure analysis.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionscorer_chart_promo.png" alt="FusionScorer Chart">
+      </div>
+    </a>
+
+    <!-- FusionTrend -->
+    <a href="fusiontrend.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-trend-logo.svg" alt="FusionTrend">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionTrend</div>
+          <span class="card-badge badge-feature">Continuation Edge</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Identifies high-probability trend continuation entries. Filters out noise 
+        and shows only the best setups with healthy pullback detection.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusiontrend_chart_promo.png" alt="FusionTrend Chart">
+      </div>
+    </a>
 
   </div>
 </section>
 
-<!-- Info Section -->
-<section class="info-section">
-  <div class="info-box">
-    <h3>🛡️ 14-Day Money-Back Guarantee</h3>
-    <p>Try FusionPredictor risk-free. If you're not satisfied within the first 14 days, we'll refund your payment—no questions asked.</p>
-  </div>
-  <div class="info-box">
-    <h3>📋 Important Notes</h3>
-    <ul>
-      <li>Indicators delivered instantly via TradingView invite</li>
-      <li>Works with free TradingView (Pro+ recommended for more alerts)</li>
-      <li>Subscriptions billed monthly, cancel anytime</li>
-    </ul>
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-container">
+    <div class="section-header">
+      <h2>Why FusionPredictor?</h2>
+      <p>Built by traders, for traders. Every indicator tested across thousands of trades.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">📊</div>
+        <h3>Multi-Timeframe Analysis</h3>
+        <p>See alignment across 6 timeframes simultaneously. When they converge, you have edge.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎯</div>
+        <h3>Precise Price Targets</h3>
+        <p>Know exactly where price is headed. Our gap reversion logic achieves 97%+ accuracy.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <h3>Zero Repaint</h3>
+        <p>What you see is what you get. No hindsight bias. Signals lock in real-time.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔔</div>
+        <h3>Smart Alerts</h3>
+        <p>Get notified when high-probability setups occur. Never miss a trade again.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Trade with Precision?</h2>
+  <p>Join traders using FusionPredictor to find high-probability setups every day.</p>
+  <a href="pricing.html" class="btn-primary">View Pricing Plans</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="terms.html">Terms</a>
@@ -268,8 +818,6 @@
   </div>
   <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
 </footer>
-
-<!-- Modal + JS unchanged... -->
 
 </body>
 </html>
