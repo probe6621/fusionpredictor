@@ -46,63 +46,39 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             margin-bottom: 0.75rem;
-            color: var(--cyan);
+            background: linear-gradient(135deg, #ffffff, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p.subtitle {
+        .subtitle {
             text-align: center;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            font-size: 1rem;
         }
 
-        .trial-badge {
-            background: linear-gradient(135deg, #ff6b6b, #feca57);
-            color: #000;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .trial-info {
-            background: rgba(0, 231, 247, 0.1);
-            border: 1px solid rgba(0, 231, 247, 0.3);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .trial-info p {
-            margin: 0.3rem 0;
-            color: var(--text-secondary);
-        }
-
-        .trial-info strong {
-            color: var(--cyan);
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            display: block;
+            color: var(--text-primary);
             font-weight: 500;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            display: block;
         }
 
         input, select {
             width: 100%;
-            padding: 0.85rem;
+            padding: 1rem;
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
             border-radius: 10px;
-            background: #0F1323;
-            border: 1px solid rgba(0, 231, 247, 0.25);
             color: var(--text-primary);
-            margin-bottom: 1.4rem;
             font-size: 1rem;
-            box-sizing: border-box;
+            transition: border-color 0.3s;
         }
 
         input:focus, select:focus {
@@ -111,29 +87,27 @@
             box-shadow: 0 0 12px var(--cyan-soft);
         }
 
-        /* --- Pill-style selection chips --- */
         .pill-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
+            gap: 0.75rem;
+            margin-top: 1rem;
         }
 
         .pill {
-            padding: 10px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--pill-border);
             background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            padding: 0.75rem 1.25rem;
+            border-radius: 20px;
             cursor: pointer;
-            transition: 0.25s;
-            color: var(--text-primary);
+            transition: all 0.3s;
             font-size: 0.95rem;
-            user-select: none;
+            color: var(--text-secondary);
         }
 
         .pill:hover {
             background: var(--pill-hover);
+            border-color: var(--cyan);
         }
 
         .pill.active {
@@ -161,12 +135,6 @@
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px var(--cyan-soft);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
         }
 
         .success-box, .error-box {
@@ -201,28 +169,9 @@
 <body>
 
 <div class="activation-container">
-    <h1 id="pageTitle">Activate Your Access</h1>
-    <p class="subtitle" id="pageSubtitle">Enter your TradingView username to unlock your invite-only indicators.</p>
+    <h1>Activate Your Access</h1>
+    <p class="subtitle">Enter your TradingView username to unlock your invite-only indicators.</p>
 
-    <!-- Trial Mode Banner (hidden by default) -->
-    <div id="trialBanner" style="display: none; text-align: center;">
-        <span class="trial-badge">🎁 FREE TRIAL</span>
-        <div class="trial-info">
-            <p><strong id="trialDays">14</strong> Day Full Access Trial</p>
-            <p>All 6 FusionPredictor indicators included</p>
-            <p id="influencerCredit" style="display: none;">Courtesy of <strong id="influencerName"></strong></p>
-        </div>
-    </div>
-
-    <!-- Trial Form (simplified) -->
-    <form id="trialForm" style="display: none;">
-        <label>TradingView Username</label>
-        <input type="text" id="trialTv" required placeholder="Your TradingView username">
-
-        <button type="submit" class="submit-btn">Activate Free Trial</button>
-    </form>
-
-    <!-- Regular Activation Form -->
     <form id="activationForm">
 
         <label>Email Used at Checkout</label>
@@ -233,24 +182,27 @@
 
         <label>Your Subscription Plan</label>
         <select id="plan" required>
-            <option value="starter">Starter (2 indicators)</option>
+            <option value="starter">Starter (3 indicators)</option>
             <option value="pro">Pro (4 indicators)</option>
-            <option value="master">Master Suite (all 6 indicators)</option>
+            <option value="master">Master Suite (all 7 indicators)</option>
         </select>
 
         <div id="indicatorBox">
             <label>Select Your Indicators</label>
 
             <div class="pill-container">
-                <div class="pill" data-value="FusionPredict-MTF">FusionPredict</div>
+
+                <div class="pill" data-value="FusionPredict">FusionPredict</div>
                 <div class="pill" data-value="FusionTrend">FusionTrend</div>
                 <div class="pill" data-value="FusionReversal">FusionReversal</div>
                 <div class="pill" data-value="FusionFlex">FusionFlex</div>
                 <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
                 <div class="pill" data-value="FusionScorer">FusionScorer</div>
+                <div class="pill" data-value="FusionReversionMeterMTF">Reversion Meter MTF</div>
+
             </div>
 
-            <small>You may select up to <span id="indicatorLimit">2</span> indicators.</small>
+            <small>You may select up to <span id="indicatorLimit">3</span> indicators.</small>
         </div>
 
         <button type="submit" class="submit-btn">Activate My Access</button>
@@ -269,151 +221,87 @@
 
 
 <script>
-    const API_BASE = 'https://api.fusionpredictor.com';
+    function planLimit(plan) {
+        if (plan === "starter") return 3;
+        if (plan === "pro") return 4;
+        if (plan === "master") return 7;
+        return 0;
+    }
 
-    // Check for trial params
-    const urlParams = new URLSearchParams(window.location.search);
-    const trialDays = urlParams.get('trial');
-    const influencer = urlParams.get('influencer');
+    function updateUI() {
+        const plan = document.getElementById("plan").value;
+        const limit = planLimit(plan);
+        document.getElementById("indicatorLimit").textContent = limit;
 
-    if (trialDays) {
-        // Trial mode
-        document.getElementById('activationForm').style.display = 'none';
-        document.getElementById('trialForm').style.display = 'block';
-        document.getElementById('trialBanner').style.display = 'block';
-        document.getElementById('trialDays').textContent = trialDays;
-        document.getElementById('pageTitle').textContent = 'Activate Your Free Trial';
-        document.getElementById('pageSubtitle').textContent = 'Enter your TradingView username to start your trial.';
+        const box = document.getElementById("indicatorBox");
+        box.style.display = plan === "master" ? "none" : "block";
+    }
 
-        if (influencer) {
-            document.getElementById('influencerCredit').style.display = 'block';
-            document.getElementById('influencerName').textContent = influencer;
-        }
+    document.getElementById("plan").addEventListener("change", updateUI);
+    updateUI();
 
-        // Trial form submission
-        document.getElementById('trialForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const btn = e.target.querySelector('button');
-            btn.disabled = true;
-            btn.textContent = 'Activating...';
-
-            const payload = {
-                tv_username: document.getElementById('trialTv').value.trim(),
-                trial_days: parseInt(trialDays),
-                influencer: influencer || 'direct'
-            };
-
-            try {
-                const res = await fetch(`${API_BASE}/trial-activate`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (res.ok) {
-                    document.getElementById('successBox').innerHTML = 
-                        `✅ Trial Activated!<br><br>All 6 indicators are now available in your TradingView.<br>Your trial expires in <strong>${trialDays} days</strong>.`;
-                    document.getElementById('successBox').style.display = 'block';
-                    document.getElementById('errorBox').style.display = 'none';
-                    document.getElementById('trialForm').style.display = 'none';
-                } else {
-                    const err = await res.json();
-                    throw new Error(err.detail || 'Failed');
-                }
-
-            } catch (err) {
-                document.getElementById('errorBox').textContent = `❌ ${err.message || 'Something went wrong. Please try again.'}`;
-                document.getElementById('errorBox').style.display = 'block';
-                document.getElementById('successBox').style.display = 'none';
-                btn.disabled = false;
-                btn.textContent = 'Activate Free Trial';
-            }
-        });
-
-    } else {
-        // Regular activation mode
-        function planLimit(plan) {
-            if (plan === "starter") return 2;
-            if (plan === "pro") return 4;
-            if (plan === "master") return 6;
-            return 0;
-        }
-
-        function updateUI() {
+    document.querySelectorAll(".pill").forEach(pill => {
+        pill.addEventListener("click", () => {
             const plan = document.getElementById("plan").value;
             const limit = planLimit(plan);
-            document.getElementById("indicatorLimit").textContent = limit;
 
-            const box = document.getElementById("indicatorBox");
-            box.style.display = plan === "master" ? "none" : "block";
+            if (!pill.classList.contains("active")) {
+                const selected = document.querySelectorAll(".pill.active").length;
+                if (selected >= limit) {
+                    alert(`You may select up to ${limit} indicators.`);
+                    return;
+                }
+            }
+
+            pill.classList.toggle("active");
+        });
+    });
+
+    document.getElementById("activationForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const plan = document.getElementById("plan").value;
+        let indicators;
+
+        if (plan === "master") {
+            indicators = [
+                "FusionPredict",
+                "FusionTrend",
+                "FusionReversal",
+                "FusionFlex",
+                "FusionConfluence",
+                "FusionScorer",
+                "FusionReversionMeterMTF"
+            ];
+        } else {
+            indicators = Array.from(document.querySelectorAll(".pill.active"))
+                .map(p => p.getAttribute("data-value"));
         }
 
-        document.getElementById("plan").addEventListener("change", updateUI);
-        updateUI();
+        const payload = {
+            email: document.getElementById("email").value,
+            tvUsername: document.getElementById("tv").value,
+            plan,
+            indicators
+        };
 
-        document.querySelectorAll(".pill").forEach(pill => {
-            pill.addEventListener("click", () => {
-                const plan = document.getElementById("plan").value;
-                const limit = planLimit(plan);
-
-                if (!pill.classList.contains("active")) {
-                    const selected = document.querySelectorAll(".pill.active").length;
-                    if (selected >= limit) {
-                        alert(`You may select up to ${limit} indicators.`);
-                        return;
-                    }
-                }
-
-                pill.classList.toggle("active");
+        try {
+            const res = await fetch("https://api.fusionpredictor.com/activate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
             });
-        });
 
-        document.getElementById("activationForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
+            if (res.ok) {
+                document.getElementById("successBox").style.display = "block";
+                document.getElementById("errorBox").style.display = "none";
+            } else throw new Error();
 
-            const plan = document.getElementById("plan").value;
-            let indicators;
-
-            if (plan === "master") {
-                indicators = [
-                    "FusionPredict-MTF",
-                    "FusionTrend",
-                    "FusionReversal",
-                    "FusionFlex",
-                    "FusionConfluence",
-                    "FusionScorer"
-                ];
-            } else {
-                indicators = Array.from(document.querySelectorAll(".pill.active"))
-                    .map(p => p.getAttribute("data-value"));
-            }
-
-            const payload = {
-                email: document.getElementById("email").value,
-                tvUsername: document.getElementById("tv").value,
-                plan,
-                indicators
-            };
-
-            try {
-                const res = await fetch(`${API_BASE}/activate`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-
-                if (res.ok) {
-                    document.getElementById("successBox").style.display = "block";
-                    document.getElementById("errorBox").style.display = "none";
-                } else throw new Error();
-
-            } catch (err) {
-                document.getElementById("errorBox").style.display = "block";
-                document.getElementById("successBox").style.display = "none";
-            }
-        });
-    }
+        } catch (err) {
+            document.getElementById("errorBox").style.display = "block";
+            document.getElementById("successBox").style.display = "none";
+        }
+    });
 </script>
 
 </body>
