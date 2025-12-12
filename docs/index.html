@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FusionPredictor - Professional Trading Indicators for TradingView</title>
+
+  <!-- SEO -->
+  <title>FusionPredictor™ – Predictive TradingView Indicators & Signals</title>
+  <meta name="description" content="Predictive TradingView indicators and signals for scalping, momentum, and reversal strategies. Identify high-probability market pivots before price reacts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fusionpredictor.com/">
+
   <link rel="icon" type="image/svg+xml" href="assets/fusion-arrowmark-primary.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
+
   <!-- Rewardful Tracking -->
   <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
-  
+
   <style>
     * {
       margin: 0;
@@ -117,7 +123,7 @@
 
     /* ===== HERO ===== */
     .hero {
-      padding: 12rem 2rem 6rem;
+      padding: 12rem 2rem 5rem;
       text-align: center;
       position: relative;
     }
@@ -153,7 +159,7 @@
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       letter-spacing: -0.03em;
       line-height: 1.1;
       position: relative;
@@ -169,7 +175,7 @@
     .hero-subtitle {
       font-size: clamp(1.1rem, 2vw, 1.3rem);
       color: var(--text-secondary);
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto 2.5rem;
       line-height: 1.6;
       position: relative;
@@ -217,6 +223,54 @@
     .btn-secondary:hover {
       border-color: var(--border-hover);
       transform: translateY(-2px);
+    }
+
+    /* ===== SEO PIVOT BLOCK ===== */
+    .seo-pivots {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .seo-pivots h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .seo-pivots p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .seo-features {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    .seo-features li {
+      border: 1px solid var(--border);
+      background: rgba(20, 24, 31, 0.6);
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+
+    .seo-features li:hover {
+      border-color: var(--border-hover);
     }
 
     /* ===== INDICATOR CARDS ===== */
@@ -413,6 +467,8 @@
       .hero h1 { font-size: 2.25rem; }
       .indicator-grid { grid-template-columns: 1fr; }
       .cta-buttons { flex-direction: column; align-items: center; }
+      .seo-pivots { padding: 0 1.5rem 4rem; }
+      .seo-pivots h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -440,15 +496,37 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">LIVE ON TRADINGVIEW</div>
-  <h1>Professional Trading Indicators<br><span class="gradient">Engineered for Precision</span></h1>
+
+  <!-- ONE H1 ONLY -->
+  <h1>
+    Predictive TradingView Indicators & Signals<br>
+    <span class="gradient">for Scalping, Reversal & Momentum Trading</span>
+  </h1>
+
   <p class="hero-subtitle">
-    Seven powerful indicators combining multi-timeframe analysis, exhaustion detection, 
-    trend prediction, and institutional confluence — all in one suite.
+    FusionPredictor generates predictive trading signals by analyzing momentum, exhaustion, and key pivot zones across multiple timeframes — helping traders anticipate continuation and reversal opportunities before price reacts.
   </p>
+
   <div class="cta-buttons">
     <a href="pricing.html" class="btn-primary">View Pricing</a>
     <a href="technology.html" class="btn-secondary">Learn More</a>
   </div>
+</section>
+
+<!-- SEO / PIVOT BLOCK -->
+<section class="seo-pivots">
+  <h2>Predictive Signals at High-Probability Market Pivots</h2>
+  <p>
+    FusionPredictor detects critical market pivots by measuring energy depletion, volatility shifts, and higher-timeframe structure. When predictive conditions align, Fusion produces clear signals for momentum continuation and reversal strategy setups — so you can act early with defined risk.
+  </p>
+  <ul class="seo-features">
+    <li>Predictive trading signals</li>
+    <li>Pivot detection</li>
+    <li>Reversal strategy support</li>
+    <li>Momentum continuation confirmation</li>
+    <li>Multi-timeframe confluence</li>
+    <li>Built for scalpers</li>
+  </ul>
 </section>
 
 <!-- INDICATOR SUITE -->
@@ -469,7 +547,7 @@
         </div>
       </div>
       <p class="card-description">
-        Predicts precise price targets across 6 timeframes with exceptional accuracy. 
+        Predicts precise price targets across 6 timeframes with exceptional accuracy.
         Shows exactly where price is headed next.
       </p>
       <div class="card-preview">
@@ -489,7 +567,7 @@
         </div>
       </div>
       <p class="card-description">
-        Zero-repaint trend engine that hugs price in real-time. Great for bots and 
+        Zero-repaint trend engine that hugs price in real-time. Great for bots and
         automated trading. Keeps you in winning trades when other indicators exit too early.
       </p>
       <div class="card-preview">
@@ -509,7 +587,7 @@
         </div>
       </div>
       <p class="card-description">
-        Detects when multiple timeframes align at critical price levels, signaling 
+        Detects when multiple timeframes align at critical price levels, signaling
         high-probability exhaustion zones. Institutional-grade confluence detection.
       </p>
       <div class="card-preview">
@@ -529,7 +607,7 @@
         </div>
       </div>
       <p class="card-description">
-        Catches reversals before they happen by detecting exhaustion invisible 
+        Catches reversals before they happen by detecting exhaustion invisible
         to standard indicators. Premium/discount zone detection included.
       </p>
       <div class="card-preview">
@@ -549,7 +627,7 @@
         </div>
       </div>
       <p class="card-description">
-        Scores trade setups from 0-5 based on institutional positioning. 
+        Scores trade setups from 0-5 based on institutional positioning.
         Combines session sweeps, SMT divergence, FVG zones, and structure analysis.
       </p>
       <div class="card-preview">
@@ -569,7 +647,7 @@
         </div>
       </div>
       <p class="card-description">
-        Identifies high-probability trend continuation entries. Filters out noise 
+        Identifies high-probability trend continuation entries. Filters out noise
         and shows only the best setups with healthy pullback detection.
       </p>
       <div class="card-preview">
@@ -589,7 +667,7 @@
         </div>
       </div>
       <p class="card-description">
-        Multi-timeframe energy depletion gauge that confirms when momentum is 
+        Multi-timeframe energy depletion gauge that confirms when momentum is
         exhausted and reversion trades have highest probability of success.
       </p>
       <div class="card-preview">
