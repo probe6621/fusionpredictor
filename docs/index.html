@@ -3,86 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FusionPredictor – Professional Trading Indicators for TradingView</title>
-  <meta name="description" content="Seven powerful indicators combining multi-timeframe analysis, exhaustion detection, trend prediction, and institutional confluence — engineered for precision.">
-  
-  <!-- Rewardful Affiliate Tracking -->
-  <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
-  <script async src='https://r.wdfl.co/rw.js' data-rewardful='7f6bb2'></script>
-  
+  <title>FusionPredictor - Professional Trading Indicators for TradingView</title>
+  <link rel="icon" type="image/svg+xml" href="assets/fusion-arrowmark-primary.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Rewardful Tracking -->
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
   <style>
-    :root {
-      --bg-primary: #0a0d12;
-      --bg-secondary: #0f1419;
-      --bg-card: #141a22;
-      --bg-card-hover: #1a222c;
-      --cyan: #00e7f7;
-      --cyan-dim: #00b8c5;
-      --cyan-glow: rgba(0, 231, 247, 0.15);
-      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
-      --green: #00ff88;
-      --gold: #ffaa00;
-      --red: #ff6b6b;
-      --text-primary: #f0f4f8;
-      --text-secondary: #8b9bb4;
-      --text-muted: #5a6a7e;
-      --border: rgba(0, 231, 247, 0.12);
-      --border-hover: rgba(0, 231, 247, 0.25);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1318;
+      --bg-card: #14181f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(0, 231, 247, 0.3);
+      --text-primary: #f0f4f8;
+      --text-secondary: #a8b3c1;
+      --text-muted: #6b7785;
+      --cyan: #00E7F7;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --gold: #ffaa00;
     }
 
     body {
-      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle grid background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(rgba(0, 231, 247, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 231, 247, 0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* ===== HEADER / NAV ===== */
+    /* ===== HEADER ===== */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(10, 13, 18, 0.85);
+      z-index: 1000;
+      background: rgba(10, 13, 18, 0.8);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
     }
 
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -95,10 +72,7 @@
       text-decoration: none;
     }
 
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-    }
+    .logo-mark { width: 42px; height: 42px; }
 
     .logo-text {
       font-size: 1.35rem;
@@ -107,9 +81,7 @@
       letter-spacing: -0.02em;
     }
 
-    .logo-text span {
-      color: var(--cyan);
-    }
+    .logo-text span { color: var(--cyan); }
 
     nav {
       display: flex;
@@ -125,9 +97,7 @@
       transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--cyan);
-    }
+    nav a:hover { color: var(--cyan); }
 
     .btn-subscribe {
       background: var(--cyan);
@@ -147,13 +117,8 @@
 
     /* ===== HERO ===== */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 12rem 2rem 6rem;
       text-align: center;
-      padding: 8rem 2rem 6rem;
       position: relative;
     }
 
@@ -163,49 +128,35 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
+      width: 1000px;
       height: 800px;
       background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.4;
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0, 231, 247, 0.08);
-      border: 1px solid var(--border);
+      display: inline-block;
       padding: 0.5rem 1rem;
+      background: rgba(0, 231, 247, 0.1);
+      border: 1px solid rgba(0, 231, 247, 0.3);
       border-radius: 50px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       color: var(--cyan);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      margin-bottom: 2rem;
+      position: relative;
     }
 
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 700;
-      line-height: 1.15;
-      max-width: 900px;
       margin-bottom: 1.5rem;
       letter-spacing: -0.03em;
+      line-height: 1.1;
+      position: relative;
     }
 
     .hero h1 .gradient {
@@ -216,167 +167,113 @@
     }
 
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
       color: var(--text-secondary);
-      max-width: 650px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      position: relative;
     }
 
-    .hero-cta {
+    .cta-buttons {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
     }
 
     .btn-primary {
+      display: inline-block;
       background: var(--cyan);
       color: var(--bg-primary);
-      padding: 1rem 2rem;
-      border-radius: 10px;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.05rem;
       text-decoration: none;
-      transition: all 0.25s;
-      box-shadow: 0 4px 20px var(--cyan-glow);
+      transition: all 0.3s;
+      box-shadow: 0 0 30px var(--cyan-glow);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px var(--cyan-glow-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--cyan-glow-strong);
     }
 
     .btn-secondary {
+      display: inline-block;
       background: transparent;
       color: var(--text-primary);
-      padding: 1rem 2rem;
-      border-radius: 10px;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.05rem;
       text-decoration: none;
       border: 1px solid var(--border);
-      transition: all 0.25s;
+      transition: all 0.3s;
     }
 
     .btn-secondary:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-      background: var(--cyan-glow);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
     }
 
-    /* ===== STATS ROW ===== */
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 4rem;
-      margin-top: 4rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--cyan);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
-    /* ===== SUITE SECTION ===== */
-    .suite-section {
-      padding: 6rem 2rem;
+    /* ===== INDICATOR CARDS ===== */
+    .section {
+      padding: 5rem 2rem;
       max-width: 1400px;
       margin: 0 auto;
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
+    .section-title {
       font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      text-align: center;
+      margin-bottom: 3rem;
       letter-spacing: -0.02em;
     }
 
-    .section-header p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* ===== INDICATOR GRID ===== */
     .indicator-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
     }
 
     .indicator-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 2rem;
+      transition: all 0.3s;
       text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .indicator-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyan), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
+      display: block;
     }
 
     .indicator-card:hover {
-      background: var(--bg-card-hover);
       border-color: var(--border-hover);
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .indicator-card:hover::before {
-      opacity: 1;
     }
 
     .card-header {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .card-logo {
-      width: 60px;
-      height: 60px;
+      width: 56px;
+      height: 56px;
       flex-shrink: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0, 231, 247, 0.15) 0%, rgba(20, 26, 34, 0.9) 100%);
+      background: linear-gradient(135deg, rgba(0, 231, 247, 0.15) 0%, rgba(0, 168, 181, 0.15) 100%);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid var(--border);
-      padding: 8px;
     }
 
     .card-logo img {
@@ -394,15 +291,15 @@
       font-size: 1.35rem;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
     }
 
     .card-badge {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       padding: 0.25rem 0.6rem;
-      border-radius: 4px;
+      border-radius: 6px;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -424,16 +321,15 @@
     .card-description {
       color: var(--text-secondary);
       font-size: 0.95rem;
-      line-height: 1.65;
+      line-height: 1.7;
       margin-bottom: 1.25rem;
     }
 
     .card-preview {
       width: 100%;
-      height: 180px;
-      border-radius: 10px;
+      height: 200px;
+      border-radius: 12px;
       overflow: hidden;
-      background: var(--bg-secondary);
       border: 1px solid var(--border);
     }
 
@@ -441,77 +337,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 60%;
-      opacity: 0.9;
-      transition: all 0.3s;
-    }
-
-    .indicator-card:hover .card-preview img {
-      opacity: 1;
-      transform: scale(1.02);
-    }
-
-    /* ===== FEATURES SECTION ===== */
-    .features-section {
-      padding: 6rem 2rem;
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .features-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    @media (max-width: 1000px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .feature-item {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .feature-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 1.25rem;
-      background: var(--cyan-glow);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-    }
-
-    .feature-item h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-item p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
+      object-position: center;
     }
 
     /* ===== CTA SECTION ===== */
@@ -579,6 +405,15 @@
       color: var(--text-muted);
       font-size: 0.85rem;
     }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero { padding: 9rem 1.5rem 4rem; }
+      .hero h1 { font-size: 2.25rem; }
+      .indicator-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
 
@@ -610,45 +445,23 @@
     Seven powerful indicators combining multi-timeframe analysis, exhaustion detection, 
     trend prediction, and institutional confluence — all in one suite.
   </p>
-  <div class="hero-cta">
-    <a href="pricing.html" class="btn-primary">Subscribe Now</a>
-    <a href="#suite" class="btn-secondary">Explore Suite</a>
-  </div>
-
-  <div class="stats-row">
-    <div class="stat">
-      <div class="stat-value">97.9%</div>
-      <div class="stat-label">Win Rate (5min)</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">7</div>
-      <div class="stat-label">Indicators</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">0</div>
-      <div class="stat-label">Repaint</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">∞</div>
-      <div class="stat-label">Assets Supported</div>
-    </div>
+  <div class="cta-buttons">
+    <a href="pricing.html" class="btn-primary">View Pricing</a>
+    <a href="technology.html" class="btn-secondary">Learn More</a>
   </div>
 </section>
 
 <!-- INDICATOR SUITE -->
-<section class="suite-section" id="suite">
-  <div class="section-header">
-    <h2>The Complete Suite</h2>
-    <p>Seven specialized indicators designed to work together or independently across any market</p>
-  </div>
+<section class="section">
+  <h2 class="section-title">The Complete Suite</h2>
 
   <div class="indicator-grid">
 
     <!-- FusionPredict -->
-    <a href="fusionpredict.html" class="indicator-card">
+    <a class="indicator-card" href="fusionpredict.html">
       <div class="card-header">
         <div class="card-logo">
-          <img src="assets/fusionpredict-logo.svg" alt="FusionPredict">
+          <img src="assets/fusionpredict-logo.svg" alt="FusionPredict Logo">
         </div>
         <div class="card-title-group">
           <div class="card-title">FusionPredict</div>
@@ -657,7 +470,7 @@
       </div>
       <p class="card-description">
         Predicts precise price targets across 6 timeframes with exceptional accuracy. 
-        Shows exactly where price is headed next using multi-timeframe gap analysis.
+        Shows exactly where price is headed next.
       </p>
       <div class="card-preview">
         <img src="assets/fusionpredict_chart_promo.png" alt="FusionPredict Chart">
@@ -665,10 +478,10 @@
     </a>
 
     <!-- FusionFlex -->
-    <a href="fusionflex.html" class="indicator-card">
+    <a class="indicator-card" href="fusionflex.html">
       <div class="card-header">
         <div class="card-logo">
-          <img src="assets/fusion-flex-logo.svg" alt="FusionFlex">
+          <img src="assets/fusion-flex-logo.svg" alt="FusionFlex Logo">
         </div>
         <div class="card-title-group">
           <div class="card-title">FusionFlex</div>
@@ -676,7 +489,7 @@
         </div>
       </div>
       <p class="card-description">
-        Zero repaint trend engine that hugs price in real-time. Great for bots and 
+        Zero-repaint trend engine that hugs price in real-time. Great for bots and 
         automated trading. Keeps you in winning trades when other indicators exit too early.
       </p>
       <div class="card-preview">
@@ -699,7 +512,7 @@
         Detects when multiple timeframes align at critical price levels, signaling 
         high-probability exhaustion zones. Institutional-grade confluence detection.
       </p>
-      <div class="card-preview card-preview-confluence">
+      <div class="card-preview">
         <img src="assets/fusionconfluence_chart_promo.png" alt="FusionConfluence Chart">
       </div>
     </a>
@@ -764,11 +577,11 @@
       </div>
     </a>
 
-    <!-- FusionReversionMeterMTF - NEW 7th INDICATOR -->
-    <a href="fusionreversionmetermtf.html" class="indicator-card">
+    <!-- Reversion Meter MTF -->
+    <a href="fusionreversionmeter.html" class="indicator-card">
       <div class="card-header">
         <div class="card-logo">
-          <img src="assets/fusion-reversion-meter-logo.svg" alt="Reversion Meter MTF" onerror="this.innerHTML='⚡'">
+          <img src="assets/fusion-reversion-meter-logo.svg" alt="Reversion Meter MTF">
         </div>
         <div class="card-title-group">
           <div class="card-title">Reversion Meter MTF</div>
@@ -776,65 +589,32 @@
         </div>
       </div>
       <p class="card-description">
-        Multi-timeframe energy depletion gauge that tells you when momentum is truly exhausted. 
-        Use alongside gap reversion signals for highest-probability setups.
+        Multi-timeframe energy depletion gauge that confirms when momentum is 
+        exhausted and reversion trades have highest probability of success.
       </p>
       <div class="card-preview">
-        <img src="assets/fusionreversionmetermtf_chart_promo.png" alt="Reversion Meter MTF Chart" onerror="this.style.display='none'">
+        <img src="assets/fusionreversionmeter_chart_promo.png" alt="Reversion Meter MTF Chart">
       </div>
     </a>
 
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features-section">
-  <div class="features-container">
-    <div class="section-header">
-      <h2>Why FusionPredictor?</h2>
-      <p>Built by traders, for traders. Every indicator tested across thousands of trades.</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">📊</div>
-        <h3>Multi-Timeframe Analysis</h3>
-        <p>See alignment across 6 timeframes simultaneously. When they converge, you have edge.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🎯</div>
-        <h3>Precise Price Targets</h3>
-        <p>Know exactly where price is headed. Our gap reversion logic achieves 97%+ accuracy.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">⚡</div>
-        <h3>Zero Repaint</h3>
-        <p>What you see is what you get. No hindsight bias. Signals lock in real-time.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🔔</div>
-        <h3>Smart Alerts</h3>
-        <p>Get notified when high-probability setups occur. Never miss a trade again.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section">
   <h2>Ready to Trade with Precision?</h2>
-  <p>Join traders using FusionPredictor to find high-probability setups every day.</p>
+  <p>Join professional traders using FusionPredictor indicators every day</p>
   <a href="pricing.html" class="btn-primary">View Pricing Plans</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-links">
-    <a href="terms.html">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="refunds.html">Refunds</a>
+    <a href="technology.html">Technology</a>
+    <a href="pricing.html">Pricing</a>
     <a href="support.html">Support</a>
     <a href="affiliates.html">Affiliates</a>
+    <a href="my-account.html">My Account</a>
   </div>
   <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
 </footer>
