@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reversion Meter MTF - FusionPredictor</title>
+  <link rel="icon" type="image/svg+xml" href="assets/fusion-arrowmark-primary.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Rewardful Tracking -->
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1318;
+      --bg-card: #14181f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(0, 231, 247, 0.3);
+      --text-primary: #f0f4f8;
+      --text-secondary: #a8b3c1;
+      --text-muted: #6b7785;
+      --cyan: #00E7F7;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 13, 18, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-mark { width: 42px; height: 42px; }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span { color: var(--cyan); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--cyan); }
+
+    .btn-subscribe {
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--cyan-glow-strong);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      padding-top: 6rem;
+    }
+
+    /* ===== INDICATOR HERO ===== */
+    .indicator-hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .indicator-info h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-feature {
+      background: rgba(0, 231, 247, 0.15);
+      color: var(--cyan);
+    }
+
+    .indicator-info p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 30px var(--cyan-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--cyan-glow-strong);
+    }
+
+    .chart-preview {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .chart-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== FEATURES SECTION ===== */
+    .features-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+    }
+
+    .features-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--cyan);
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .how-it-works h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .how-it-works .subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      margin-bottom: 3rem;
+    }
+
+    .how-it-works-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .how-it-works-content p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .how-it-works-content strong {
+      color: var(--cyan);
+    }
+
+    .components-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .component-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .component-item h4 {
+      font-size: 1.1rem;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .component-item p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cyan); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .indicator-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .indicator-info h1 { font-size: 2.25rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .components-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
+    <nav>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="my-account.html">My Account</a>
+      <a href="pricing.html" class="btn-subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+  <!-- INDICATOR HERO -->
+  <section class="indicator-hero">
+    <div class="indicator-info">
+      <h1>Reversion Meter MTF</h1>
+      <span class="badge badge-feature">Energy Gauge</span>
+      <p>
+        Real-time energy depletion gauge that measures when market momentum is 
+        sufficiently exhausted for reversion trades to work. Combines volume 
+        exhaustion, ATR percentile, momentum flatness, and directional pressure 
+        across multiple timeframes.
+      </p>
+      <a href="pricing.html" class="btn-primary">Subscribe Now</a>
+    </div>
+    <div class="chart-preview">
+      <img src="assets/fusionreversionmeter_chart_promo.png" alt="Reversion Meter MTF in action">
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>4-Component Analysis</h3>
+        <p>Weighted composite measuring volume exhaustion, ATR percentile, momentum flatness, and directional pressure.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Multi-Timeframe Gauge</h3>
+        <p>Confirms exhaustion across 1m, 5m, 15m, and 1hr timeframes for high-conviction entries.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Visual Energy Meter</h3>
+        <p>Color-coded gauge (0-100) shows energy depletion level at a glance. Red zones = high exhaustion.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Reversion Confirmation</h3>
+        <p>Works alongside FusionPredict MTF alignment for maximum confidence in reversion trades.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <p class="subtitle">The science behind the energy depletion gauge</p>
+    
+    <div class="how-it-works-content">
+      <p>
+        The Reversion Meter doesn't predict <strong>direction</strong> — it confirms <strong>timing</strong>. 
+        When the gauge shows high exhaustion (red zones) while FusionPredict signals alignment, 
+        you have maximum confidence that the market has depleted its energy and is ready to revert.
+      </p>
+      
+      <p>
+        Low gauge readings (green zones) mean momentum is still strong — the market has energy 
+        to continue. Wait for exhaustion before taking reversion trades.
+      </p>
+
+      <div class="components-list">
+        <div class="component-item">
+          <h4>Volume Exhaustion</h4>
+          <p>Dramatic volume decline signals retail exhaustion and potential reversion opportunities.</p>
+        </div>
+        <div class="component-item">
+          <h4>ATR Percentile</h4>
+          <p>Measures if recent volatility is extreme relative to historical ranges.</p>
+        </div>
+        <div class="component-item">
+          <h4>Momentum Flatness</h4>
+          <p>Detects when directional momentum is decelerating and losing strength.</p>
+        </div>
+        <div class="component-item">
+          <h4>Directional Pressure</h4>
+          <p>Tracks the balance of buying vs selling pressure for exhaustion confirmation.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem;">
+        <strong>Key Insight:</strong> Gap reversion predictions only work when market energy is depleted. 
+        During strong trends or liquidity-seeking moves, predictions fail because the market has 
+        energy to continue. The Reversion Meter tells you when conditions are right.
+      </p>
+    </div>
+  </section>
+
+  <!-- BEST PAIRED WITH -->
+  <section class="how-it-works" style="padding-top: 3rem;">
+    <h2>Best Paired With</h2>
+    <p class="subtitle">Maximum confidence when combined with FusionPredict MTF alignment</p>
+    
+    <div class="how-it-works-content">
+      <p>
+        The Reversion Meter MTF is designed to work alongside <strong>FusionPredict MTF</strong> 
+        for the ultimate reversion trading setup. Here's the winning combination:
+      </p>
+
+      <div class="components-list" style="grid-template-columns: 1fr 1fr; margin: 2rem 0;">
+        <div class="component-item" style="background: rgba(0, 231, 247, 0.05); border-color: rgba(0, 231, 247, 0.2);">
+          <h4>FusionPredict MTF Alignment</h4>
+          <p>Shows <strong>DIRECTION</strong> - all timeframes agree on where price wants to go</p>
+        </div>
+        <div class="component-item" style="background: rgba(0, 231, 247, 0.05); border-color: rgba(0, 231, 247, 0.2);">
+          <h4>Reversion Meter Exhaustion</h4>
+          <p>Shows <strong>TIMING</strong> - energy is depleted and conditions are right</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>The Setup:</strong> Wait for FusionPredict to show alignment across all timeframes 
+        (1m, 5m, 15m, 1hr all on same side). Then check the Reversion Meter - if the gauge 
+        shows high exhaustion (red zone), you have maximum confidence that:
+      </p>
+
+      <p style="margin-left: 1.5rem; color: var(--cyan); font-weight: 600;">
+        ✓ Direction is confirmed (Predict alignment)<br>
+        ✓ Timing is optimal (Meter exhaustion)<br>
+        ✓ Market energy is depleted (ready to revert)<br>
+        ✓ Probability is highest (both signals agree)
+      </p>
+
+      <p style="margin-top: 1.5rem;">
+        This combination catches the highest-conviction reversion trades while filtering out 
+        low-probability setups where the market still has energy to continue.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Trade with Confidence?</h2>
+    <p>Know exactly when momentum is exhausted and reversion trades have the highest probability</p>
+    <a href="pricing.html" class="btn-primary">View Pricing Plans</a>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="technology.html">Technology</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+    <a href="my-account.html">My Account</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
