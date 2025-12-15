@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YP3TNJBHS7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YP3TNJBHS7');
+  </script>
+
+  <!-- SEO -->
+  <title>FusionPredictor™ – Predictive TradingView Indicators & Signals</title>
+  <meta name="description" content="Predictive TradingView indicators and signals for scalping, momentum, and reversal strategies. Identify high-probability market pivots before price reacts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fusionpredictor.com/">
+
+  <link rel="icon" type="image/svg+xml" href="assets/fusion-arrowmark-primary.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Rewardful Tracking -->
+  <script async src='https://r.wdfl.co/rw.js' data-rewardful='cc8119'></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0d12;
+      --bg-secondary: #0f1318;
+      --bg-card: #14181f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(0, 231, 247, 0.3);
+      --text-primary: #f0f4f8;
+      --text-secondary: #a8b3c1;
+      --text-muted: #6b7785;
+      --cyan: #00E7F7;
+      --cyan-glow: rgba(0, 231, 247, 0.15);
+      --cyan-glow-strong: rgba(0, 231, 247, 0.3);
+      --green: #00ff88;
+      --gold: #ffaa00;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 13, 18, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-mark { width: 42px; height: 42px; }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span { color: var(--cyan); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--cyan); }
+
+    .btn-subscribe {
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--cyan-glow-strong);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 12rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 800px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 231, 247, 0.1);
+      border: 1px solid rgba(0, 231, 247, 0.3);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--cyan) 0%, #00ff88 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--text-secondary);
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--cyan);
+      color: var(--bg-primary);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 30px var(--cyan-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--cyan-glow-strong);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-primary);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SEO PIVOT BLOCK ===== */
+    .seo-pivots {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .seo-pivots h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .seo-pivots p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .seo-features {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    .seo-features li {
+      border: 1px solid var(--border);
+      background: rgba(20, 24, 31, 0.6);
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+
+    .seo-features li:hover {
+      border-color: var(--border-hover);
+    }
+
+    /* ===== INDICATOR CARDS ===== */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .indicator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    .indicator-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .indicator-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-logo {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0, 231, 247, 0.15) 0%, rgba(0, 168, 181, 0.15) 100%);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .card-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(1.3) saturate(1.2);
+    }
+
+    .card-title-group {
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-accuracy {
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--green);
+    }
+
+    .badge-feature {
+      background: rgba(0, 231, 247, 0.15);
+      color: var(--cyan);
+    }
+
+    .badge-gold {
+      background: rgba(255, 170, 0, 0.15);
+      color: var(--gold);
+    }
+
+    .card-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-preview {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 8rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero { padding: 9rem 1.5rem 4rem; }
+      .hero h1 { font-size: 2.25rem; }
+      .indicator-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .seo-pivots { padding: 0 1.5rem 4rem; }
+      .seo-pivots h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredictor" class="logo-mark">
+      <span class="logo-text">Fusion<span>Predictor</span></span>
+    </a>
+    <nav>
+      <a href="technology.html">Technology</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="my-account.html">My Account</a>
+      <a href="pricing.html" class="btn-subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">LIVE ON TRADINGVIEW</div>
+
+  <!-- ONE H1 ONLY -->
+  <h1>
+    Predictive TradingView Indicators & Signals<br>
+    <span class="gradient">for Scalping, Reversal & Momentum Trading</span>
+  </h1>
+
+  <p class="hero-subtitle">
+    FusionPredictor generates predictive trading signals by analyzing momentum, exhaustion, and key pivot zones across multiple timeframes — helping traders anticipate continuation and reversal opportunities before price reacts.
+  </p>
+
+  <div class="cta-buttons">
+    <a href="pricing.html" class="btn-primary">View Pricing</a>
+    <a href="technology.html" class="btn-secondary">Learn More</a>
+  </div>
+</section>
+
+<!-- SEO / PIVOT BLOCK -->
+<section class="seo-pivots">
+  <h2>Predictive Signals at High-Probability Market Pivots</h2>
+  <p>
+    FusionPredictor detects critical market pivots by measuring energy depletion, volatility shifts, and higher-timeframe structure. When predictive conditions align, Fusion produces clear signals for momentum continuation and reversal strategy setups — so you can act early with defined risk.
+  </p>
+  <ul class="seo-features">
+    <li>Predictive trading signals</li>
+    <li>Pivot detection</li>
+    <li>Reversal strategy support</li>
+    <li>Momentum continuation confirmation</li>
+    <li>Multi-timeframe confluence</li>
+    <li>Built for scalpers</li>
+  </ul>
+</section>
+
+<!-- INDICATOR SUITE -->
+<section class="section">
+  <h2 class="section-title">The Complete Suite</h2>
+
+  <div class="indicator-grid">
+
+    <!-- FusionPredict - TESTING WITH ARROWMARK -->
+    <a class="indicator-card" href="fusionpredict.html">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-arrowmark-primary.svg" alt="FusionPredict Logo">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionPredict</div>
+          <span class="card-badge badge-accuracy">97.9% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Predicts precise price targets across 6 timeframes with exceptional accuracy.
+        Shows exactly where price is headed next.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionpredict_chart_promo.png" alt="FusionPredict Chart">
+      </div>
+    </a>
+
+    <!-- FusionFlex -->
+    <a class="indicator-card" href="fusionflex.html">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-flex-logo.svg" alt="FusionFlex Logo">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionFlex</div>
+          <span class="card-badge badge-feature">Zero Repaint</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Zero-repaint trend engine that hugs price in real-time. Great for bots and
+        automated trading. Keeps you in winning trades when other indicators exit too early.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionflex_chart_promo.png" alt="FusionFlex Chart">
+      </div>
+    </a>
+
+    <!-- FusionConfluence -->
+    <a href="fusionconfluence.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusionconfluence-logo.svg" alt="FusionConfluence">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionConfluence</div>
+          <span class="card-badge badge-accuracy">95% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Detects when multiple timeframes align at critical price levels, signaling
+        high-probability exhaustion zones. Institutional-grade confluence detection.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionconfluence_chart_promo.png" alt="FusionConfluence Chart">
+      </div>
+    </a>
+
+    <!-- FusionReversal -->
+    <a href="fusionreversal.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-reversal-logo.svg" alt="FusionReversal">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionReversal</div>
+          <span class="card-badge badge-accuracy">94.8% Win Rate</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Catches reversals before they happen by detecting exhaustion invisible
+        to standard indicators. Premium/discount zone detection included.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionreversal_chart_promo.png" alt="FusionReversal Chart">
+      </div>
+    </a>
+
+    <!-- FusionScorer -->
+    <a href="fusionscorer.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-scorer-logo.svg" alt="FusionScorer">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionScorer</div>
+          <span class="card-badge badge-gold">Institutional Logic</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Scores trade setups from 0-5 based on institutional positioning.
+        Combines session sweeps, SMT divergence, FVG zones, and structure analysis.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionscorer_chart_promo.png" alt="FusionScorer Chart">
+      </div>
+    </a>
+
+    <!-- FusionTrend -->
+    <a href="fusiontrend.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-trend-logo.svg" alt="FusionTrend">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">FusionTrend</div>
+          <span class="card-badge badge-feature">Continuation Edge</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Identifies high-probability trend continuation entries. Filters out noise
+        and shows only the best setups with healthy pullback detection.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusiontrend_chart_promo.png" alt="FusionTrend Chart">
+      </div>
+    </a>
+
+    <!-- Reversion Meter MTF -->
+    <a href="fusionreversionmeter.html" class="indicator-card">
+      <div class="card-header">
+        <div class="card-logo">
+          <img src="assets/fusion-reversion-meter-logo.svg" alt="Reversion Meter MTF">
+        </div>
+        <div class="card-title-group">
+          <div class="card-title">Reversion Meter MTF</div>
+          <span class="card-badge badge-feature">Energy Gauge</span>
+        </div>
+      </div>
+      <p class="card-description">
+        Multi-timeframe energy depletion gauge that confirms when momentum is
+        exhausted and reversion trades have highest probability of success.
+      </p>
+      <div class="card-preview">
+        <img src="assets/fusionreversionmeter_chart_promo.png" alt="Reversion Meter MTF Chart">
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Trade with Precision?</h2>
+  <p>Join professional traders using FusionPredictor indicators every day</p>
+  <a href="pricing.html" class="btn-primary">View Pricing Plans</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="technology.html">Technology</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="support.html">Support</a>
+    <a href="affiliates.html">Affiliates</a>
+    <a href="my-account.html">My Account</a>
+  </div>
+  <p class="footer-copy">© 2025 FusionPredictor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
