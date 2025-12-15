@@ -1,308 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activate Access - FusionPredictor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activate Access - FusionPredictor</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --cyan: #00E7F7;
-            --cyan-soft: rgba(0, 231, 247, 0.25);
-            --cyan-glow: rgba(0, 231, 247, 0.45);
-            --dark-bg: #0A0E1A;
-            --card-bg: #131827;
-            --pill-bg: #0F1323;
-            --pill-border: rgba(0, 231, 247, 0.25);
-            --pill-hover: #16203A;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0AEC0;
-            --error-red: #ff6b6b;
-        }
+  <style>
+    :root {
+      --cyan: #00E7F7;
+      --cyan-soft: rgba(0, 231, 247, 0.25);
+      --cyan-glow: rgba(0, 231, 247, 0.45);
+      --dark-bg: #0A0E1A;
+      --card-bg: #131827;
+      --pill-bg: #0F1323;
+      --pill-border: rgba(0, 231, 247, 0.25);
+      --pill-hover: #16203A;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0AEC0;
+      --error-red: #ff6b6b;
+    }
 
-        body {
-            background: var(--dark-bg);
-            font-family: 'Inter', sans-serif;
-            padding: 2rem;
-            color: var(--text-primary);
-        }
+    body {
+      background: var(--dark-bg);
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+      color: var(--text-primary);
+    }
 
-        .activation-container {
-            max-width: 600px;
-            margin: 4rem auto;
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 231, 247, 0.15);
-            box-shadow: 0 0 40px rgba(0, 231, 247, 0.05);
-        }
+    .activation-container {
+      max-width: 600px;
+      margin: 4rem auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 231, 247, 0.15);
+      box-shadow: 0 0 40px rgba(0, 231, 247, 0.05);
+    }
 
-        h1 {
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(135deg, #ffffff, var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    h1 {
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
+    .subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-        label {
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
+    label {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
 
-        input, select {
-            width: 100%;
-            padding: 1rem;
-            background: var(--pill-bg);
-            border: 1px solid var(--pill-border);
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
+    input, select {
+      width: 100%;
+      padding: 1rem;
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
 
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--cyan);
-            box-shadow: 0 0 12px var(--cyan-soft);
-        }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-soft);
+    }
 
-        .pill-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
 
-        .pill {
-            background: var(--pill-bg);
-            border: 1px solid var(--pill-border);
-            padding: 0.75rem 1.25rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
+    .pill {
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      user-select: none;
+    }
 
-        .pill:hover {
-            background: var(--pill-hover);
-            border-color: var(--cyan);
-        }
+    .pill:hover {
+      background: var(--pill-hover);
+      border-color: var(--cyan);
+    }
 
-        .pill.active {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            font-weight: 700;
-            border-color: var(--cyan);
-            box-shadow: 0 0 12px var(--cyan-glow);
-        }
+    .pill.active {
+      background: var(--cyan);
+      color: var(--dark-bg);
+      font-weight: 700;
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
 
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--cyan);
-            color: var(--dark-bg);
-            font-weight: 700;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1.1rem;
-            border: none;
-        }
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--cyan);
+      color: var(--dark-bg);
+      font-weight: 700;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.1rem;
+      border: none;
+    }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--cyan-soft);
-        }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px var(--cyan-soft);
+    }
 
-        .success-box, .error-box {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-        }
+    .success-box, .error-box {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
 
-        .success-box {
-            background: rgba(0, 231, 247, 0.15);
-            color: var(--cyan);
-            border: 1px solid rgba(0, 231, 247, 0.35);
-        }
+    .success-box {
+      background: rgba(0, 231, 247, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 231, 247, 0.35);
+    }
 
-        .error-box {
-            background: rgba(255, 100, 100, 0.15);
-            color: var(--error-red);
-            border: 1px solid rgba(255, 100, 100, 0.35);
-        }
+    .error-box {
+      background: rgba(255, 100, 100, 0.15);
+      color: var(--error-red);
+      border: 1px solid rgba(255, 100, 100, 0.35);
+    }
 
-        @media (max-width: 480px) {
-            .activation-container {
-                padding: 1.8rem;
-            }
-        }
-    </style>
-
+    @media (max-width: 480px) {
+      .activation-container {
+        padding: 1.8rem;
+      }
+    }
+  </style>
 </head>
-<body>
 
-<div class="activation-container">
+<body>
+  <div class="activation-container">
     <h1>Activate Your Access</h1>
     <p class="subtitle">Enter your TradingView username to unlock your invite-only indicators.</p>
 
     <form id="activationForm">
 
-        <label>Email Used at Checkout</label>
-        <input type="email" id="email" required placeholder="you@example.com">
+      <label>TradingView Username</label>
+      <input type="text" id="tv" required placeholder="Your TradingView username">
 
-        <label>TradingView Username</label>
-        <input type="text" id="tv" required placeholder="Your TradingView username">
+      <label>Your Subscription Plan</label>
+      <select id="plan" required>
+        <option value="starter">Starter (3 indicators)</option>
+        <option value="pro">Pro (4 indicators)</option>
+        <option value="master">Master Suite (all 7 indicators)</option>
+      </select>
 
-        <label>Your Subscription Plan</label>
-        <select id="plan" required>
-            <option value="starter">Starter (3 indicators)</option>
-            <option value="pro">Pro (4 indicators)</option>
-            <option value="master">Master Suite (all 7 indicators)</option>
-        </select>
+      <div id="indicatorBox">
+        <label>Select Your Indicators</label>
 
-        <div id="indicatorBox">
-            <label>Select Your Indicators</label>
-
-            <div class="pill-container">
-
-                <div class="pill" data-value="FusionPredict">FusionPredict</div>
-                <div class="pill" data-value="FusionTrend">FusionTrend</div>
-                <div class="pill" data-value="FusionReversal">FusionReversal</div>
-                <div class="pill" data-value="FusionFlex">FusionFlex</div>
-                <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
-                <div class="pill" data-value="FusionScorer">FusionScorer</div>
-                <div class="pill" data-value="FusionReversionMeterMTF">Reversion Meter MTF</div>
-
-            </div>
-
-            <small>You may select up to <span id="indicatorLimit">3</span> indicators.</small>
+        <div class="pill-container">
+          <div class="pill" data-value="FusionPredict">FusionPredict</div>
+          <div class="pill" data-value="FusionTrend">FusionTrend</div>
+          <div class="pill" data-value="FusionReversal">FusionReversal</div>
+          <div class="pill" data-value="FusionFlex">FusionFlex</div>
+          <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
+          <div class="pill" data-value="FusionScorer">FusionScorer</div>
+          <div class="pill" data-value="FusionReversionMeterMTF">Reversion Meter MTF</div>
         </div>
 
-        <button type="submit" class="submit-btn">Activate My Access</button>
+        <small>You may select up to <span id="indicatorLimit">3</span> indicators.</small>
+      </div>
 
+      <button type="submit" class="submit-btn">Activate My Access</button>
     </form>
 
     <div class="success-box" id="successBox">
-        ✅ Activation submitted!<br><br>
-        Your indicators will be enabled within <strong>5–10 minutes</strong>.
+      ✅ Activation submitted!<br><br>
+      Your indicators will be enabled within <strong>5–10 minutes</strong>.
     </div>
 
     <div class="error-box" id="errorBox">
-        ❌ Something went wrong. Please check your info and try again.
+      ❌ Something went wrong. Please check your info and try again.
     </div>
-</div>
+  </div>
 
-
-<script>
+  <script>
     function planLimit(plan) {
-        if (plan === "starter") return 3;
-        if (plan === "pro") return 4;
-        if (plan === "master") return 7;
-        return 0;
+      if (plan === "starter") return 3;
+      if (plan === "pro") return 4;
+      if (plan === "master") return 7;
+      return 0;
     }
 
     function updateUI() {
-        const plan = document.getElementById("plan").value;
-        const limit = planLimit(plan);
-        document.getElementById("indicatorLimit").textContent = limit;
+      const plan = document.getElementById("plan").value;
+      const limit = planLimit(plan);
+      document.getElementById("indicatorLimit").textContent = limit;
 
-        const box = document.getElementById("indicatorBox");
-        box.style.display = plan === "master" ? "none" : "block";
+      const box = document.getElementById("indicatorBox");
+      box.style.display = plan === "master" ? "none" : "block";
+
+      // Optional: clear selected pills when switching plans
+      if (plan === "master") {
+        document.querySelectorAll(".pill.active").forEach(p => p.classList.remove("active"));
+      }
     }
 
     document.getElementById("plan").addEventListener("change", updateUI);
     updateUI();
 
     document.querySelectorAll(".pill").forEach(pill => {
-        pill.addEventListener("click", () => {
-            const plan = document.getElementById("plan").value;
-            const limit = planLimit(plan);
+      pill.addEventListener("click", () => {
+        const plan = document.getElementById("plan").value;
+        const limit = planLimit(plan);
 
-            if (!pill.classList.contains("active")) {
-                const selected = document.querySelectorAll(".pill.active").length;
-                if (selected >= limit) {
-                    alert(`You may select up to ${limit} indicators.`);
-                    return;
-                }
-            }
+        if (!pill.classList.contains("active")) {
+          const selected = document.querySelectorAll(".pill.active").length;
+          if (selected >= limit) {
+            alert(`You may select up to ${limit} indicators.`);
+            return;
+          }
+        }
 
-            pill.classList.toggle("active");
-        });
+        pill.classList.toggle("active");
+      });
     });
 
     document.getElementById("activationForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
+      e.preventDefault();
 
-        const plan = document.getElementById("plan").value;
-        let indicators;
+      const plan = document.getElementById("plan").value;
+      let indicators;
 
-        if (plan === "master") {
-            indicators = [
-                "FusionPredict",
-                "FusionTrend",
-                "FusionReversal",
-                "FusionFlex",
-                "FusionConfluence",
-                "FusionScorer",
-                "FusionReversionMeterMTF"
-            ];
+      if (plan === "master") {
+        indicators = [
+          "FusionPredict",
+          "FusionTrend",
+          "FusionReversal",
+          "FusionFlex",
+          "FusionConfluence",
+          "FusionScorer",
+          "FusionReversionMeterMTF"
+        ];
+      } else {
+        indicators = Array.from(document.querySelectorAll(".pill.active"))
+          .map(p => p.getAttribute("data-value"));
+      }
+
+      const payload = {
+        tvUsername: document.getElementById("tv").value,
+        plan,
+        indicators
+      };
+
+      try {
+        const res = await fetch("https://api.fusionpredictor.com/activate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          document.getElementById("successBox").style.display = "block";
+          document.getElementById("errorBox").style.display = "none";
         } else {
-            indicators = Array.from(document.querySelectorAll(".pill.active"))
-                .map(p => p.getAttribute("data-value"));
+          throw new Error("Activation failed");
         }
 
-        const payload = {
-            email: document.getElementById("email").value,
-            tvUsername: document.getElementById("tv").value,
-            plan,
-            indicators
-        };
-
-        try {
-            const res = await fetch("https://api.fusionpredictor.com/activate", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-
-            if (res.ok) {
-                document.getElementById("successBox").style.display = "block";
-                document.getElementById("errorBox").style.display = "none";
-            } else throw new Error();
-
-        } catch (err) {
-            document.getElementById("errorBox").style.display = "block";
-            document.getElementById("successBox").style.display = "none";
-        }
+      } catch (err) {
+        document.getElementById("errorBox").style.display = "block";
+        document.getElementById("successBox").style.display = "none";
+      }
     });
-</script>
-
+  </script>
 </body>
 </html>
+
