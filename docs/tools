@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FusionPredictor™ | TradingView Tools for Active Traders</title>
+  <meta name="description" content="Professional TradingView tools for active traders across stocks, futures, forex, and crypto. Focused on structure, momentum, and timing — not signals or automation." />
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background:#0b0f14; color:#e6edf3;">
+
+  <section style="max-width: 900px; margin: 0 auto; padding: 60px 20px; text-align:center;">
+    <h1 style="font-size: 42px; margin-bottom: 16px;">TradingView Tools for Active Traders</h1>
+    <p style="font-size: 18px; color:#9aa4af; max-width:700px; margin: 0 auto 32px;">
+      FusionPredictor™ is a professional suite of TradingView-based tools designed to improve
+      market structure awareness, momentum timing, and multi-timeframe confluence across markets.
+    </p>
+
+    <a href="/pricing" style="display:inline-block; padding:14px 28px; background:#22d3ee; color:#020617; text-decoration:none; font-weight:bold; border-radius:8px;">
+      View Plans
+    </a>
+  </section>
+
+  <section style="background:#020617; padding: 50px 20px;">
+    <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
+      <div>
+        <h3>Multi‑Market</h3>
+        <p style="color:#9aa4af;">Works across stocks, futures, forex, and crypto inside TradingView.</p>
+      </div>
+      <div>
+        <h3>Trader‑Controlled</h3>
+        <p style="color:#9aa4af;">No signals, no automation, no trade copying. You stay in control.</p>
+      </div>
+      <div>
+        <h3>Structure & Timing</h3>
+        <p style="color:#9aa4af;">Designed to support discretionary decision‑making with clarity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:900px; margin:0 auto; padding:50px 20px;">
+    <h2 style="text-align:center; margin-bottom:20px;">Who This Is For</h2>
+    <p style="text-align:center; color:#9aa4af; max-width:700px; margin:0 auto;">
+      FusionPredictor™ is built for active traders who already understand markets and want
+      cleaner structure, momentum context, and confirmation tools — not shortcuts or promises.
+    </p>
+  </section>
+
+  <footer style="background:#020617; padding:30px 20px; text-align:center; color:#6b7280; font-size:14px;">
+    © FusionPredictor™. Trading tools only. No financial advice.
+  </footer>
+
+</body>
+</html>
