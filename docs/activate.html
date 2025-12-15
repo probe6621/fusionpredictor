@@ -54,7 +54,20 @@
     .subtitle {
       text-align: center;
       color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .trial-banner {
+      text-align: center;
       margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .trial-banner strong {
+      color: var(--cyan);
+      font-weight: 600;
     }
 
     form {
@@ -170,7 +183,15 @@
 <body>
   <div class="activation-container">
     <h1>Activate Your Access</h1>
-    <p class="subtitle">Enter your TradingView username to unlock your invite-only indicators.</p>
+
+    <p class="subtitle">
+      Enter your TradingView username to unlock your invite-only indicators.
+    </p>
+
+    <div class="trial-banner">
+      <strong>14-day full access trial.</strong><br>
+      All 7 TradingView indicators enabled. No payment required.
+    </div>
 
     <form id="activationForm">
 
@@ -205,7 +226,8 @@
 
     <div class="success-box" id="successBox">
       ✅ Activation submitted!<br><br>
-      Your indicators will be enabled within <strong>5–10 minutes</strong>.
+      Your indicators will be enabled within <strong>5–10 minutes</strong>.<br>
+      Watch for upcoming live demo trade notifications.
     </div>
 
     <div class="error-box" id="errorBox">
@@ -229,7 +251,6 @@
       const box = document.getElementById("indicatorBox");
       box.style.display = plan === "master" ? "none" : "block";
 
-      // Optional: clear selected pills when switching plans
       if (plan === "master") {
         document.querySelectorAll(".pill.active").forEach(p => p.classList.remove("active"));
       }
@@ -293,9 +314,8 @@
           document.getElementById("successBox").style.display = "block";
           document.getElementById("errorBox").style.display = "none";
         } else {
-          throw new Error("Activation failed");
+          throw new Error();
         }
-
       } catch (err) {
         document.getElementById("errorBox").style.display = "block";
         document.getElementById("successBox").style.display = "none";
@@ -304,4 +324,3 @@
   </script>
 </body>
 </html>
-
