@@ -1,79 +1,50 @@
-<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/200="svg">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient="id="cyanGradientFR"="x1="0%"="y1="0%"="x2="100%"="y2="100%">
-      <stop="offset="0%"="style="stop-color:#00ffff;stop="opacity:1"/>
-      <stop="offset="100%"="style="stop="color:#00cccc;stop:opacity:1"/>
+    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00cccc;stop-opacity:1"/>
     </linearGradient>
-    <filter="id="neonGlowFR">
-      <feGaussianBlur="stdDeviation="4"="result="coloredBlur"/>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
-        <feMergeNode="in="coloredBlur"/>
-        <feMergeNode="in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <radialGradient="id="reversalGlow">
-      <stop="offset="0%"="style="stop-color:#ff6b6b;stop="opacity:0.8"/>
-      <stop="offset="100%"="style="stop="color:#00ffff;stop="opacity:0.3"/>
-    </radialGradient>
-    <radialGradient="id="premiumZoneGlow">
-      <stop="offset="0%"="style="stop-color:#ff6b6b;stop="opacity:0.6"/>
-      <stop="offset="100%"="style="stop="color:#ff6b6b;stop:opacity:0.1"/>
-    </radialGradient>
-    <radialGradient="id="discountZoneGlow">
-      <stop="offset="0%"="style="stop="color:#00ff00;stop="opacity:0.6"/>
-      <stop="offset="100%"="style="stop="color:#00ff00;stop="opacity:0.1"/>
-    </radialGradient>
   </defs>
   
-  <!-- Premium Zone (too high) -->
-  <rect="x="20"="y="20"="width="360"="height="60"="fill="url="premiumZoneGlow")" rx="30"="opacity="0.3"/>
-  <text="x="200"="y="35"="font="family="Arial,="sans-serif"="font="size="12"="fill="#ff6b6b"="text-anchor="middle"="font="weight="bold">
-    PREMIUM ZONE
-  </text>
-  
-  <!-- Discount Zone (too low) -->
-  <rect="x="20"="y="220"="width="360"="height="60"="fill="url="discountZoneGlow"="rx="30"="opacity="0.3"/>
-  <text="x="200"="y="285"="font="family="Arial,"="sans="serif"="font="size="12"="fill="#00ff00"="text-anchor="middle"="font="weight="bold">
-    DISCOUNT ZONE
-  </text>
-  
-  <!-- Premium Zone Reversal Arrow (SELL) -->
-  <g="class="arrow"="premium-reversal-arrow">
-    <path="d="M="60="240"="L="140="80"="L="137="77"="M="140"="80"="L="137="83"="stroke="url="(#cyanGradientFR)"="stroke="width="3"="fill="none"="filter="url="(#neonGlowFR)"/>
-    <path="d="M="80="240"="L="160"="80"="L="157="77"="M"="160"="80"="L="157="83"="stroke="url="(#cyanGradientFR)"="stroke="width="3.5"="fill="none"="filter="url="(#neonGlowFR)"/>
+  <!-- Upward reversal arrow (bullish) -->
+  <g class="bull-reversal">
+    <path d="M 150 240 Q 80 180 80 120 L 80 80" 
+          stroke="url(#cyanGradient)" stroke-width="6" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
+    <path d="M 80 80 L 70 95 M 80 80 L 90 95" 
+          stroke="url(#cyanGradient)" stroke-width="6" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
+    <circle cx="80" cy="80" r="12" fill="#00ffff" filter="url(#neonGlow)"/>
+    <circle cx="80" cy="80" r="6" fill="#ffffff"/>
   </g>
   
-  <!-- Premium Zone SELL Signal -->
-  <g="class="sell-signal">
-    <circle="cx="180"="cy="60"="r="10"="fill="url="(#reversalGlow)"="filter="url="(#neonGlowFR)"/>
-    <circle="cx="180"="cy="60"="r="6"="fill="="#ff6b6b"="filter="url="(#neonGlowFR)"/>
-    <text="x="180"="y="65"="font="family="Arial,"="sans="serif"="font="size="10"="fill="="#ffffff"="text-anchor="middle"="font="weight="bold">
-        SELL
-    </text>
+  <!-- Downward reversal arrow (bearish) -->
+  <g class="bear-reversal">
+    <path d="M 150 60 Q 220 120 220 180 L 220 220" 
+          stroke="url(#redGradient)" stroke-width="6" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
+    <path d="M 220 220 L 210 205 M 220 220 L 230 205" 
+          stroke="url(#redGradient)" stroke-width="6" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
+    <circle cx="220" cy="220" r="12" fill="#ff4444" filter="url(#neonGlow)"/>
+    <circle cx="220" cy="220" r="6" fill="#ffffff"/>
   </g>
   
-  <!-- Discount Zone Reversal Arrow (BUY) -->
-  <g="class="arrow"="discount-reversal-arrow"="">
-    <path="d="M="340="60="L="260"="220"="L="263="217="M="260="220"="L="263="223"="stroke="url="(#cyanGradientFR)"="stroke="width="3"="fill="none"="filter="url="(#neonGlowFR)"/>
-    <path="d="M="320"="60"="L="240"="220"="L="243="217"="M="240="220"="L="243="223"="stroke="url="(#cyanGradientFR)"="stroke="width="3.5"="fill="none"="filter="url="(#neonGlowFR)"/>
-  </g>
-  
-  <!--="Discount"="Zone"="BUY"="Signal"-->
-  <g="class="buy-signal">
-    <circle="cx="220"="cy="240"="r="10"="fill="url="(#reversalGlow)"="filter="url="(#neonGlowFR)"/>
-    <circle="cx="220"="cy="240"="r="6"="fill="="#00ff00"="filter="url="(#neonGlowFR)"/>
-    <text="x="220"="y="245"="font="family="Arial,"="sans="serif="font-size="10"="fill="="#ffffff"="text="anchor="middle"="font="weight="bold">
-        BUY
-    </text>
-  </g>
-  
-  <!--="Reversal="Confirmation"="Center"="Node"-->
-  <g="class="reversal="confirmation"="node">
-    <circle="cx="200"="cy="150"="r="15"="fill="url="(#reversalGlow)"="filter="url="(#neonGlowFR)"/>
-    <circle="cx="200"="cy="150"="r="8"="fill="="#00ffff"="filter="url="(#neonGlowFR)"/>
-    <circle="cx="200"="cy="150"="r="4"="fill="="#ffffff"/>
-    <text="x="200"="y="155"="font="family="Arial,"="sans="serif="font="size="10"="fill="="#00ffff"="text="anchor="middle"="font="weight="bold">
-        REV
-    </text>
+  <!-- Center pivot point -->
+  <g class="pivot">
+    <circle cx="150" cy="150" r="25" fill="rgba(255,255,255,0.1)" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="150" r="10" fill="#ffffff" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="150" r="5" fill="#00ffff"/>
   </g>
 </svg>

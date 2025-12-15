@@ -1,53 +1,48 @@
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="meterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:1" />
+    <linearGradient id="meterGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ffaa00;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:1"/>
     </linearGradient>
-    <linearGradient id="meterGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00E7F7;stop-opacity:0.4" />
-      <stop offset="100%" style="stop-color:#00B8C4;stop-opacity:0.2" />
-    </linearGradient>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   
-  <!-- Outer gauge arc (background) -->
-  <path d="M 20 70 A 30 30 0 0 1 80 70" 
-        stroke="rgba(0, 231, 247, 0.2)" 
-        stroke-width="8" 
-        fill="none" 
-        stroke-linecap="round"/>
+  <!-- Meter arc background -->
+  <path d="M 50 200 A 100 100 0 0 1 250 200" 
+        stroke="rgba(255,255,255,0.1)" stroke-width="30" fill="none"/>
   
-  <!-- Active gauge arc (gradient fill showing energy level) -->
-  <path d="M 20 70 A 30 30 0 0 1 50 40" 
-        stroke="url(#meterGradient)" 
-        stroke-width="8" 
-        fill="none" 
-        stroke-linecap="round"/>
+  <!-- Meter arc filled (showing exhaustion) -->
+  <path d="M 50 200 A 100 100 0 0 1 250 200" 
+        stroke="url(#meterGradient)" stroke-width="25" fill="none" 
+        filter="url(#neonGlow)" opacity="0.9"/>
   
-  <!-- Gauge needle/pointer -->
-  <line x1="50" y1="70" x2="58" y2="48" 
-        stroke="url(#meterGradient)" 
-        stroke-width="3" 
-        stroke-linecap="round"/>
+  <!-- Meter ticks -->
+  <line x1="50" y1="200" x2="50" y2="180" stroke="#00ff88" stroke-width="3" filter="url(#neonGlow)"/>
+  <line x1="100" y1="134" x2="92" y2="120" stroke="#00ffaa" stroke-width="3" filter="url(#neonGlow)"/>
+  <line x1="150" y1="100" x2="150" y2="80" stroke="#ffaa00" stroke-width="3" filter="url(#neonGlow)"/>
+  <line x1="200" y1="134" x2="208" y2="120" stroke="#ff6644" stroke-width="3" filter="url(#neonGlow)"/>
+  <line x1="250" y1="200" x2="250" y2="180" stroke="#ff4444" stroke-width="3" filter="url(#neonGlow)"/>
   
-  <!-- Center pivot point -->
-  <circle cx="50" cy="70" r="5" fill="url(#meterGradient)"/>
-  <circle cx="50" cy="70" r="2" fill="#ffffff"/>
+  <!-- Needle pointing to exhaustion zone -->
+  <g transform="rotate(30, 150, 200)">
+    <line x1="150" y1="200" x2="150" y2="110" 
+          stroke="#00ffff" stroke-width="4" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="200" r="12" fill="#00ffff" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="200" r="6" fill="#ffffff"/>
+  </g>
   
-  <!-- Gauge tick marks -->
-  <line x1="22" y1="68" x2="25" y2="65" stroke="rgba(0, 231, 247, 0.4)" stroke-width="2"/>
-  <line x1="30" y1="50" x2="33" y2="48" stroke="rgba(0, 231, 247, 0.4)" stroke-width="2"/>
-  <line x1="48" y1="38" x2="50" y2="35" stroke="rgba(0, 231, 247, 0.4)" stroke-width="2"/>
-  <line x1="68" y1="50" x2="70" y2="48" stroke="rgba(0, 231, 247, 0.4)" stroke-width="2"/>
-  <line x1="78" y1="68" x2="75" y2="65" stroke="rgba(0, 231, 247, 0.4)" stroke-width="2"/>
-  
-  <!-- Glow effect behind gauge -->
-  <ellipse cx="50" cy="70" rx="35" ry="15" fill="url(#meterGlow)" opacity="0.3"/>
-  
-  <!-- Energy waves/bars at bottom -->
-  <rect x="35" y="80" width="4" height="8" fill="rgba(0, 231, 247, 0.6)" rx="2"/>
-  <rect x="42" y="77" width="4" height="11" fill="rgba(0, 231, 247, 0.7)" rx="2"/>
-  <rect x="49" y="75" width="4" height="13" fill="url(#meterGradient)" rx="2"/>
-  <rect x="56" y="77" width="4" height="11" fill="rgba(0, 231, 247, 0.7)" rx="2"/>
-  <rect x="63" y="80" width="4" height="8" fill="rgba(0, 231, 247, 0.6)" rx="2"/>
+  <!-- Labels -->
+  <text x="50" y="230" font-family="Arial, sans-serif" font-size="12" fill="#00ff88" 
+        text-anchor="middle">LOW</text>
+  <text x="150" y="70" font-family="Arial, sans-serif" font-size="12" fill="#ffaa00" 
+        text-anchor="middle">MED</text>
+  <text x="250" y="230" font-family="Arial, sans-serif" font-size="12" fill="#ff4444" 
+        text-anchor="middle">HIGH</text>
 </svg>

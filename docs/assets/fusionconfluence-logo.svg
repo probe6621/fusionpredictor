@@ -1,66 +1,63 @@
-<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="cyanGradientFC" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1"/>
-      <stop="offset="100%" style="stop-color:#00cccc;stop-opacity:1"/>
-    </linear="filter="id="neonGlowFC"">
+      <stop offset="100%" style="stop-color:#00cccc;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="neonGlow">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
-        <feMergeNode="in="coloredBlur"/>
-        <feMergeNode="in="SourceGraphic"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <radial="gradient="id="confluenceGlow">
-      <stop="offset="0%"="style="stop-color:#00ff00;stop-opacity:0.8"/>
-      <stop="offset="100%"="style="stop-color:#00ffff;stop="opacity:0.3"/>
-    </radial="gradient="id="ribbonGradient">
-      <stop="offset="0%"="style="stop-color:#00ff00;stop-opacity:0.6"/>
-      <stop="offset="50%"="style="stop-color:#00ffff;stop-opacity:0.8"/>
-      <stop="100%" style="stop-color:#00ff00;stop-opacity:0.6"/>
-    </linearGradient>
+    <radialGradient id="confluenceGlow">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0"/>
+    </radialGradient>
   </defs>
   
-  <!-- Background for confluence emphasis -->
-  <rect x="20" y="60" width="160" height="80" fill="url(#ribbonGradient)" filter="url(#neonGlowFC)" rx="40" opacity="0.3"/>
+  <!-- Background glow -->
+  <circle cx="150" cy="150" r="80" fill="url(#confluenceGlow)" opacity="0.3"/>
   
-  <!-- Confluence Ribbon -->
-  <rect x="30" y="80" width="140" height="40" fill="url(#ribbonGradient)" filter="url(#neonGlowFC)" rx="20"/>
-  
-  <!-- 4 Major Pillars Arrows converging into ribbon -->
-  <!-- Chaikin Money Flow -->
-  <g="class="arrow="cmf-arrow">
-    <path="d="M="40="180="L="100="100"="L="97"="97"="M="100="100"="L="97"="103"="stroke="url(#cyanGradientFC)"="stroke-width="2"="fill="none"="filter="url(#neonGlowFC)"/>
+  <!-- Multiple timeframe arrows converging -->
+  <g class="arrows">
+    <!-- From top-left -->
+    <path d="M 40 40 L 150 150 L 147 147 M 150 150 L 147 153" 
+          stroke="url(#cyanGradient)" stroke-width="4" fill="none" 
+          filter="url(#neonGlow)" opacity="0.8"/>
+    
+    <!-- From top-right -->
+    <path d="M 260 40 L 150 150 L 153 147 M 150 150 L 153 153" 
+          stroke="url(#cyanGradient)" stroke-width="4" fill="none" 
+          filter="url(#neonGlow)" opacity="0.8"/>
+    
+    <!-- From bottom-left -->
+    <path d="M 40 260 L 150 150 L 147 153 M 150 150 L 147 147" 
+          stroke="url(#cyanGradient)" stroke-width="4" fill="none" 
+          filter="url(#neonGlow)" opacity="0.8"/>
+    
+    <!-- From bottom-right -->
+    <path d="M 260 260 L 150 150 L 153 153 M 150 150 L 153 147" 
+          stroke="url(#cyanGradient)" stroke-width="4" fill="none" 
+          filter="url(#neonGlow)" opacity="0.8"/>
+    
+    <!-- From left -->
+    <path d="M 20 150 L 150 150 L 147 147 M 150 150 L 147 153" 
+          stroke="url(#cyanGradient)" stroke-width="5" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
+    
+    <!-- From top -->
+    <path d="M 150 20 L 150 150 L 147 147 M 150 150 L 153 147" 
+          stroke="url(#cyanGradient)" stroke-width="5" fill="none" 
+          filter="url(#neonGlow)" opacity="0.9"/>
   </g>
   
-  <!-- MACD Momentum -->
-  <g class="arrow macd-arrow">
-    <path="d="M="40"="150="L="100="100"="L="97"="97"="M="100="100"="L="97="103"="stroke="url(#cyanGradientFC)"="stroke-width="2.5"="fill="none"="filter="url(#neonGlowFC)"/>
+  <!-- Confluence center point -->
+  <g class="confluence-point">
+    <circle cx="150" cy="150" r="30" fill="url(#confluenceGlow)" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="150" r="12" fill="#00ffff" filter="url(#neonGlow)"/>
+    <circle cx="150" cy="150" r="6" fill="#ffffff"/>
   </g>
-  
-  <!-- Aroon Extremes -->
-  <g="class="arrow"="aroon-arrow">
-    <path="d="M="40"="120"="L="100"="100"="L="97"="97"="M"="100"="100"="L="97="103"="stroke="url(#cyanGradient)"="stroke-width="3"="fill="none"="filter="url="(#neonGlow)"/>
-  </g>
-  
-  <!-- Trend="EMAs="Structure="-->
-  <g="class="arrow"="ema-arrow">
-    <path="d="M="40"="90"="L="100="100="L="97="97="M="100="100="L="97="103="stroke="url="(#cyanGradient)"="stroke="width="3.5="="fill="none="="filter="url="(#neonGlow)"/>
-  </g>
-  
-  <!-- "Confluence="Confirmation="Forward"="Arrow"-->
-  <g"="class="arrow"="confirmation-arrow"">
-    <path"="d="M="170="100"="L="260="100"="L="257="97"="M="260="100"="L="257="103"="stroke="url="(#cyanGradient)"="stroke="width="4"="fill="none"="filter="url="(#neon="glow)"/>
-  </g>
-  
-  <!--"Confluence="Node"="-->
-  <g="class="confluence"="point">
-    <circle="cx="280="cy="100="r="20="fill="url(#confluenceGlow)"="filter="url="(#neon="glow)"/>
-    <circle="cx="280="cy="100="r="8="fill="#00ff00"="filter="url="(#neonGlow)"/>
-    <circle="cx="280"="cy="100"="r="4"="fill="#ffffff"="/>
-  </g>
-  
-  <!--"CONF"="text="indicator"="-->
-  <text="x="280"="y="130"="font-family="Arial,"="sans-serif"="font-size="10"="fill="#00ff00"="text-anchor="middle"="font-weight="bold"">
-    CONF
-  </text>
 </svg>

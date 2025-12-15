@@ -1,94 +1,54 @@
-<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="cyanGradientFS" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#00cccc;stop-opacity:1"/>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1"/>
     </linearGradient>
-    <filter id="neonGlowFS">
+    <filter id="neonGlow">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <radialGradient id="scorerGlow">
-      <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0.3"/>
-    </radialGradient>
-    <radialGradient="id="pentagonGlow">
-      <stop="offset="0%"="style="stop-color="#ffaa00;stop="opacity:0.6"/>
-      <stop="offset="100%" style="stop-color:#ffaa00;stop-opacity:0.1"/>
+    <radialGradient id="scoreGlow">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#ffaa00;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#ffaa00;stop-opacity:0"/>
     </radialGradient>
   </defs>
   
-  <!-- Pentagon Background for 5-Component Scoring -->
-  <polygon points="200,60 260,90 240,150 160,150 140,90" fill="url(#pentagonGlow)" stroke="url(#cyanGradientFS)" stroke-width="1" filter="url(#neonGlowFS)" opacity="0.3"/>
+  <!-- Background glow -->
+  <circle cx="150" cy="150" r="100" fill="url(#scoreGlow)" opacity="0.3"/>
   
-  <!-- 5 Component Arrows -->
-  <!-- 1. Session Sweep -->
-  <g class="arrow session-sweep">
-    <path d="M 100 80 L 200 60 L 197 57 M 200 60 L 197 63" 
-          stroke="url(#cyanGradientFS)" 
-          stroke-width="2" 
-          fill="none" 
-          filter="url(#neonGlowFS)"/>
+  <!-- 5 scoring bars -->
+  <g class="score-bars">
+    <rect x="60" y="200" width="35" height="60" fill="url(#goldGradient)" 
+          opacity="0.4" filter="url(#neonGlow)" rx="4"/>
+    <rect x="105" y="170" width="35" height="90" fill="url(#goldGradient)" 
+          opacity="0.5" filter="url(#neonGlow)" rx="4"/>
+    <rect x="150" y="140" width="35" height="120" fill="url(#goldGradient)" 
+          opacity="0.7" filter="url(#neonGlow)" rx="4"/>
+    <rect x="195" y="110" width="35" height="150" fill="url(#goldGradient)" 
+          opacity="0.9" filter="url(#neonGlow)" rx="4"/>
+    <rect x="240" y="80" width="35" height="180" fill="url(#goldGradient)" 
+          opacity="1" filter="url(#neonGlow)" rx="4"/>
   </g>
   
-  <!-- 2. SMT Divergence -->
-  <g="class="arrow smt-divergence">
-    <path="d="M="300"="100"="L="260"="90"="L="263"="87"="M="260"="90"="L="263"="93" 
-         ="stroke="url="(#cyanGradientFS)" 
-         ="stroke="width="2"=" 
-          "fill="none" 
-          ="filter="url="(#neonGlowFS)"/>
-  </g>
+  <!-- Score numbers -->
+  <text x="77" y="285" font-family="Arial, sans-serif" font-size="18" fill="#ffaa00" 
+        text-anchor="middle" font-weight="bold">1</text>
+  <text x="122" y="285" font-family="Arial, sans-serif" font-size="18" fill="#ffaa00" 
+        text-anchor="middle" font-weight="bold">2</text>
+  <text x="167" y="285" font-family="Arial, sans-serif" font-size="18" fill="#ffaa00" 
+        text-anchor="middle" font-weight="bold">3</text>
+  <text x="212" y="285" font-family="Arial, sans-serif" font-size="18" fill="#ffaa00" 
+        text-anchor="middle" font-weight="bold">4</text>
+  <text x="257" y="285" font-family="Arial, sans-serif" font-size="18" fill="#ffaa00" 
+        text-anchor="middle" font-weight="bold">5</text>
   
-  <!--="3."="Flip"="Zone"-->
-  <g="class="arrow="flip"="zone"">
-    <path="d="="280"="190"="L="240"="150"="L="243"="147"="M"="240="150"="L"="243="153" 
-          "stroke="url="(#cyanGradientFS)" 
-         ="stroke="width="2" 
-          "fill="none 
-         ="filter="url="(#neonGlowFS)"/>
-  </g>
-  
-  <!--="4."="Continuation"-->
-  <g="="class="arrow"="continuation">
-    <path="d="="120"="190"="L"="160"="150"="L="157"="147"="M"="160"="150"="L"="157"="153" 
-          "stroke="url="(#cyanGradientFS)" 
-          "stroke="width="2=" 
-          "fill="none" 
-          ="filter="url="(#neonGlowFS)"/>
-  </g>
-  
-  <!--="5."="LRL"="Targets"-->
-  <g="class="arrow"="lrl-targets">
-    <path="d="="100"="100"="L="140"="90"="L="137"="87"="M"="140"="90"="L"="137"="93" 
-          ="stroke="url="(#cyanGradientFS)" 
-          ="stroke="width="2" 
-          "fill="none" 
-          ="filter="url="(#neonGlowFS)"/>
-  </g>
-  
-  <!--="Scorer"="Core"="with"="5/5"="Score"-->
-  <g="class="scorer-core">
-    <circle="cx="200"="cy="120"="r="20"="fill="url="(#scorerGlow)"="filter="url="(#neonGlowFS)"/>
-    <circle="cx="200"="cy="120"="r="12"="fill="#ffaa00"="filter="url="(#neonGlowFS)"/>
-    <circle="cx="200"="cy="120"="r="6"="fill="#ffaa00=""/>
-    <text="x="200"="y="125"="font-family="Arial,"="sans="serif="font="size="14"="fill="#ffffff"="text="anchor="middle="font="weight="bold"=">
-      5/5
-    </text>
-  </g>
-  
-  <!--="Perfect"="Score"="Label"-->
-  <text="x="200"="y="190"="font="family="Arial,"="sans="serif="font="size="12"="fill="#ffaa00"="text="anchor="middle"="font="weight="bold">
-    PERFECT
-  </text>
-  
-  <!--="Component"="labels"-->
-  <text="x="90"="y="75"="font="size="8="fill="#00ffff"="text="anchor="middle"="SWEEP</text>
-  <text="x="310"="y="100"="font="size="8"="fill="#00ffff"="text="anchor="middle"="SMT" </text>
-  <text="x="290"="y="200"="font="size="8="fill="#00ffff"="text="anchor="middle=">FLIP</text>
-  <text="x="110"="y="200"="font="size="8="fill="#00ffff"="text="anchor="middle=">CONT</text>
-  <text="x="90"="y="100"="font="size="8="fill="#00ffff"="text="anchor="middle=">LRL</text>
+  <!-- Target circle at top -->
+  <circle cx="257" cy="50" r="20" fill="none" stroke="url(#goldGradient)" 
+          stroke-width="3" filter="url(#neonGlow)"/>
+  <circle cx="257" cy="50" r="10" fill="#ffaa00" filter="url(#neonGlow)"/>
 </svg>
