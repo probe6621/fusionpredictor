@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activate Access - FusionPredictor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Activate Trial - FusionPredictor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +18,10 @@
       --card-bg: #131827;
       --pill-bg: #0F1323;
       --pill-border: rgba(0, 231, 247, 0.25);
-      --pill-hover: #16203A;
       --text-primary: #FFFFFF;
       --text-secondary: #A0AEC0;
       --error-red: #ff6b6b;
+      --ok-green: #39d98a;
     }
 
     body {
@@ -32,7 +32,7 @@
     }
 
     .activation-container {
-      max-width: 600px;
+      max-width: 620px;
       margin: 4rem auto;
       background: var(--card-bg);
       padding: 2.5rem;
@@ -55,35 +55,37 @@
       text-align: center;
       color: var(--text-secondary);
       margin-bottom: 0.75rem;
+      line-height: 1.5;
     }
 
     .trial-banner {
       text-align: center;
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem auto;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
       color: var(--text-secondary);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: rgba(0, 231, 247, 0.08);
+      border: 1px solid rgba(0, 231, 247, 0.18);
     }
 
-    .trial-banner strong {
-      color: var(--cyan);
-      font-weight: 600;
-    }
+    .trial-banner strong { color: var(--cyan); font-weight: 700; }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     label {
-      color: var(--text-primary);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 0.5rem;
       display: block;
+      color: #dfe7f3;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 1rem;
       background: var(--pill-bg);
@@ -91,45 +93,19 @@
       border-radius: 10px;
       color: var(--text-primary);
       font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-
-    input:focus, select:focus {
       outline: none;
-      border-color: var(--cyan);
-      box-shadow: 0 0 12px var(--cyan-soft);
     }
 
-    .pill-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
+    input:focus {
+      border-color: rgba(0, 231, 247, 0.55);
+      box-shadow: 0 0 0 4px rgba(0, 231, 247, 0.10);
     }
 
-    .pill {
-      background: var(--pill-bg);
-      border: 1px solid var(--pill-border);
-      padding: 0.75rem 1.25rem;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 0.95rem;
+    .hint {
+      margin-top: -0.75rem;
       color: var(--text-secondary);
-      user-select: none;
-    }
-
-    .pill:hover {
-      background: var(--pill-hover);
-      border-color: var(--cyan);
-    }
-
-    .pill.active {
-      background: var(--cyan);
-      color: var(--dark-bg);
-      font-weight: 700;
-      border-color: var(--cyan);
-      box-shadow: 0 0 12px var(--cyan-glow);
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     .submit-btn {
@@ -137,190 +113,211 @@
       padding: 1rem;
       background: var(--cyan);
       color: var(--dark-bg);
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 10px;
-      text-align: center;
       cursor: pointer;
-      transition: 0.3s;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       border: none;
+      transition: transform 0.08s ease;
     }
 
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px var(--cyan-soft);
-    }
+    .submit-btn:active { transform: scale(0.99); }
 
     .success-box, .error-box {
       display: none;
       margin-top: 1.5rem;
-      padding: 1.2rem;
-      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      border-radius: 12px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 650;
+      line-height: 1.5;
     }
 
     .success-box {
-      background: rgba(0, 231, 247, 0.15);
-      color: var(--cyan);
-      border: 1px solid rgba(0, 231, 247, 0.35);
+      background: rgba(57, 217, 138, 0.12);
+      color: var(--ok-green);
+      border: 1px solid rgba(57, 217, 138, 0.25);
     }
 
     .error-box {
-      background: rgba(255, 100, 100, 0.15);
+      background: rgba(255, 100, 100, 0.12);
       color: var(--error-red);
-      border: 1px solid rgba(255, 100, 100, 0.35);
+      border: 1px solid rgba(255, 100, 100, 0.22);
     }
 
-    @media (max-width: 480px) {
-      .activation-container {
-        padding: 1.8rem;
-      }
+    .tiny {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    .tiny code {
+      color: #dbe7ff;
+      background: rgba(255,255,255,0.06);
+      padding: 0.12rem 0.3rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
   </style>
 </head>
 
 <body>
-  <div class="activation-container">
-    <h1>Activate Your Access</h1>
 
-    <p class="subtitle">
-      Enter your TradingView username to unlock your invite-only indicators.
-    </p>
+<script>
+  // Cookie helpers
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+  }
+  function getCookie(name) {
+    return document.cookie
+      .split('; ')
+      .find(row => row.startsWith(name + '='))
+      ?.split('=')[1];
+  }
 
-    <div class="trial-banner">
-      <strong>14-day full access trial.</strong><br>
-      All 7 TradingView indicators enabled. No payment required.
-    </div>
+  // Read URL params
+  const params = new URLSearchParams(window.location.search);
 
-    <form id="activationForm">
+  // Support: ?trial=14
+  const trialDays = parseInt(params.get("trial") || "14", 10);
 
-      <label>TradingView Username</label>
-      <input type="text" id="tv" required placeholder="Your TradingView username">
+  // Support: ?influencer=Arun (or default "direct")
+  const influencer = (params.get("influencer") || "direct").trim();
 
-      <label>Your Subscription Plan</label>
-      <select id="plan" required>
-        <option value="starter">Starter (3 indicators)</option>
-        <option value="pro">Pro (4 indicators)</option>
-        <option value="master">Master Suite (all 7 indicators)</option>
-      </select>
+  // Support: ?via=fusion (Rewardful "via")
+  const via = params.get("via");
 
-      <div id="indicatorBox">
-        <label>Select Your Indicators</label>
+  // Persist attribution cookies (90 days)
+  if (via) setCookie("rewardful_via", via, 90);
+  if (influencer) setCookie("fusion_influencer", influencer, 90);
 
-        <div class="pill-container">
-          <div class="pill" data-value="FusionPredict">FusionPredict</div>
-          <div class="pill" data-value="FusionTrend">FusionTrend</div>
-          <div class="pill" data-value="FusionReversal">FusionReversal</div>
-          <div class="pill" data-value="FusionFlex">FusionFlex</div>
-          <div class="pill" data-value="FusionConfluence">FusionConfluence</div>
-          <div class="pill" data-value="FusionScorer">FusionScorer</div>
-          <div class="pill" data-value="FusionReversionMeterMTF">Reversion Meter MTF</div>
-        </div>
+  // Put into page after load
+  window.__FUSION_TRIAL__ = { trialDays, influencer, via };
+</script>
 
-        <small>You may select up to <span id="indicatorLimit">3</span> indicators.</small>
-      </div>
+<div class="activation-container">
+  <h1>Activate Your Trial</h1>
 
-      <button type="submit" class="submit-btn">Activate My Access</button>
-    </form>
+  <p class="subtitle">
+    Enter your TradingView username to unlock your invite-only indicators.
+  </p>
 
-    <div class="success-box" id="successBox">
-      ✅ Activation submitted!<br><br>
-      Your indicators will be enabled within <strong>5–10 minutes</strong>.<br>
-      Watch for upcoming live demo trade notifications.
-    </div>
-
-    <div class="error-box" id="errorBox">
-      ❌ Something went wrong. Please check your info and try again.
-    </div>
+  <div class="trial-banner" id="trialBanner">
+    <strong>14-day full access trial.</strong><br/>
+    Courtesy of our partner <strong>direct</strong>.
   </div>
 
-  <script>
-    function planLimit(plan) {
-      if (plan === "starter") return 3;
-      if (plan === "pro") return 4;
-      if (plan === "master") return 7;
-      return 0;
-    }
+  <form id="trialForm">
+    <div>
+      <label>TradingView Username</label>
+      <input type="text" id="tv" required placeholder="Your TradingView username" autocomplete="off" />
+      <div class="hint">Make sure this matches your TradingView username exactly.</div>
+    </div>
 
-    function updateUI() {
-      const plan = document.getElementById("plan").value;
-      const limit = planLimit(plan);
-      document.getElementById("indicatorLimit").textContent = limit;
+    <button type="submit" class="submit-btn" id="submitBtn">Activate My Trial</button>
+  </form>
 
-      const box = document.getElementById("indicatorBox");
-      box.style.display = plan === "master" ? "none" : "block";
+  <div class="success-box" id="successBox">
+    ✅ Trial activation submitted!<br/>
+    Your indicators will be enabled within <strong>5–10 minutes</strong>.
+  </div>
 
-      if (plan === "master") {
-        document.querySelectorAll(".pill.active").forEach(p => p.classList.remove("active"));
-      }
-    }
+  <div class="error-box" id="errorBox">
+    ❌ <span id="errorText">Something went wrong. Please try again.</span>
+  </div>
 
-    document.getElementById("plan").addEventListener("change", updateUI);
-    updateUI();
+  <div class="tiny">
+    Endpoint: <code>POST https://api.fusionpredictor.com/trial-activate</code>
+  </div>
+</div>
 
-    document.querySelectorAll(".pill").forEach(pill => {
-      pill.addEventListener("click", () => {
-        const plan = document.getElementById("plan").value;
-        const limit = planLimit(plan);
+<script>
+  // Paint banner from params/cookies
+  (function initBanner(){
+    const trial = window.__FUSION_TRIAL__?.trialDays ?? 14;
+    const infl = window.__FUSION_TRIAL__?.influencer ?? (getCookie("fusion_influencer") || "direct");
+    const banner = document.getElementById("trialBanner");
+    banner.innerHTML = `
+      <strong>${trial}-day full access trial.</strong><br/>
+      Courtesy of our partner <strong>${escapeHtml(infl)}</strong>.
+    `;
+  })();
 
-        if (!pill.classList.contains("active")) {
-          const selected = document.querySelectorAll(".pill.active").length;
-          if (selected >= limit) {
-            alert(`You may select up to ${limit} indicators.`);
-            return;
-          }
-        }
+  function escapeHtml(str) {
+    return (str || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
 
-        pill.classList.toggle("active");
+  const form = document.getElementById("trialForm");
+  const successBox = document.getElementById("successBox");
+  const errorBox = document.getElementById("errorBox");
+  const errorText = document.getElementById("errorText");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    successBox.style.display = "none";
+    errorBox.style.display = "none";
+
+    const tvUsernameRaw = document.getElementById("tv").value || "";
+    const tvUsername = tvUsernameRaw.trim();
+
+    if (!tvUsername) return;
+
+    const trialDays = window.__FUSION_TRIAL__?.trialDays ?? 14;
+
+    // influencer: URL param takes priority, else cookie, else direct
+    const influencer =
+      (window.__FUSION_TRIAL__?.influencer || "").trim() ||
+      decodeURIComponent(getCookie("fusion_influencer") || "") ||
+      "direct";
+
+    const payload = {
+      tv_username: tvUsername,
+      trial_days: trialDays,
+      influencer: influencer
+    };
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      const res = await fetch("https://api.fusionpredictor.com/trial-activate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
       });
-    });
 
-    document.getElementById("activationForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
+      const data = await res.json().catch(() => ({}));
 
-      const plan = document.getElementById("plan").value;
-      let indicators;
-
-      if (plan === "master") {
-        indicators = [
-          "FusionPredict",
-          "FusionTrend",
-          "FusionReversal",
-          "FusionFlex",
-          "FusionConfluence",
-          "FusionScorer",
-          "FusionReversionMeterMTF"
-        ];
+      if (res.ok) {
+        successBox.style.display = "block";
+        errorBox.style.display = "none";
       } else {
-        indicators = Array.from(document.querySelectorAll(".pill.active"))
-          .map(p => p.getAttribute("data-value"));
+        // If backend returns a friendly detail, show it (like duplicate trial)
+        const msg = data?.detail || "Something went wrong. Please try again.";
+        errorText.textContent = msg;
+        errorBox.style.display = "block";
+        successBox.style.display = "none";
       }
+    } catch (err) {
+      errorText.textContent = "Network error. Please try again.";
+      errorBox.style.display = "block";
+      successBox.style.display = "none";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Activate My Trial";
+    }
+  });
+</script>
 
-      const payload = {
-        tvUsername: document.getElementById("tv").value,
-        plan,
-        indicators
-      };
-
-      try {
-        const res = await fetch("https://api.fusionpredictor.com/activate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          document.getElementById("successBox").style.display = "block";
-          document.getElementById("errorBox").style.display = "none";
-        } else {
-          throw new Error();
-        }
-      } catch (err) {
-        document.getElementById("errorBox").style.display = "block";
-        document.getElementById("successBox").style.display = "none";
-      }
-    });
-  </script>
 </body>
 </html>
