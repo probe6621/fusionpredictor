@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activate Access - FusionPredictor</title>
+  <title>Activate Access – FusionPredictor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +12,10 @@
   <style>
     :root {
       --cyan: #00E7F7;
-      --cyan-soft: rgba(0, 231, 247, 0.25);
-      --cyan-glow: rgba(0, 231, 247, 0.45);
       --dark-bg: #0A0E1A;
       --card-bg: #131827;
       --pill-bg: #0F1323;
       --pill-border: rgba(0, 231, 247, 0.25);
-      --pill-hover: #16203A;
       --text-primary: #FFFFFF;
       --text-secondary: #A0AEC0;
       --error-red: #ff6b6b;
@@ -70,19 +67,13 @@
       font-weight: 600;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
     label {
       font-weight: 500;
       margin-bottom: 0.5rem;
       display: block;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 1rem;
       background: var(--pill-bg);
@@ -92,30 +83,9 @@
       font-size: 1rem;
     }
 
-    .pill-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .pill {
-      background: var(--pill-bg);
-      border: 1px solid var(--pill-border);
-      padding: 0.75rem 1.25rem;
-      border-radius: 20px;
-      cursor: pointer;
-      color: var(--text-secondary);
-    }
-
-    .pill.active {
-      background: var(--cyan);
-      color: var(--dark-bg);
-      font-weight: 700;
-    }
-
     .submit-btn {
       width: 100%;
+      margin-top: 1.5rem;
       padding: 1rem;
       background: var(--cyan);
       color: var(--dark-bg);
@@ -149,37 +119,11 @@
 
 <body>
 
-<!-- 🔗 Affiliate + Rewardful Capture -->
-<script>
-  function setCookie(name, value, days) {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
-  }
-
-  function getCookie(name) {
-    return document.cookie
-      .split('; ')
-      .find(row => row.startsWith(name + '='))
-      ?.split('=')[1];
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const via = params.get("via");
-
-  if (via) {
-    setCookie("rewardful_via", via, 90);
-
-    if (via === "fusion") {
-      setCookie("fusion_affiliate", "Arun", 90);
-    }
-  }
-</script>
-
 <div class="activation-container">
   <h1>Activate Your Access</h1>
 
   <p class="subtitle">
-    Enter your TradingView username to unlock your invite-only indicators.
+    Enter your TradingView username to unlock invite-only indicators.
   </p>
 
   <div class="trial-banner">
@@ -188,28 +132,18 @@
   </div>
 
   <form id="activationForm">
-
     <label>TradingView Username</label>
     <input type="text" id="tv" required placeholder="Your TradingView username">
 
-    <label>Your Subscription Plan</label>
-    <select id="plan">
-      <option value="starter">Starter</option>
-      <option value="pro">Pro</option>
-      <option value="master">Master Suite</option>
-    </select>
-
-    <button type="submit" class="submit-btn">Activate My Access</button>
+    <button type="submit" class="submit-btn">Activate My Trial</button>
   </form>
 
   <div class="success-box" id="successBox">
-    ✅ Activation submitted!<br><br>
+    ✅ Trial activated.<br><br>
     Your indicators will be enabled within <strong>5–10 minutes</strong>.
   </div>
 
-  <div class="error-box" id="errorBox">
-    ❌ Something went wrong. Please try again.
-  </div>
+  <div class="error-box" id="errorBox"></div>
 </div>
 
 <script>
@@ -217,28 +151,28 @@
     e.preventDefault();
 
     const payload = {
-      tvUsername: document.getElementById("tv").value,
-      plan: document.getElementById("plan").value,
-      indicators: [],
-      affiliate: getCookie("fusion_affiliate") || "direct",
-      rewardfulVia: getCookie("rewardful_via") || null,
-      trialDays: 14
+      tv_username: document.getElementById("tv").value.trim(),
+      trial_days: 14,
+      influencer: "Arun"
     };
 
     try {
-      const res = await fetch("https://api.fusionpredictor.com/activate", {
+      const res = await fetch("https://api.fusionpredictor.com/trial-activate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         successBox.style.display = "block";
         errorBox.style.display = "none";
       } else {
-        throw new Error();
+        throw new Error(data.detail || "Trial activation failed");
       }
-    } catch {
+    } catch (err) {
+      errorBox.textContent = err.message;
       errorBox.style.display = "block";
       successBox.style.display = "none";
     }
